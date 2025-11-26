@@ -265,7 +265,7 @@ body {
   }
 
   .hero-image img {
-    max-width: 360px;
+    max-width: 560px;
     display: block;
     margin: 0 auto;
   }
@@ -300,6 +300,7 @@ body {
     padding: 14px 32px;
   }
 }
+
 
 
 
