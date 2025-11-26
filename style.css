@@ -224,8 +224,9 @@ body {
 /* ===== DESKTOP (larguras maiores) ===== */
 @media (min-width: 1024px) {
   .page-brinquedo {
-    max-width: 960px;       /* mais largo no desktop */
-    padding-top: 96px;      /* espaço maior por causa do header fixo */
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 96px;      /* espaço extra por causa do header fixo */
     padding-bottom: 120px;  /* espaço pro rodapé fixo */
   }
 
@@ -235,44 +236,48 @@ body {
   }
 
   .content {
-    padding: 24px 48px 48px;
-    text-align: left;       /* texto alinhado à esquerda em telas grandes */
+    padding: 32px 48px 48px;
+    text-align: center;     /* tudo centralizado em desktop */
   }
 
+  /* HERO centralizado, igual mobile, só com respiro maior */
   .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 48px;
-  }
-
-  .hero-tag {
-    text-align: left;
-  }
-
-  .hero-logo {
-    margin-top: 12px;
+    max-width: 640px;
+    margin: 0 auto;
   }
 
   .hero-image {
-    margin-top: 0;          /* some aquele vão grande em desktop */
-    flex: 1;
+    margin-top: 48px;
   }
 
   .hero-image img {
-    max-width: 420px;       /* segura o tamanho da foto no desktop */
+    max-width: 420px;       /* limita o tamanho da foto no desktop */
   }
 
+  /* CTAs centralizados */
   .ctas {
     margin-top: 64px;
-    max-width: 360px;
+    text-align: center;
   }
 
-  .ctas,
-  .cta-intro,
-  .cta-label,
+  .cta-intro {
+    margin-bottom: 24px;
+  }
+
+  /* Dois blocos de botão lado a lado, mas em conjunto centralizados */
+  .cta-group {
+    display: inline-block;
+    margin-top: 0;
+    margin-inline: 16px;    /* espaço horizontal entre eles */
+    vertical-align: top;
+  }
+
+  .cta-label {
+    margin-bottom: 8px;
+  }
+
   .cta-follow {
-    text-align: left;
+    margin-top: 32px;
   }
 
   .bottombar {
@@ -280,5 +285,3 @@ body {
     padding: 14px 32px;
   }
 }
-
-
