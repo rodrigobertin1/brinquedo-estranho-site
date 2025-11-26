@@ -292,9 +292,6 @@ body {
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
-
-  /* largura responsiva: ocupa a tela toda menos 32px,
-     mas nunca passa de 1064px */
   width: min(1064px, calc(100% - 32px));
 
   background: #c08400;
@@ -305,6 +302,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
 
 
 
