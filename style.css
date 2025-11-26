@@ -81,9 +81,9 @@ body {
 /* HERO */
 
 .hero-tag {
-  font-size: 12px;
+  font-size: 16px;
   color: #6b7280;
-  margin-top: 72px;
+  margin-top: 42px;
   font-weight: 400;
 }
 
@@ -257,7 +257,7 @@ body {
   }
 
   .hero-image img {
-    max-width: 480px;
+    max-width: 520px;
     display: block;
     margin: 0 auto;
   }
@@ -292,10 +292,3 @@ body {
     padding: 14px 32px;
   }
 }
-
-
-
-
-
-
-
