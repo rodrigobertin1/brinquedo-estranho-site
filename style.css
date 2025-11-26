@@ -96,14 +96,16 @@ body {
   margin-top: 72px;   /* AQUI você controla a distância do "Projeto" */
 }
 
+/* HERO – tamanhos padrão (mobile) */
 .hero-logo img {
-  height: 60px;
+  height: 40px;          /* menor no celular */
   display: block;
-  margin: 0 auto;     /* centraliza o logo */
+  margin: 0 auto;
 }
 
 .hero-image img {
-  max-width: 100%;
+  max-width: 280px;      /* menor no celular */
+  width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -211,16 +213,6 @@ body {
 .icon-button--light svg {
   fill: #ffffff;
 }
-
-/* Pequenas melhorias em telas maiores */
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: 32px;
-  }
-
-  .content {
-    padding-top: 16px;
-  }
 /* ===== DESKTOP (larguras maiores) ===== */
 @media (min-width: 1024px) {
   .page-brinquedo {
@@ -255,7 +247,7 @@ body {
   }
 
   .hero-logo img {
-    height: 1400px;
+    height: 72px;
     display: block;
     margin: 0 auto;
   }
@@ -265,7 +257,7 @@ body {
   }
 
   .hero-image img {
-    max-width: 560px;
+    max-width: 480px;
     display: block;
     margin: 0 auto;
   }
@@ -300,6 +292,7 @@ body {
     padding: 14px 32px;
   }
 }
+
 
 
 
