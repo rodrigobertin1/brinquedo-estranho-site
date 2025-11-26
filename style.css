@@ -221,4 +221,64 @@ body {
   .content {
     padding-top: 16px;
   }
+/* ===== DESKTOP (larguras maiores) ===== */
+@media (min-width: 1024px) {
+  .page-brinquedo {
+    max-width: 960px;       /* mais largo no desktop */
+    padding-top: 96px;      /* espaço maior por causa do header fixo */
+    padding-bottom: 120px;  /* espaço pro rodapé fixo */
+  }
+
+  .topbar {
+    max-width: 960px;
+    padding: 16px 24px;
+  }
+
+  .content {
+    padding: 24px 48px 48px;
+    text-align: left;       /* texto alinhado à esquerda em telas grandes */
+  }
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  .hero-tag {
+    text-align: left;
+  }
+
+  .hero-logo {
+    margin-top: 12px;
+  }
+
+  .hero-image {
+    margin-top: 0;          /* some aquele vão grande em desktop */
+    flex: 1;
+  }
+
+  .hero-image img {
+    max-width: 420px;       /* segura o tamanho da foto no desktop */
+  }
+
+  .ctas {
+    margin-top: 64px;
+    max-width: 360px;
+  }
+
+  .ctas,
+  .cta-intro,
+  .cta-label,
+  .cta-follow {
+    text-align: left;
+  }
+
+  .bottombar {
+    max-width: 960px;
+    padding: 14px 32px;
+  }
 }
+
+
