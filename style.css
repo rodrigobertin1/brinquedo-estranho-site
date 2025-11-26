@@ -242,7 +242,7 @@ body {
 
   /* HERO centralizada em coluna */
   .hero {
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
   }
 
@@ -265,7 +265,7 @@ body {
   }
 
   .hero-image img {
-    max-width: 500px;
+    max-width: 360px;
     display: block;
     margin: 0 auto;
   }
@@ -300,4 +300,5 @@ body {
     padding: 14px 32px;
   }
 }
+
 
