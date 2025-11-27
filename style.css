@@ -258,7 +258,7 @@ body {
 
   .hero-image img {
   width: 100%;
-  max-width: 320px;   /* tamanho máximo no mobile */
+  max-width: 600px;   /* tamanho máximo no mobile */
   height: auto;
   display: block;
   margin: 0 auto;
@@ -305,6 +305,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
 
 
 
