@@ -245,7 +245,7 @@ body {
   }
 
   .hero-logo {
-    margin-top: 12px;
+    margin-top: 32px;
   }
 
   .hero-logo img {
@@ -254,7 +254,7 @@ body {
   }
 
   .hero-image {
-    margin-top: 32px;
+    margin-top: 16px;
   }
 
   .hero-image img {
@@ -306,6 +306,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
 
 
 
