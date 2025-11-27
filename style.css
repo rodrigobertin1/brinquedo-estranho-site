@@ -96,9 +96,11 @@ body {
   margin-top: 72px;   /* AQUI você controla a distância do "Projeto" */
 }
 
-/* HERO – tamanhos padrão (mobile) */
+//* Logo principal – tamanho padrão (mobile) */
 .hero-logo img {
-  height: 40px;          /* menor no celular */
+  width: 130px;        /* mínimo desejado no mobile */
+  max-width: 100%;
+  height: auto;
   display: block;
   margin: 0 auto;
 }
@@ -247,9 +249,8 @@ body {
   }
 
   .hero-logo img {
-    height: 72px;
-    display: block;
-    margin: 0 auto;
+    width: 260px;      /* largura em telas grandes */
+    max-width: 100%;
   }
 
   .hero-image {
@@ -305,6 +306,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
 
 
 
