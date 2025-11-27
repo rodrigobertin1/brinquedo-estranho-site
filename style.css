@@ -257,10 +257,13 @@ body {
   }
 
   .hero-image img {
-    max-width: 520px;
-    display: block;
-    margin: 0 auto;
-  }
+  width: 100%;
+  max-width: 320px;   /* tamanho máximo no mobile */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 
   /* CTAs centralizados */
   .ctas {
@@ -302,6 +305,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
 
 
 
