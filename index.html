@@ -14,78 +14,107 @@
 </head>
 <body class="page-brinquedo">
 
+  <!-- TOPO -->
   <header class="topbar">
-  <div class="brand">
-    <img src="Logo-brinquedo-estranho.png"
-         alt="Brinquedo Estranho" />
-  </div>
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <img
+          src="Logo-brinquedo-estranho.png"
+          alt="Brinquedo Estranho"
+          class="topbar-logo"
+        />
+      </div>
 
-  <div class="topbar-actions">
-    <button class="icon-button" aria-label="Compartilhar">
-      <img src="icon-share.svg" alt="" />
-    </button>
+      <div class="topbar-actions">
+        <button class="icon-button" aria-label="Compartilhar página">
+          <img src="icon-share.svg" alt="" />
+        </button>
 
-    <button class="icon-button" aria-label="Menu">
-      <img src="icon-menu.svg" alt="" />
-    </button>
-  </div>
-</header>
+        <button class="icon-button" aria-label="Menu">
+          <img src="icon-menu.svg" alt="" />
+        </button>
+      </div>
+    </div>
+  </header>
 
+  <!-- CONTEÚDO PRINCIPAL -->
   <main class="content">
-    <section class="hero">
-  <p class="hero-tag">Projeto</p>
 
-  <div class="hero-logo">
-  <img src="Logo-brinquedo-estranho-desktop.svg"
-       alt="Brinquedo Estranho" />
-</div>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="hero-tag">Projeto</p>
 
- <div class="hero-image">
-  <img src="CONJUNTO_003.png"
-       alt="Kit de peças do Brinquedo Estranho" />
-</div>
-
-</section>
-
-    <section class="ctas">
-      <p class="cta-intro">
-        Se já tem um kit.<br />
-        <strong>Confira:</strong>
-      </p>
-
-      <div class="cta-group">
-        <p class="cta-label">Para iniciar:</p>
-        <button class="cta-button cta-button--green" type="button">
-          Brincar
-        </button>
+      <div class="hero-logo">
+        <img
+          src="Logo-brinquedo-estranho-desktop.svg"
+          alt="Brinquedo Estranho"
+        />
       </div>
 
-      <div class="cta-group">
-        <p class="cta-label">Para entender:</p>
-        <button class="cta-button cta-button--blue" type="button">
-          Manuais
-        </button>
+      <p class="hero-subtitle">
+        Um kit maker aberto, com narrativas e atividades, para adultos brincarem
+        com crianças de 2 a 7 anos em casa, na escola ou em projetos sociais.
+      </p>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Idade</span>
+          <span class="hero-meta-value">2 – 7 anos</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Modo de uso</span>
+          <span class="hero-meta-value">Adulto + criança</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Formato</span>
+          <span class="hero-meta-value">Peças + narrativas + manuais</span>
+        </div>
       </div>
 
-      <p class="cta-follow">
-        Acompanhe o projeto<br />
-        aqui e saiba mais
-      </p>
+      <div class="hero-image">
+        <img
+          src="CONJUNTO_003.png"
+          alt="Kit de peças do Brinquedo Estranho"
+        />
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#como-brincar" class="btn btn-primary">Começar a brincar</a>
+        <a href="#pesquisa" class="btn btn-ghost">Entender o projeto</a>
+      </div>
     </section>
-  </main>
 
-  <footer class="bottombar">
-  <div class="bottombar-logo">
-    <img src="logo-brinquedo-estranho-vertical-white.svg"
-         alt="Brinquedo Estranho" />
-  </div>
+    <!-- COMO BRINCAR -->
+    <section id="como-brincar" class="section how-to">
+      <header class="section-header">
+        <h2>Como brincar</h2>
+        <p>
+          O Brinquedo Estranho foi pensado para ser usado sempre com um adulto
+          mediador: pai, mãe, professor ou educador social.
+        </p>
+      </header>
 
-  <button class="icon-button icon-button--light" aria-label="Compartilhar">
-    <img src="icon-share-white.svg" alt="" />
-  </button>
-</footer>
+      <div class="cards cards--steps">
+        <article class="card-step">
+          <span class="card-step-number">1</span>
+          <h3>Tenha acesso ao kit</h3>
+          <p>
+            Imprima as peças em uma impressora 3D (MakerLab, escola, ONG) ou
+            acesse um kit já disponível no seu projeto.
+          </p>
+        </article>
 
-</body>
-</html>
+        <article class="card-step">
+          <span class="card-step-number">2</span>
+          <h3>Escolha uma narrativa</h3>
+          <p>
+            Cada narrativa é um roteiro de história com falas, desafios e
+            momentos de experimentação para conduzir a brincadeira.
+          </p>
+        </article>
 
-
+        <article class="card-step">
+          <span class="card-step-number">3</span>
+          <h3>Brinque, observe e adapte</h3>
+          <p>
+            Use as peças com a
