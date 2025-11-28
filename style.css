@@ -98,7 +98,7 @@ body {
 
 //* Logo principal – tamanho padrão (mobile) */
 .hero-logo img {
-  width: 70px;        /* mínimo desejado no mobile */
+  width: 72px;        /* mínimo desejado no mobile */
   max-width: 100%;
   height: auto;
   display: block;
@@ -106,7 +106,7 @@ body {
 }
 
 .hero-image img {
-  max-width: 280px;      /* menor no celular */
+  max-width: 72px;      /* menor no celular */
   width: 100%;
   height: auto;
   display: block;
@@ -310,6 +310,7 @@ body {
 
   z-index: 10;
 }
+
 
 
 
