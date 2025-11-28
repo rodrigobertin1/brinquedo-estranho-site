@@ -310,6 +310,31 @@ body {
 
   z-index: 10;
 }
+  
+/* ===== TAMANHO DO LOGO GRANDE (HERO) ===== */
+
+/* MOBILE primeiro (até ~tablet) */
+.hero-logo img {
+  width: min(130px, 60vw);  /* no máx. 130px e nunca maior que 60% da tela */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* TABLET / telas médias */
+@media (min-width: 768px) {
+  .hero-logo img {
+    width: 200px;           /* um pouco maior em tablets */
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .hero-logo img {
+    width: 260px;           /* tamanho cheio no desktop */
+  }
+}
+
 
 
 
