@@ -11,7 +11,7 @@ body {
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   color: #111827;
-  background: #ffffff;
+  background: #f3f4f6; /* cinza claro de fundo, estilo LEGO Education */
 }
 
 /* ESTRUTURA GERAL (MOBILE FIRST) */
@@ -20,20 +20,22 @@ body {
   min-height: 100vh;
 }
 
+/* TOPO */
+
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: #ffffff;
   z-index: 20;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
 }
 
 .topbar-inner {
-  max-width: 480px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 10px 16px;
+  padding: 10px 20px;
 
   display: flex;
   align-items: center;
@@ -67,10 +69,11 @@ body {
 }
 
 /* CONTEÚDO PRINCIPAL */
+
 .content {
-  max-width: 480px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 80px 24px 120px; /* espaço pro topo fixo e rodapé */
+  padding: 84px 16px 132px; /* espaço pro topo fixo e rodapé */
 }
 
 /* BOTÕES GENÉRICOS */
@@ -79,22 +82,30 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 24px;
+  padding: 11px 26px;
   border-radius: 999px;
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
   border: none;
   cursor: default;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease;
 }
 
 .btn-primary {
   background: #16a34a;
   color: #ffffff;
+  box-shadow: 0 6px 0 #15803d;
+}
+
+.btn-primary:hover {
+  transform: translateY(1px);
+  box-shadow: 0 3px 0 #15803d;
 }
 
 .btn-ghost {
-  background: transparent;
+  background: #ffffff;
   color: #111827;
   border: 1px solid rgba(15, 23, 42, 0.12);
 }
@@ -104,26 +115,46 @@ body {
   color: #6b7280;
 }
 
+/* “TAG” DE SEÇÃO */
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(192, 132, 0, 0.08);
+  color: #92400e;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
 /* HERO */
 
 .hero {
   text-align: center;
+  padding: 20px 18px 24px;
+  border-radius: 24px;
+  background: radial-gradient(circle at top left, #fef3c7 0, #ffffff 42%);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
 }
 
 .hero-tag {
-  font-size: 13px;
+  font-size: 12px;
   color: #6b7280;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .hero-logo {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 /* Logo grande – mobile */
 .hero-logo img {
-  width: 130px;
-  max-width: 60vw;
+  width: 150px;
+  max-width: 65vw;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -132,22 +163,25 @@ body {
 .hero-subtitle {
   font-size: 14px;
   color: #4b5563;
-  line-height: 1.5;
-  margin-bottom: 20px;
+  line-height: 1.6;
+  margin-bottom: 18px;
 }
+
+/* chips de meta */
 
 .hero-meta {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 24px;
+  align-items: stretch;
+  margin-bottom: 20px;
 }
 
 .hero-meta-item {
   padding: 8px 12px;
   border-radius: 999px;
-  background: #f9fafb;
-  border: 1px solid rgba(15, 23, 42, 0.04);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.4);
 }
 
 .hero-meta-label {
@@ -158,12 +192,14 @@ body {
 
 .hero-meta-value {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   color: #111827;
 }
 
+/* imagem do kit */
+
 .hero-image {
-  margin: 16px 0 24px;
+  margin: 16px 0 22px;
 }
 
 .hero-image img {
@@ -173,6 +209,8 @@ body {
   display: block;
   margin: 0 auto;
 }
+
+/* CTAs hero */
 
 .hero-ctas {
   display: flex;
@@ -184,24 +222,32 @@ body {
 /* SEÇÕES GENÉRICAS */
 
 .section {
-  margin-top: 40px;
+  margin-top: 32px;
+}
+
+.section-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 22px 18px;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
 }
 
 .section-header {
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .section-header h2 {
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-top: 8px;
+  margin-bottom: 6px;
 }
 
 .section-header p {
   font-size: 14px;
   color: #4b5563;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* COMO BRINCAR */
@@ -209,28 +255,28 @@ body {
 .cards {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .card-step {
   padding: 12px 14px;
-  border-radius: 16px;
+  border-radius: 18px;
   background: #f9fafb;
-  border: 1px solid rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.5);
 }
 
 .card-step-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 999px;
   background: #c08400;
   color: #ffffff;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
 .card-step h3 {
@@ -248,9 +294,9 @@ body {
 
 .card-audience {
   padding: 14px 14px;
-  border-radius: 16px;
-  background: #f9fafb;
-  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.6);
 }
 
 .card-audience h3 {
@@ -269,7 +315,7 @@ body {
 .materials-grid {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .materials-column h3 {
@@ -286,8 +332,9 @@ body {
 
 .materials-item {
   padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px dashed rgba(15, 23, 42, 0.15);
+  border-radius: 14px;
+  background: #f9fafb;
+  border: 1px dashed rgba(148, 163, 184, 0.9);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -315,9 +362,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  border-left: 2px solid rgba(192, 132, 0, 0.3);
+  border-left: 2px solid rgba(192, 132, 0, 0.35);
   padding-left: 16px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .timeline-item {
@@ -343,7 +390,7 @@ body {
 .timeline-item p {
   font-size: 13px;
   color: #4b5563;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .research-author {
@@ -359,7 +406,7 @@ body {
   padding-left: 20px;
   font-size: 13px;
   color: #4b5563;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* RODAPÉ FIXO */
@@ -372,10 +419,11 @@ body {
   background: #c08400;
   color: #ffffff;
   z-index: 30;
+  box-shadow: 0 -8px 24px rgba(15, 23, 42, 0.3);
 }
 
 .bottombar-inner {
-  max-width: 960px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 10px 20px;
 
@@ -399,7 +447,6 @@ body {
 
 @media (min-width: 1024px) {
   .topbar-inner {
-    max-width: 960px;
     padding: 14px 24px;
   }
 
@@ -408,27 +455,27 @@ body {
   }
 
   .content {
-    max-width: 960px;
-    padding: 96px 40px 140px;
+    padding: 104px 24px 148px;
   }
 
+  /* HERO em duas colunas, com logo + texto + chips de um lado e foto do outro */
   .hero {
-    text-align: left;
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
     column-gap: 40px;
     align-items: center;
+    text-align: left;
+    padding: 28px 32px 28px;
   }
 
   .hero-tag {
-    margin-bottom: 12px;
+    font-size: 13px;
   }
 
   .hero-logo {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
-  /* Logo grande – desktop */
   .hero-logo img {
     width: 260px;
     max-width: 100%;
@@ -436,23 +483,27 @@ body {
 
   .hero-subtitle {
     font-size: 15px;
+    max-width: 420px;
   }
 
   .hero-meta {
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 10px;
+    max-width: 460px;
   }
 
   .hero-meta-item {
-    flex: 1 1 30%;
+    flex: 1 1 45%;
   }
 
   .hero-image {
     margin: 0;
+    text-align: center;
   }
 
   .hero-image img {
-    max-width: 600px;
+    max-width: 480px;
   }
 
   .hero-ctas {
@@ -463,11 +514,15 @@ body {
   }
 
   .section {
-    margin-top: 56px;
+    margin-top: 40px;
   }
 
-  .section-header {
-    max-width: 640px;
+  .section-card {
+    padding: 24px 24px 26px;
+  }
+
+  .section-header h2 {
+    font-size: 22px;
   }
 
   .cards--steps {
@@ -484,5 +539,9 @@ body {
 
   .materials-grid {
     flex-direction: row;
+  }
+
+  .materials-column {
+    flex: 1 1 0;
   }
 }
