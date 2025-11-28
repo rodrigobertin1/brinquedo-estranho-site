@@ -1,5 +1,7 @@
-/* Reset básico */
-* {
+/* RESET BÁSICO */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -12,42 +14,36 @@ body {
   background: #ffffff;
 }
 
-/* Limita a largura como se fosse a tela do iPhone do Figma */
-.page-brinquedo {
-  max-width: 480px;
-  margin: 0 auto;
-  min-height: 100vh;
-  position: relative;
-  padding: 72px 0 24px;  /* espaço pro cabeçalho fixo em cima, e um pouco embaixo */
-}
+/* ESTRUTURA GERAL (MOBILE FIRST) */
 
-/* TOPO */
+.page-brinquedo {
+  min-height: 100vh;
+}
 
 .topbar {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  z-index: 20;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+.topbar-inner {
   max-width: 480px;
+  margin: 0 auto;
+  padding: 10px 16px;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 12px 16px;
-
-  background: #ffffff;
-  z-index: 10;
+  justify-content: space-between;
 }
 
-.brand {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.brand-highlight {
-  color: #c08400;
-  margin-left: 2px;
+.topbar-logo {
+  height: 18px;
+  width: auto;
+  display: block;
 }
 
 .topbar-actions {
@@ -58,294 +54,435 @@ body {
 .icon-button {
   border: none;
   background: transparent;
-  padding: 6px;      /* era 4px, por exemplo */
+  padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: default; /* por enquanto só visual */
 }
 
-.icon-button svg {
+.icon-button img {
   width: 20px;
   height: 20px;
-  fill: #4b5563;
 }
 
-/* CONTEÚDO */
-
+/* CONTEÚDO PRINCIPAL */
 .content {
-  padding: 8px 24px 24px;
-  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 80px 24px 120px; /* espaço pro topo fixo e rodapé */
+}
+
+/* BOTÕES GENÉRICOS */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border: none;
+  cursor: default;
+}
+
+.btn-primary {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #111827;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.btn-disabled {
+  background: #e5e7eb;
+  color: #6b7280;
 }
 
 /* HERO */
 
-.hero-tag {
-  font-size: 16px;
-  color: #6b7280;
-  margin-top: 42px;
-  font-weight: 400;
-}
-
 .hero {
-  padding-top: 62px;  /* opcional: desce tudo em relação ao topo */
+  text-align: center;
 }
 
-/* logo "Brinquedo Estranho" abaixo de "Projeto" */
+.hero-tag {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
 .hero-logo {
-  margin-top: 72px;   /* AQUI você controla a distância do "Projeto" */
+  margin-bottom: 16px;
 }
 
-//* Logo principal – tamanho padrão (mobile) */
+/* Logo grande – mobile */
 .hero-logo img {
-  width: 72px;        /* mínimo desejado no mobile */
-  max-width: 100%;
+  width: 130px;
+  max-width: 60vw;
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+.hero-subtitle {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.hero-meta-item {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #f9fafb;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+.hero-meta-label {
+  font-size: 11px;
+  color: #6b7280;
+  display: block;
+}
+
+.hero-meta-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.hero-image {
+  margin: 16px 0 24px;
 }
 
 .hero-image img {
-  max-width: 320px;      /* menor no celular */
   width: 100%;
+  max-width: 320px;
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-/* CTAs */
-
-.ctas {
-  margin-top: 100px;
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
-.cta-intro {
-  font-size: 14px;
-  color: #4b5563;
-  line-height: 1.4;
-  font-weight: 300;
+/* SEÇÕES GENÉRICAS */
+
+.section {
+  margin-top: 40px;
 }
 
-.cta-intro strong {
-  color: #111827;
+.section-header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 20px;
   font-weight: 600;
-}
-
-.cta-group {
-  margin-top: 44px;
-}
-
-.cta-label {
-  font-size: 12px;
-  color: #4b5563;
   margin-bottom: 8px;
-  font-weight: 400;
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 10px 32px;
-  border-radius: 999px;
-  border: none;
-  font-weight: 600;
+.section-header p {
   font-size: 14px;
-  color: #ffffff;
-  cursor: default; /* só visual, sem ação */
-}
-
-.cta-button--green {
-  background: #16a34a;
-}
-
-.cta-button--blue {
-  background: #1d4ed8;
-}
-
-.cta-follow {
-  margin-top: 32px;
-  font-size: 12px;
   color: #4b5563;
-  line-height: 1.4;
-  font-weight: 300;
+  line-height: 1.5;
 }
 
-/* BARRA INFERIOR */
+/* COMO BRINCAR */
 
-/* espaço extra pro conteúdo não ficar atrás do rodapé */
-.page-brinquedo {
-  padding-bottom: 96px;
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-/* barra amarela do rodapé */
-.bottombar {
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 480px;
+.card-step {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #f9fafb;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
 
+.card-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
   background: #c08400;
   color: #ffffff;
-  padding: 12px 20px;
-  border-radius: 24px 24px 0 0;  /* só cantos superiores arredondados */
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.card-step h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.card-step p {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* PARA QUEM É */
+
+.card-audience {
+  padding: 14px 14px;
+  border-radius: 16px;
+  background: #f9fafb;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.card-audience h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.card-audience p {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* MATERIAIS */
+
+.materials-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.materials-column h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.materials-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.materials-item {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px dashed rgba(15, 23, 42, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.materials-title {
+  font-size: 13px;
+  color: #111827;
+}
+
+.materials-tag {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.materials-actions {
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* PESQUISA / TCC */
+
+.timeline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-left: 2px solid rgba(192, 132, 0, 0.3);
+  padding-left: 16px;
+  margin-top: 8px;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #c08400;
+}
+
+.timeline-item h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.timeline-item p {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.research-author {
+  font-size: 13px;
+  color: #374151;
+  margin-top: 16px;
+}
+
+/* COMUNIDADE */
+
+.community-list {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* RODAPÉ FIXO */
+
+.bottombar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #c08400;
+  color: #ffffff;
+  z-index: 30;
+}
+
+.bottombar-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px 20px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* logo branco no rodapé */
 .bottombar-logo img {
-  height: 18px;              /* ajusta o tamanho do logo */
+  height: 18px;
+  width: auto;
   display: block;
 }
 
-/* ícone de compartilhar branco no rodapé */
 .icon-button--light img {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 }
 
-.bottombar-highlight {
-  font-weight: 600;
-  margin-left: 2px;
-}
+/* ===== DESKTOP (>= 1024px) ===== */
 
-.icon-button--light svg {
-  fill: #ffffff;
-}
-/* ===== DESKTOP (larguras maiores) ===== */
 @media (min-width: 1024px) {
-  .page-brinquedo {
-    max-width: 768px;       /* coluna central mais estreita */
-    margin: 0 auto;
-    padding-top: 96px;      /* espaço pro header fixo */
-    padding-bottom: 120px;  /* espaço pro rodapé fixo */
+  .topbar-inner {
+    max-width: 960px;
+    padding: 14px 24px;
   }
 
-  .topbar {
-    max-width: 1064px;
-    padding: 16px 24px;
+  .topbar-logo {
+    height: 22px;
   }
 
   .content {
-    padding: 32px 24px 48px;
-    text-align: center;     /* tudo centralizado */
+    max-width: 960px;
+    padding: 96px 40px 140px;
   }
 
-  /* HERO centralizada em coluna */
   .hero {
-    max-width: 600px;
-    margin: 0 auto;
+    text-align: left;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+    column-gap: 40px;
+    align-items: center;
   }
 
   .hero-tag {
-    text-align: center;
+    margin-bottom: 12px;
   }
 
   .hero-logo {
-    margin-top: 32px;
+    margin-bottom: 12px;
   }
 
+  /* Logo grande – desktop */
   .hero-logo img {
-    width: 260px;      /* largura em telas grandes */
+    width: 260px;
     max-width: 100%;
   }
 
+  .hero-subtitle {
+    font-size: 15px;
+  }
+
+  .hero-meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .hero-meta-item {
+    flex: 1 1 30%;
+  }
+
   .hero-image {
-    margin-top: 16px;
+    margin: 0;
   }
 
   .hero-image img {
-  width: 100%;
-  max-width: 600px;   /* tamanho máximo no mobile */
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-
-  /* CTAs centralizados */
-  .ctas {
-    margin-top: 48px;
-    text-align: center;
+    max-width: 600px;
   }
 
-  .cta-intro {
-    margin-bottom: 24px;
+  .hero-ctas {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 16px;
   }
 
-  /* Botões lado a lado, mas o conjunto centralizado */
-  .cta-group {
-    display: inline-block;
-    margin: 0 12px 16px;    /* espaço lateral entre os dois blocos */
-    vertical-align: top;
+  .section {
+    margin-top: 56px;
   }
 
-  .cta-label {
-    margin-bottom: 8px;
+  .section-header {
+    max-width: 640px;
   }
 
-  .cta-follow {
-    margin-top: 24px;
+  .cards--steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
   }
 
- .bottombar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  .cards--audience {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
 
-  width: 100%;                 /* ocupa 100% da largura da tela */
-  background: #c08400;
-  color: #ffffff;
-
-  padding: 12px 24px;
-  border-radius: 24px 24px 0 0; /* só os cantos superiores arredondados */
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  z-index: 10;
-}
-  
-/* ===== TAMANHO DO LOGO GRANDE (HERO) ===== */
-
-/* MOBILE primeiro (até ~tablet) */
-.hero-logo img {
-  width: min(130px, 60vw);  /* no máx. 130px e nunca maior que 60% da tela */
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* TABLET / telas médias */
-@media (min-width: 768px) {
-  .hero-logo img {
-    width: 200px;           /* um pouco maior em tablets */
+  .materials-grid {
+    flex-direction: row;
   }
 }
-
-/* DESKTOP */
-@media (min-width: 1024px) {
-  .hero-logo img {
-    width: 260px;           /* tamanho cheio no desktop */
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
