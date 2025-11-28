@@ -146,8 +146,9 @@ body {
 }
 
 .hero-tag {
-  font-size: 12px;
+  font-size: 16px;      /* tamanho no mobile */
   color: #6b7280;
+  text-align: center;   /* centraliza o texto */
   margin-bottom: 8px;
 }
 
@@ -171,34 +172,6 @@ body {
   margin-bottom: 18px;
 }
 
-/* chips de meta */
-
-.hero-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: stretch;
-  margin-bottom: 20px;
-}
-
-.hero-meta-item {
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.4);
-}
-
-.hero-meta-label {
-  font-size: 11px;
-  color: #6b7280;
-  display: block;
-}
-
-.hero-meta-value {
-  font-size: 13px;
-  font-weight: 600;
-  color: #111827;
-}
 
 /* imagem do kit */
 
@@ -528,16 +501,30 @@ body {
   align-items: stretch;
 }
 
-.hero-meta-item {
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: #ffffff;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
-
+/* chips de informação – igual ao Figma */
+.hero-meta {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.hero-meta-item {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 10px 24px;
+  border-radius: 999px;
+
+  background: #F7F2FA;          /* cor do Figma */
+  border: 1px solid #E5DDF5;    /* borda bem suave */
+
+  /* dois drop-shadows como no Figma */
+  box-shadow:
+    0 1px 2px 0 rgba(0, 0, 0, 0.30),  /* X0 Y1 Blur2 Spread0 Opacidade 30% */
+    0 3px 3px 1px rgba(0, 0, 0, 0.15);/* X0 Y3 Blur3 Spread1 Opacidade 15% */
 }
 
 .hero-meta-label {
@@ -552,7 +539,6 @@ body {
 }
 
 /* ===== DESKTOP (>= 1024px) ===== */
-
 @media (min-width: 1024px) {
   .topbar-inner {
     padding: 14px 24px;
@@ -562,23 +548,40 @@ body {
     height: 22px;
   }
 
+  /* container central no desktop */
   .content {
-    padding: 104px 24px 148px;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 120px 56px 160px; /* top, laterais, bottom */
   }
 
-  /* HERO em duas colunas, com logo + texto + chips de um lado e foto do outro */
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  column-gap: 40px;
-  align-items: center;
-  text-align: left;
-  padding: 28px 32px 28px;
+  /* HERO em duas colunas (layout do Figma) */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    column-gap: 56px;
+    align-items: center;
+    text-align: left;
+    padding: 48px 32px 40px;  /* respiro lateral */
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
 
-  /* garante que no desktop também não pareça card */
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
+  .hero-left {
+    text-align: left;
+  }
+
+  .hero-right {
+    text-align: left;
+  }
+
+  /* "Bem-vindo!" no desktop */
+  .hero-tag {
+    font-size: 22px;     /* tamanho maior no desktop */
+    text-align: center;  /* continua centralizado na página */
+    margin-bottom: 16px;
+  }
 }
 
   /* ===== HERO – LAYOUT V2 (DESKTOP) ===== */
@@ -703,4 +706,34 @@ body {
   .materials-column {
     flex: 1 1 0;
   }
+}
+
+/* Botão fantasma "Conheça o projeto" e chips brancos – igual ao Figma */
+.info-pill,
+.cta-secondary,
+.btn-ghost {
+  background: #F7F2FA; /* mesma cor do Figma */
+  color: #4B5563;
+
+  box-shadow:
+    0 1px 2px 0 rgba(0, 0, 0, 0.30),
+    0 3px 3px 1px rgba(0, 0, 0, 0.15);
+
+  border-radius: 999px;
+}
+
+/* ===== PÍLULAS (Idade / Modo de uso / Formato) ===== */
+/* use aqui as classes que estão nos seus chips */
+.hero-chip,
+.hero-chip--large,
+.info-pill {
+  background: #F7F2FA;      /* mesma cor do botão do Figma */
+  border-radius: 999px;
+
+  /* sombreamento duplo igual ao Figma */
+  box-shadow:
+    0 1px 2px 0 rgba(0, 0, 0, 0.30),
+    0 3px 3px 1px rgba(0, 0, 0, 0.15);
+
+  border: 1px solid #E5E7EB;   /* borda bem suave, se quiser igual à UI */
 }
