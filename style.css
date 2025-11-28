@@ -106,7 +106,7 @@ body {
 }
 
 .hero-image img {
-  max-width: 72px;      /* menor no celular */
+  max-width: 320px;      /* menor no celular */
   width: 100%;
   height: auto;
   display: block;
@@ -334,6 +334,7 @@ body {
     width: 260px;           /* tamanho cheio no desktop */
   }
 }
+
 
 
 
