@@ -38,51 +38,62 @@
   </header>
 
   <!-- CONTEÚDO PRINCIPAL -->
-  <main class="content">
+<section class="hero">
+  <!-- COLUNA ESQUERDA: imagem + texto do projeto + botões -->
+  <div class="hero-left">
+    <div class="hero-image">
+      <img src="CONJUNTO_003.png"
+           alt="Kit de peças do Brinquedo Estranho" />
+    </div>
 
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <p class="hero-tag">Projeto</p>
+    <div class="hero-project">
+      <p class="hero-project-label">Projeto</p>
 
-      <div class="hero-logo">
-        <img
-          src="Logo-brinquedo-estranho-desktop.svg"
-          alt="Brinquedo Estranho"
-        />
-      </div>
-
-      <p class="hero-subtitle">
-        Um kit maker aberto, com narrativas e atividades, para adultos brincarem
-        com crianças de 2 a 7 anos em casa, na escola ou em projetos sociais.
+      <p class="hero-project-text">
+        Um kit maker aberto, com narrativas e atividades, para adultos
+        brincarem com crianças de 2 a 7 anos em casa, na escola ou em
+        projetos sociais.
       </p>
 
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Idade</span>
-          <span class="hero-meta-value">2 – 7 anos</span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Modo de uso</span>
-          <span class="hero-meta-value">Adulto + criança</span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Formato</span>
-          <span class="hero-meta-value">Peças + narrativas + manuais</span>
-        </div>
+      <div class="hero-project-ctas">
+        <button class="btn btn-primary" type="button">
+          Começar a brincar
+        </button>
+
+        <button class="btn btn-ghost" type="button">
+          Conheça o projeto
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLUNA DIREITA: logo + chips de informação -->
+  <div class="hero-right">
+    <p class="hero-tag">Bem-vindo!</p>
+
+    <div class="hero-logo">
+      <img src="Logo-brinquedo-estranho-desktop.svg"
+           alt="Brinquedo Estranho" />
+    </div>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Idade</span>
+        <span class="hero-meta-value">2 – 7 anos</span>
       </div>
 
-      <div class="hero-image">
-        <img
-          src="CONJUNTO_003.png"
-          alt="Kit de peças do Brinquedo Estranho"
-        />
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Modo de uso</span>
+        <span class="hero-meta-value">Adulto + criança</span>
       </div>
 
-      <div class="hero-ctas">
-        <a href="#como-brincar" class="btn btn-primary">Começar a brincar</a>
-        <a href="#pesquisa" class="btn btn-ghost">Entender o projeto</a>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Formato</span>
+        <span class="hero-meta-value">Peças + narrativa / livro</span>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- COMO BRINCAR -->
     <section id="como-brincar" class="section how-to">
