@@ -28,27 +28,30 @@
       background: var(--page-bg);
     }
 
-    /* -------- MENU BAR FIXO -------- */
+    /* -------- MENU BAR FIXO EM FAIXA BRANCA -------- */
 
     .top-nav-wrapper {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
+      background: #ffffff;          /* faixa branca de fora a fora */
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
       display: flex;
       justify-content: center;
-      padding-top: 24px; /* distância do topo cinza até a barra branca */
+      padding: 16px 0;              /* altura da barra */
       z-index: 100;
     }
 
     .top-nav {
-      width: 1024px;
-      background: #ffffff;
-      padding: 16px 32px;
+      width: 100%;
+      max-width: 1024px;            /* conteúdo centralizado */
+      padding: 0 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: var(--shadow-soft);
+      background: transparent;      /* já temos o fundo branco no wrapper */
+      box-shadow: none;
     }
 
     .brand {
@@ -87,12 +90,13 @@
     /* -------- HERO -------- */
 
     .hero-welcome {
-      text-align: center;
+      display: flex;
+      justify-content: center;      /* centraliza horizontal */
       color: var(--text);
       font-size: 14px;
       line-height: 18px;
       letter-spacing: 0.1px;
-      margin-bottom: 16px; /* controla algo próximo ao Y=110 da sua tela */
+      margin-bottom: 16px;          /* altura já está ok */
     }
 
     .hero {
@@ -196,11 +200,11 @@
       color: var(--text);
     }
 
-    /* (responsivo simples para não quebrar tudo em telas menores) */
+    /* -------- RESPONSIVO BÁSICO -------- */
+
     @media (max-width: 900px) {
       .top-nav {
-        width: 100%;
-        border-radius: 0;
+        max-width: 100%;
       }
 
       .page {
