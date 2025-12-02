@@ -295,36 +295,94 @@ section {
   display: block;
 }
 
-/* PARA QUEM É */
+/* PARA QUEM É – NOVO GRID */
 
-.audiences {
+.section-para-quem {
+  margin-top: 56px;
+}
+
+.section-para-quem-inner {
+  width: min(100%, 960px);
+  margin: 0 auto;
+  padding: 0 16px 64px;
+}
+
+.pq-header {
+  max-width: 382px;
+}
+
+.pq-title {
+  color: #5d5d5d;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.pq-subtitle {
+  color: #5d5d5d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+.pq-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 32px;
+}
+
+.pq-card {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.audience {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 16px;
+.pq-icon {
+  display: block;
+  object-fit: contain;
+}
+
+.pq-icon--small {
+  width: 120px;
+  height: 120px;
+}
+
+.pq-icon--large {
+  width: 140px;
+  height: 140px;
+}
+
+.pq-text {
+  color: #5d5d5d;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+}
+
+.pq-text-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  margin-bottom: 4px;
+}
+
+/* alinhamentos específicos, como no Figma */
+.pq-card--left {
+  align-items: flex-start;
   text-align: left;
 }
 
-.audience__icon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 8px;
+.pq-card--center {
+  align-items: center;
+  text-align: center;
 }
 
-.audience h3 {
-  font-size: 15px;
-  margin: 0 0 4px;
-}
-
-.audience p {
-  font-size: 13px;
-  margin: 0;
-  line-height: 1.5;
+.pq-card--right {
+  align-items: flex-end;
+  text-align: right;
 }
 
 /* MATERIAIS */
@@ -439,12 +497,9 @@ section {
     margin-top: 0;
   }
 
-  .audiences {
-    flex-direction: row;
-  }
-
-  .audience {
-    flex: 1;
+  /* grid da seção "para quem é" em 3 colunas */
+  .pq-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .behind {
@@ -453,3 +508,22 @@ section {
   }
 }
 
+/* RESPONSIVO PARA A SEÇÃO "PARA QUEM É" */
+
+@media (max-width: 900px) {
+  .section-para-quem-inner {
+    padding-bottom: 40px;
+  }
+
+  .pq-grid {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  .pq-card,
+  .pq-card--center,
+  .pq-card--right {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
