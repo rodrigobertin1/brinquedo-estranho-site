@@ -98,6 +98,8 @@
       padding-bottom: 64px;
     }
 
+    /* ================= HERO ================= */
+
     .hero-wrapper {
       max-width: 1024px;
       margin: 0 auto;
@@ -251,7 +253,7 @@
       font-weight: 700;
     }
 
-    /* RESPONSIVO BÁSICO */
+    /* RESPONSIVO BÁSICO DO HERO */
     @media (max-width: 900px) {
       .hero-inner {
         grid-template-columns: 1fr;
@@ -296,6 +298,143 @@
         min-width: 0;
         width: 100%;
         justify-content: flex-start;
+      }
+    }
+
+    /* =============== SEÇÃO "PARA QUEM É" – ABSOLUTE, IGUAL FIGMA =============== */
+
+    .section-para-quem {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .pq-frame {
+      width: 917px;
+      height: 407px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Bloco título + subtítulo */
+    .pq-header-block {
+      width: 382.05px;
+      position: absolute;
+      left: 45px;
+      top: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .pq-header-title {
+      color: #5d5d5d;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+
+    .pq-header-text {
+      color: #5d5d5d;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      margin: 0;
+    }
+
+    /* Textos das 3 colunas */
+    .pq-familias {
+      width: 241.39px;
+      position: absolute;
+      left: 45px;
+      top: 274.25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .pq-projetos {
+      width: 240.2px;
+      position: absolute;
+      left: 324.9px;
+      top: 274.25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .pq-escolas {
+      width: 241px;
+      position: absolute;
+      left: 603.61px;
+      top: 274.25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: right;
+    }
+
+    .pq-text-title {
+      color: #5d5d5d;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      margin: 0 0 4px;
+    }
+
+    .pq-text-body {
+      color: #5d5d5d;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      margin: 0;
+    }
+
+    /* Ícones */
+    .pq-icon {
+      position: absolute;
+      object-fit: contain;
+      display: block;
+    }
+
+    .pq-icon-familias {
+      width: 120px;
+      height: 120px;
+      left: 109.98px;
+      top: 114.39px;
+    }
+
+    .pq-icon-projetos {
+      width: 140px;
+      height: 140px;
+      left: 375.01px;
+      top: 104.39px;
+    }
+
+    .pq-icon-escolas {
+      width: 140px;
+      height: 140px;
+      left: 673.92px;
+      top: 104.39px;
+    }
+
+    /* Pequeno ajuste pra telas menores (não é perfeito, mas evita quebrar feio) */
+    @media (max-width: 960px) {
+      .pq-frame {
+        transform: scale(0.9);
+        transform-origin: top center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pq-frame {
+        transform: scale(0.8);
+        height: 407px * 0.8; /* só pra referência, visual */
       }
     }
   </style>
@@ -351,6 +490,7 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero-wrapper">
       <div class="hero-card">
         <div class="hero-welcome">Bem-vindo!</div>
@@ -384,9 +524,7 @@
           <div class="hero-right">
             <!-- Logotipo grande do hero -->
             <div class="hero-logo">
-              <!-- SVG DO LOGOTIPO COMPLETO -->
-              <!-- (igual você me enviou, só colei aqui) -->
-              <!-- você pode manter assim ou substituir por <img> se preferir -->
+              <!-- Cole aqui o SVG COMPLETO do logotipo (o mesmo que você já tem) -->
               <!-- INÍCIO SVG -->
               <svg
                 width="279"
@@ -395,8 +533,7 @@
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <!-- ... SVG COMPLETO AQUI ... (mantive igual ao que você mandou) -->
-                <!-- Para não alongar demais aqui, deixe exatamente o SVG inteiro que você já colou antes -->
+                <!-- TODO: colocar aqui o SVG completo do logo -->
               </svg>
               <!-- FIM SVG -->
             </div>
@@ -421,11 +558,12 @@
         </div>
       </div>
     </section>
-        <!-- SEÇÃO: PARA QUEM É -->
+
+    <!-- SEÇÃO: PARA QUEM É -->
     <section class="section-para-quem">
-      <div class="pq-inner">
-        <!-- Título e texto -->
-        <div class="pq-header">
+      <div class="pq-frame">
+        <!-- título + subtítulo -->
+        <div class="pq-header-block">
           <h2 class="pq-header-title">Para quem é</h2>
           <p class="pq-header-text">
             Um mesmo kit, pensado para contextos diferentes, sempre com foco na
@@ -433,59 +571,49 @@
           </p>
         </div>
 
-        <!-- Três colunas -->
-        <div class="pq-grid">
-          <!-- Famílias -->
-          <div class="pq-card pq-card--left">
-            <img
-              src="images/icon-familias.png"
-              alt="Famílias"
-              class="pq-icon pq-icon--small"
-            />
-            <div class="pq-text">
-              <div class="pq-text-title">Famílias</div>
-              <p class="pq-text-body">
-                Pais e responsáveis que buscam momentos de qualidade com crianças,
-                com atividades abertas, criativas e sem telas.
-              </p>
-            </div>
-          </div>
-
-          <!-- Projetos sociais e ONGs -->
-          <div class="pq-card pq-card--center">
-            <img
-              src="images/icon-projetos-sociais.png"
-              alt="Projetos sociais e ONGs"
-              class="pq-icon pq-icon--large"
-            />
-            <div class="pq-text">
-              <div class="pq-text-title">Projetos sociais e ONGs</div>
-              <p class="pq-text-body">
-                Iniciativas de terceiro setor, bibliotecas, centros culturais e
-                projetos maker que desejam um recurso aberto e replicável.
-              </p>
-            </div>
-          </div>
-
-          <!-- Escolas e educação -->
-          <div class="pq-card pq-card--right">
-            <img
-              src="images/icon-escola.png"
-              alt="Escolas e educação"
-              class="pq-icon pq-icon--large"
-            />
-            <div class="pq-text">
-              <div class="pq-text-title">Escolas e educação</div>
-              <p class="pq-text-body">
-                Professores da educação infantil e anos iniciais que desejam
-                atividades de exploração, montagem e narrativa em sala.
-              </p>
-            </div>
-          </div>
+        <!-- textos das colunas -->
+        <div class="pq-familias">
+          <div class="pq-text-title">Famílias</div>
+          <p class="pq-text-body">
+            Pais e responsáveis que buscam momentos de qualidade com crianças,
+            com atividades abertas, criativas e sem telas.
+          </p>
         </div>
+
+        <div class="pq-projetos">
+          <div class="pq-text-title">Projetos sociais e ONGs</div>
+          <p class="pq-text-body">
+            Iniciativas de terceiro setor, bibliotecas, centros culturais e
+            projetos maker que desejam um recurso aberto e replicável.
+          </p>
+        </div>
+
+        <div class="pq-escolas">
+          <div class="pq-text-title">Escolas e educação</div>
+          <p class="pq-text-body">
+            Professores da educação infantil e anos iniciais que desejam
+            atividades de exploração, montagem e narrativa em sala.
+          </p>
+        </div>
+
+        <!-- ícones (troque os src pelos seus arquivos) -->
+        <img
+          src="images/icon-familias.png"
+          alt="Famílias"
+          class="pq-icon pq-icon-familias"
+        />
+        <img
+          src="images/icon-projetos-sociais.png"
+          alt="Projetos sociais e ONGs"
+          class="pq-icon pq-icon-projetos"
+        />
+        <img
+          src="images/icon-escola.png"
+          alt="Escolas e educação"
+          class="pq-icon pq-icon-escolas"
+        />
       </div>
     </section>
   </main>
 </body>
 </html>
-
