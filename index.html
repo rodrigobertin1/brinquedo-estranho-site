@@ -2,355 +2,318 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Brinquedo Estranho – Hero</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brinquedo Estranho</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Poppins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg-page: #f0f0f0;
-      --bg-surface: #ffffff;
-      --text-main: #5d5d5d;
-      --accent: #be8200;
-      --accent-dark: #d59200;
-      --chip-bg: #f7f2fa;
+      --page-bg: #777777;
+      --card-bg: #f7f2fa;
+      --text: #5d5d5d;
+      --yellow: #c08400;
       --shadow-soft: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
-      --radius-chip: 100px;
-      --radius-surface: 10px;
     }
 
     * {
       box-sizing: border-box;
-    }
-
-    body {
       margin: 0;
-      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
-        'Segoe UI', sans-serif;
-      background: var(--bg-page);
-      color: var(--text-main);
-    }
-
-    .app-shell {
-      min-height: 100vh;
-      padding: 24px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .canvas {
-      max-width: 1120px;
-      width: 100%;
-      background: var(--bg-surface);
-      border-radius: var(--radius-surface);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      padding: 24px 40px 40px;
-    }
-
-    /* ====== MENU BAR ====== */
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-    }
-
-    .topbar-logo {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: var(--text-main);
-    }
-
-    .topbar-logo span.highlight {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .topbar-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .icon-button {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      border: none;
-      background: transparent;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
       padding: 0;
     }
 
-    .icon-button svg {
-      display: block;
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--page-bg);
+    }
+
+    /* -------- MENU BAR FIXO -------- */
+
+    .top-nav-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      padding-top: 24px; /* distância do topo cinza até a barra branca */
+      z-index: 100;
+    }
+
+    .top-nav {
+      width: 1024px;
+      background: #ffffff;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .brand {
+      font-size: 22px;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .brand span {
+      font-weight: 700;
+      color: var(--yellow);
+    }
+
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-icon {
       width: 24px;
       height: 24px;
-      stroke: #757575;
+      cursor: pointer;
     }
 
-    .icon-button:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
+    /* -------- ÁREA PRINCIPAL (ARTBOARD BRANCO) -------- */
+
+    .page {
+      max-width: 1024px;
+      margin: 120px auto 40px; /* 120px para não ficar embaixo do menu fixo */
+      background: #ffffff;
+      padding: 32px;
+      min-height: calc(100vh - 160px);
     }
 
-    /* ====== HERO ====== */
+    /* -------- HERO -------- */
+
+    .hero-welcome {
+      text-align: center;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      margin-bottom: 16px; /* controla algo próximo ao Y=110 da sua tela */
+    }
 
     .hero {
-      padding-top: 8px;
-      padding-bottom: 8px;
-    }
-
-    .hero-inner {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      grid-template-columns: 1.3fr 1fr;
       align-items: center;
-      column-gap: 48px;
-      row-gap: 32px;
+      column-gap: 40px;
     }
 
-    /* — left side — */
-
-    .hero-kicker {
-      font-size: 14px;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      margin: 0 0 8px;
+    .hero-media {
+      /* 59px da borda esquerda do artboard menos 32px de padding = 27px */
+      padding-left: 27px;
     }
 
-    .hero-figure {
-      margin: 0;
-      max-width: 100%;
-    }
-
-    .hero-figure img {
+    .hero-media img {
       display: block;
-      width: 100%;
-      height: auto;
-      max-width: 505px;
+      width: 512px;
+      height: 385px;
+      object-fit: contain;
     }
 
-    .hero-description {
-      margin-top: 24px;
-      max-width: 384px;
-    }
-
-    .hero-description h2 {
-      margin: 0 0 8px;
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .hero-description p {
-      margin: 0;
-      font-size: 14px;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-    }
-
-    /* — right side — */
-
-    .hero-right {
+    .hero-content {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 40px;
+      align-items: flex-start;
+      gap: 32px;
     }
 
-    .hero-wordmark {
-      text-align: right;
-    }
-
-    .hero-wordmark h1 {
-      margin: 0;
+    .hero-title {
       font-size: 48px;
       line-height: 1.1;
-      font-weight: 600;
-      color: var(--text-main);
+      color: var(--text);
     }
 
-    .hero-wordmark h1 span {
+    .hero-title .highlight {
       display: block;
-      color: var(--accent-dark);
+      color: var(--yellow);
       font-weight: 700;
     }
 
-    /* se quiser usar o SVG do logo hero, troque o h1 por ele */
+    /* -------- CHIPS / CARDS -------- */
+
     .hero-chips {
       display: flex;
       flex-direction: column;
+      gap: 16px;
       align-items: flex-end;
-      gap: 12px;
+      width: 100%;
     }
 
     .chip {
-      background: var(--chip-bg);
-      border-radius: var(--radius-chip);
+      background: var(--card-bg);
       box-shadow: var(--shadow-soft);
+      border-radius: 100px;
       padding: 10px 16px;
       display: inline-flex;
-      gap: 8px;
-      font-size: 14px;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      white-space: nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chip-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
     }
 
     .chip-label {
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      color: var(--text);
       font-weight: 400;
     }
 
     .chip-value {
       font-size: 15px;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      color: var(--text);
       font-weight: 700;
     }
 
-    /* ====== RESPONSIVO SIMPLES ====== */
+    /* -------- TEXTO "O PROJETO" -------- */
 
-    @media (max-width: 960px) {
-      .canvas {
-        padding: 20px 20px 32px;
+    .hero-description {
+      margin-top: 40px;
+      max-width: 384px; /* igual ao Figma */
+    }
+
+    .hero-description h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .hero-description p {
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      color: var(--text);
+    }
+
+    /* (responsivo simples para não quebrar tudo em telas menores) */
+    @media (max-width: 900px) {
+      .top-nav {
+        width: 100%;
+        border-radius: 0;
       }
 
-      .hero-inner {
+      .page {
+        width: 100%;
+        margin: 120px 0 40px;
+        padding: 24px 16px;
+      }
+
+      .hero {
         grid-template-columns: 1fr;
+        row-gap: 24px;
       }
 
-      .hero-right {
-        align-items: flex-start;
+      .hero-media {
+        padding-left: 0;
+        display: flex;
+        justify-content: center;
       }
 
-      .hero-wordmark {
-        text-align: left;
+      .hero-media img {
+        width: 100%;
+        height: auto;
+        max-width: 512px;
       }
 
       .hero-chips {
         align-items: flex-start;
       }
     }
-
-    @media (max-width: 600px) {
-      .topbar {
-        height: auto;
-        padding-bottom: 8px;
-      }
-
-      .topbar-logo {
-        font-size: 18px;
-      }
-
-      .hero-wordmark h1 {
-        font-size: 36px;
-      }
-
-      .chip {
-        white-space: normal;
-      }
-    }
   </style>
 </head>
+
 <body>
-  <div class="app-shell">
-    <div class="canvas">
-      <!-- ============ MENU BAR DESKTOP ============ -->
-      <header class="topbar">
-        <div class="topbar-logo">
-          <span>Brinquedo</span>
-          <span class="highlight">Estranho</span>
-        </div>
+  <!-- MENU BAR FIXO -->
+  <div class="top-nav-wrapper">
+    <header class="top-nav">
+      <div class="brand">
+        Brinquedo<span>Estranho</span>
+      </div>
 
-        <div class="topbar-actions">
-          <!-- menu (hambúrguer) -->
-          <button class="icon-button" aria-label="Menu">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M3 6H21M3 12H21M3 18H21"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+      <div class="nav-icons">
+        <!-- Ícone menu -->
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M3 12H21M3 6H21M3 18H21"
+                stroke="#757575"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
 
-          <!-- compartilhar / conexões (o de bolinhas com linhas) -->
-          <button class="icon-button" aria-label="Compartilhar">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path
-                d="M8.59 13.51L15.42 17.49M15.41 6.51L8.59 10.49M21 5C21 6.66 19.66 8 18 8C16.34 8 15 6.66 15 5C15 3.34 16.34 2 18 2C19.66 2 21 3.34 21 5ZM9 12C9 13.66 7.66 15 6 15C4.34 15 3 13.66 3 12C3 10.34 4.34 9 6 9C7.66 9 9 10.34 9 12ZM21 19C21 20.66 19.66 22 18 22C16.34 22 15 20.66 15 19C15 17.34 16.34 16 18 16C19.66 16 21 17.34 21 19Z"
-                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </div>
-      </header>
-
-      <!-- ============ HERO ============ -->
-      <main class="hero">
-        <section class="hero-inner" aria-labelledby="hero-title">
-          <!-- Lado esquerdo -->
-          <div class="hero-left">
-            <p class="hero-kicker">Bem-vindo!</p>
-
-            <figure class="hero-figure">
-              <!-- Troque Imag-Hero.png pelo caminho real do arquivo -->
-              <img
-                src="Imag-Hero.png"
-                alt="Peças do kit maker Brinquedo Estranho"
-              />
-            </figure>
-
-            <div class="hero-description">
-              <h2>O projeto</h2>
-              <p>
-                Um kit maker aberto, com narrativas e atividades, para adultos
-                brincarem com crianças de 2 a 7 anos em casa, na escola ou em
-                projetos sociais.
-              </p>
-            </div>
-          </div>
-
-          <!-- Lado direito -->
-          <div class="hero-right">
-            <div class="hero-wordmark">
-              <!-- se quiser, troque por seu SVG de logo do hero -->
-              <h1 id="hero-title">
-                Brinquedo
-                <span>Estranho</span>
-              </h1>
-            </div>
-
-            <div class="hero-chips">
-              <div class="chip">
-                <span class="chip-label">Idade:</span>
-                <span class="chip-value">2 – 7 anos</span>
-              </div>
-
-              <div class="chip">
-                <span class="chip-label">Modo de Uso:</span>
-                <span class="chip-value">Adulto + Criança</span>
-              </div>
-
-              <div class="chip">
-                <span class="chip-label">Formato:</span>
-                <span class="chip-value">Peças + Narrativa / Livre</span>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
+        <!-- Ícone compartilhar -->
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M8.59 13.51L15.42 17.49M15.41 6.51L8.59 10.49M21 5C21 6.65685 19.6569 8 18 8C16.3431 8 15 6.65685 15 5C15 3.34315 16.3431 2 18 2C19.6569 2 21 3.34315 21 5ZM9 12C9 13.6569 7.65685 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.65685 9 9 10.3431 9 12ZM21 19C21 20.6569 19.6569 22 18 22C16.3431 22 15 20.6569 15 19C15 17.3431 16.3431 16 18 16C19.6569 16 21 17.3431 21 19Z"
+                stroke="#757575"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+      </div>
+    </header>
   </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="page">
+    <p class="hero-welcome">Bem-vindo!</p>
+
+    <section class="hero">
+      <!-- IMAGEM DO HERO -->
+      <div class="hero-media">
+        <!-- Troque o src para o caminho da sua imagem -->
+        <img src="img/hero-brinquedo.png" alt="Brinquedo Estranho" />
+      </div>
+
+      <!-- TÍTULO + CARDS -->
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Brinquedo
+          <span class="highlight">Estranho</span>
+        </h1>
+
+        <div class="hero-chips">
+          <div class="chip">
+            <div class="chip-text">
+              <span class="chip-label">Idade:</span>
+              <span class="chip-value">2 – 7 anos</span>
+            </div>
+          </div>
+
+          <div class="chip">
+            <div class="chip-text">
+              <span class="chip-label">Modo de Uso:</span>
+              <span class="chip-value">Adulto + Criança</span>
+            </div>
+          </div>
+
+          <div class="chip">
+            <div class="chip-text">
+              <span class="chip-label">Formato:</span>
+              <span class="chip-value">Peças + Narrativa / Livre</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEXTO "O PROJETO" -->
+    <section class="hero-description">
+      <h2>O projeto</h2>
+      <p>
+        Um kit maker aberto, com narrativas e atividades, para adultos brincarem com crianças de 2 a 7 anos em casa,
+        na escola ou em projetos sociais.
+      </p>
+    </section>
+  </main>
 </body>
 </html>
