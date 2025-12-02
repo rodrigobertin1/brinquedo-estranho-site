@@ -527,3 +527,168 @@ section {
     text-align: left;
   }
 }
+/* =============== SEÇÃO "COMO BRINCAR" – FRAME IGUAL AO FIGMA =============== */
+
+.section-como-brincar {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.cb-frame {
+  width: 911px;
+  height: 634px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* BLOCO TÍTULO + TEXTO INTRODUTÓRIO */
+.cb-header-block {
+  width: 384px;
+  position: absolute;
+  left: 46px;
+  top: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cb-header-title {
+  color: #5d5d5d;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.cb-header-text {
+  color: #5d5d5d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* PASSOS / BLOCOS DE TEXTO */
+
+.cb-step {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cb-step-title {
+  color: #5d5d5d;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0 0 4px;
+}
+
+.cb-step-body {
+  color: #5d5d5d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* ESPECÍFICOS DE CADA BLOCO, COPIANDO O FIGMA */
+
+.cb-step-narrativa {
+  width: 198.65px;
+  left: 48.67px;
+  top: 254px;
+  text-align: left;
+}
+
+.cb-step-kit {
+  width: 198.04px;
+  left: 644.23px;
+  top: 143.08px;
+  text-align: right;
+}
+
+.cb-step-brinque {
+  width: 245.53px;
+  left: 591.85px;
+  top: 463.47px;
+  text-align: right;
+}
+
+/* IMAGENS: BASE, FOTO ROTACIONADA, FOTO REDONDA E ÍCONES */
+
+.cb-photo-base {
+  position: absolute;
+  left: 175px;
+  top: 135px;
+  width: 318px;
+  height: 337px;
+  object-fit: cover;
+}
+
+.cb-photo-tilted {
+  position: absolute;
+  left: 331.38px;
+  top: 113.52px;
+  width: 283.17px;
+  height: 343.56px;
+  object-fit: cover;
+  transform: rotate(-16deg);
+  transform-origin: top left;
+}
+
+.cb-photo-circle {
+  position: absolute;
+  left: 312.58px;
+  top: 359px;
+  width: 213.47px;
+  height: 213.47px;
+  border-radius: 60px;
+  object-fit: cover;
+}
+
+/* ÍCONES REDONDOS */
+
+.cb-icon {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.cb-icon-narrativa {
+  left: 185.36px;
+  top: 167.08px;
+}
+
+.cb-icon-kit {
+  left: 604.23px;
+  top: 73.52px;
+}
+
+.cb-icon-brinque {
+  left: 542.56px;
+  top: 451.47px;
+}
+
+/* Ajuste leve em telas menores pra não quebrar feio (mesma lógica da seção "Para quem é") */
+@media (max-width: 960px) {
+  .cb-frame {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 768px) {
+  .cb-frame {
+    transform: scale(0.8);
+    transform-origin: top center;
+    /* a altura visual diminui junto com o scale,
+       então não precisa alterar o height real aqui */
+  }
+}
+
