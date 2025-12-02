@@ -1,294 +1,356 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Brinquedo Estranho – Projeto</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="UTF-8" />
+  <title>Brinquedo Estranho – Hero</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Fonte Poppins -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="page">
+  <style>
+    :root {
+      --bg-page: #f0f0f0;
+      --bg-surface: #ffffff;
+      --text-main: #5d5d5d;
+      --accent: #be8200;
+      --accent-dark: #d59200;
+      --chip-bg: #f7f2fa;
+      --shadow-soft: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+      --radius-chip: 100px;
+      --radius-surface: 10px;
+    }
 
-      <!-- TOPO -->
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+    }
+
+    .app-shell {
+      min-height: 100vh;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .canvas {
+      max-width: 1120px;
+      width: 100%;
+      background: var(--bg-surface);
+      border-radius: var(--radius-surface);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 24px 40px 40px;
+    }
+
+    /* ====== MENU BAR ====== */
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .topbar-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text-main);
+    }
+
+    .topbar-logo span.highlight {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .icon-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: none;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .icon-button svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+      stroke: #757575;
+    }
+
+    .icon-button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ====== HERO ====== */
+
+    .hero {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      align-items: center;
+      column-gap: 48px;
+      row-gap: 32px;
+    }
+
+    /* — left side — */
+
+    .hero-kicker {
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      margin: 0 0 8px;
+    }
+
+    .hero-figure {
+      margin: 0;
+      max-width: 100%;
+    }
+
+    .hero-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 505px;
+    }
+
+    .hero-description {
+      margin-top: 24px;
+      max-width: 384px;
+    }
+
+    .hero-description h2 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .hero-description p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+    }
+
+    /* — right side — */
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .hero-wordmark {
+      text-align: right;
+    }
+
+    .hero-wordmark h1 {
+      margin: 0;
+      font-size: 48px;
+      line-height: 1.1;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .hero-wordmark h1 span {
+      display: block;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    /* se quiser usar o SVG do logo hero, troque o h1 por ele */
+    .hero-chips {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .chip {
+      background: var(--chip-bg);
+      border-radius: var(--radius-chip);
+      box-shadow: var(--shadow-soft);
+      padding: 10px 16px;
+      display: inline-flex;
+      gap: 8px;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      white-space: nowrap;
+    }
+
+    .chip-label {
+      font-weight: 400;
+    }
+
+    .chip-value {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    /* ====== RESPONSIVO SIMPLES ====== */
+
+    @media (max-width: 960px) {
+      .canvas {
+        padding: 20px 20px 32px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        align-items: flex-start;
+      }
+
+      .hero-wordmark {
+        text-align: left;
+      }
+
+      .hero-chips {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        height: auto;
+        padding-bottom: 8px;
+      }
+
+      .topbar-logo {
+        font-size: 18px;
+      }
+
+      .hero-wordmark h1 {
+        font-size: 36px;
+      }
+
+      .chip {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="canvas">
+      <!-- ============ MENU BAR DESKTOP ============ -->
       <header class="topbar">
-        <div class="topbar__brand">
-          <img
-            src="Logo-brinquedo-estranho-desktop.png"
-            alt="Brinquedo Estranho"
-            class="topbar__logo"
-          />
+        <div class="topbar-logo">
+          <span>Brinquedo</span>
+          <span class="highlight">Estranho</span>
         </div>
 
-        <div class="topbar__actions">
-          <button class="icon-button" aria-label="Compartilhar">
-            <img src="icon-share.svg" alt="" />
-          </button>
+        <div class="topbar-actions">
+          <!-- menu (hambúrguer) -->
           <button class="icon-button" aria-label="Menu">
-            <img src="icon-menu.svg" alt="" />
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 6H21M3 12H21M3 18H21"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <!-- compartilhar / conexões (o de bolinhas com linhas) -->
+          <button class="icon-button" aria-label="Compartilhar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M8.59 13.51L15.42 17.49M15.41 6.51L8.59 10.49M21 5C21 6.66 19.66 8 18 8C16.34 8 15 6.66 15 5C15 3.34 16.34 2 18 2C19.66 2 21 3.34 21 5ZM9 12C9 13.66 7.66 15 6 15C4.34 15 3 13.66 3 12C3 10.34 4.34 9 6 9C7.66 9 9 10.34 9 12ZM21 19C21 20.66 19.66 22 18 22C16.34 22 15 20.66 15 19C15 17.34 16.34 16 18 16C19.66 16 21 17.34 21 19Z"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </button>
         </div>
       </header>
 
-      <main class="content">
+      <!-- ============ HERO ============ -->
+      <main class="hero">
+        <section class="hero-inner" aria-labelledby="hero-title">
+          <!-- Lado esquerdo -->
+          <div class="hero-left">
+            <p class="hero-kicker">Bem-vindo!</p>
 
-        <!-- HERO / INTRO -->
-        <section class="hero">
-          <div class="hero__text">
-            <p class="hero__eyebrow">Bem-vindo!</p>
-            <h1 class="hero__title">
-              Brinquedo <span class="hero__title--highlight">Estranho</span>
-            </h1>
+            <figure class="hero-figure">
+              <!-- Troque Imag-Hero.png pelo caminho real do arquivo -->
+              <img
+                src="Imag-Hero.png"
+                alt="Peças do kit maker Brinquedo Estranho"
+              />
+            </figure>
 
-            <p class="hero__subtitle">
-              Um kit de peças para montar, inventar histórias e explorar o
-              brincar adulto-criança.
-            </p>
-
-            <div class="hero__tags">
-              <span class="pill">Idade: 2 – 7 anos</span>
-              <span class="pill">Adulto &amp; criança</span>
-              <span class="pill">Peças + Narrativas / jogo</span>
-            </div>
-
-            <div class="hero__ctas">
-              <a href="#como-brincar" class="btn btn--primary">Começar a conhecer</a>
-              <a href="#projeto" class="btn btn--ghost">Entender o projeto</a>
-            </div>
-          </div>
-
-          <div class="hero__image">
-            <!-- use a imagem que tem a gigante + peças -->
-            <img src="Img-Gigante.png" alt="Brinquedo Estranho em ação" />
-          </div>
-        </section>
-
-        <!-- O PROJETO -->
-        <section id="projeto" class="section section--light">
-          <div class="section__intro">
-            <h2>O projeto</h2>
-            <p>
-              Um brinquedo aberto, com formas estranhas e moduláveis,
-              pensado para estimular conversa, imaginação e vínculo
-              entre adultos, crianças e educadores.
-            </p>
-          </div>
-
-          <div class="project__tags">
-            <span class="pill pill--soft">Design &amp; educação</span>
-            <span class="pill pill--soft">Narrativas</span>
-            <span class="pill pill--soft">Maker</span>
-          </div>
-        </section>
-
-        <!-- COMO BRINCAR -->
-        <section id="como-brincar" class="section">
-          <div class="section__intro">
-            <h2>Como brincar</h2>
-            <p>
-              A proposta é que o adulto convide a criança para explorar o kit,
-              montando histórias a partir das peças, cartas e materiais de apoio.
-            </p>
-          </div>
-
-          <div class="steps">
-            <article class="step">
-              <div class="step__number">
-                <img src="Icon-1.png" alt="Passo 1" />
-              </div>
-              <div class="step__content">
-                <h3>Abra o kit e explore</h3>
-                <p>
-                  Deixe a criança manipular as peças, reconhecer formatos,
-                  cores e possibilidades. Nada de pressa: o objetivo é
-                  experimentar e conversar.
-                </p>
-              </div>
-              <div class="step__image">
-                <img src="Kit-fechado001.png" alt="Kit Brinquedo Estranho" />
-              </div>
-            </article>
-
-            <article class="step">
-              <div class="step__number">
-                <img src="Icon-2.png" alt="Passo 2" />
-              </div>
-              <div class="step__content">
-                <h3>Crie uma narrativa juntos</h3>
-                <p>
-                  Use as peças como personagens, cenários ou problemas
-                  a serem resolvidos. A criança conduz, o adulto apoia,
-                  faz perguntas e ajuda a organizar a história.
-                </p>
-              </div>
-              <div class="step__image">
-                <img src="Kit-fechado002.png" alt="Peças montadas" />
-              </div>
-            </article>
-
-            <article class="step">
-              <div class="step__number">
-                <img src="Icon-3.png" alt="Passo 3" />
-              </div>
-              <div class="step__content">
-                <h3>Registre e compartilhe</h3>
-                <p>
-                  Desenhem, tirem fotos ou escrevam um pequeno resumo da
-                  história criada. Esse registro pode ser compartilhado
-                  com a família, com a escola ou com a comunidade.
-                </p>
-              </div>
-              <div class="step__image">
-                <img src="Rodrigo_001.png" alt="Família brincando" />
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- PARA QUEM É -->
-        <section class="section section--light">
-          <div class="section__intro">
-            <h2>Para quem é</h2>
-            <p>
-              O Brinquedo Estranho foi pensado para circular entre famílias,
-              projetos sociais e escolas, como um ponto de encontro entre
-              brincar, escuta e imaginação.
-            </p>
-          </div>
-
-          <div class="audiences">
-            <article class="audience">
-              <img src="Icon_familia.png" alt="" class="audience__icon" />
-              <h3>Famílias</h3>
+            <div class="hero-description">
+              <h2>O projeto</h2>
               <p>
-                Para quem quer transformar o momento do brincar em um espaço
-                seguro de conversa, vínculo e invenção.
-              </p>
-            </article>
-
-            <article class="audience">
-              <img src="Icon-Projetos-sociais.png" alt="" class="audience__icon" />
-              <h3>Projetos sociais</h3>
-              <p>
-                ONGs e iniciativas comunitárias que trabalham com crianças
-                e buscam materiais acessíveis e abertos.
-              </p>
-            </article>
-
-            <article class="audience">
-              <img src="Icon-Escola.png" alt="" class="audience__icon" />
-              <h3>Escolas &amp; educadores</h3>
-              <p>
-                Professores e equipes pedagógicas que desejam integrar
-                ludicidade, narrativa e experimentação em sala de aula.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <!-- MATERIAIS PARA BAIXAR -->
-        <section class="section">
-          <div class="materials">
-            <div class="materials__text">
-              <h2>Materiais para baixar</h2>
-              <p>
-                Guias de uso, cartas de narrativa, arquivos para impressão 3D
-                e outros recursos serão disponibilizados gratuitamente.
+                Um kit maker aberto, com narrativas e atividades, para adultos
+                brincarem com crianças de 2 a 7 anos em casa, na escola ou em
+                projetos sociais.
               </p>
             </div>
-            <div class="materials__icon">
-              <img src="Icon-download002.png" alt="Download" />
+          </div>
+
+          <!-- Lado direito -->
+          <div class="hero-right">
+            <div class="hero-wordmark">
+              <!-- se quiser, troque por seu SVG de logo do hero -->
+              <h1 id="hero-title">
+                Brinquedo
+                <span>Estranho</span>
+              </h1>
             </div>
-          </div>
 
-          <div class="materials__cta">
-            <!-- depois você pode linkar para a página de narrativas ou PDFs -->
-            <a href="Narrativa.html" class="btn btn--primary">Baixar materiais</a>
-          </div>
-        </section>
+            <div class="hero-chips">
+              <div class="chip">
+                <span class="chip-label">Idade:</span>
+                <span class="chip-value">2 – 7 anos</span>
+              </div>
 
-        <!-- SEÇÃO KRAFT / BASTIDORES -->
-        <section class="section section--kraft">
-          <div class="section__intro section__intro--light">
-            <h2>Por trás do Brinquedo Estranho</h2>
-            <p>
-              Um projeto de TCC em UX Design, que nasce como brinquedo e
-              pesquisa sobre como adultos e crianças podem se encontrar
-              no ato de brincar.
-            </p>
-          </div>
+              <div class="chip">
+                <span class="chip-label">Modo de Uso:</span>
+                <span class="chip-value">Adulto + Criança</span>
+              </div>
 
-          <div class="behind">
-            <article class="behind__item">
-              <div class="behind__icon">
-                <img src="Icon-1.png" alt="1" />
+              <div class="chip">
+                <span class="chip-label">Formato:</span>
+                <span class="chip-value">Peças + Narrativa / Livre</span>
               </div>
-              <div class="behind__text">
-                <h3>Pesquisa com crianças e educadores</h3>
-                <p>
-                  Observação, entrevistas e testes de usabilidade com foco
-                  em escuta, autonomia e segurança das crianças.
-                </p>
-              </div>
-            </article>
-
-            <article class="behind__item">
-              <div class="behind__icon">
-                <img src="Icon-2.png" alt="2" />
-              </div>
-              <div class="behind__text">
-                <h3>Narrativa + material sensível</h3>
-                <p>
-                  Peças físicas que convidam à manipulação e narrativas
-                  que dão sentido à experiência.
-                </p>
-              </div>
-            </article>
-
-            <article class="behind__item">
-              <div class="behind__icon">
-                <img src="Icon-3.png" alt="3" />
-              </div>
-              <div class="behind__text">
-                <h3>Projeto aberto à comunidade</h3>
-                <p>
-                  Arquivos e guias serão disponibilizados gratuitamente para
-                  impressão, adaptação e uso em diferentes contextos.
-                </p>
-              </div>
-            </article>
-
-            <article class="behind__item">
-              <div class="behind__icon">
-                <img src="Icon-4.png" alt="4" />
-              </div>
-              <div class="behind__text">
-                <h3>Construído em diálogo</h3>
-                <p>
-                  Um brinquedo-pesquisa que convida famílias, escolas e
-                  projetos sociais a co-criarem próximas versões.
-                </p>
-              </div>
-            </article>
+            </div>
           </div>
         </section>
       </main>
-
-      <!-- BARRA INFERIOR -->
-      <footer class="bottombar">
-        <div class="bottombar__brand">
-          Brinquedo<span>Estranho</span>
-        </div>
-        <button class="icon-button icon-button--light" aria-label="Compartilhar">
-          <img src="icon-share-white.svg" alt="" />
-        </button>
-      </footer>
     </div>
-  </body>
+  </div>
+</body>
 </html>
