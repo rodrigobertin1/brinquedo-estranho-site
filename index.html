@@ -10,7 +10,6 @@
 
   <style>
     :root {
-      --page-bg: #777777;
       --card-bg: #f7f2fa;
       --text: #5d5d5d;
       --yellow: #c08400;
@@ -25,7 +24,14 @@
 
     body {
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--page-bg);
+      /* gradiente branco + amarelo bem suave */
+      background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #fff9e8 40%,
+        #ffe7b3 100%
+      );
+      min-height: 100vh;
     }
 
     /* -------- MENU BAR FIXO EM FAIXA BRANCA -------- */
@@ -50,7 +56,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: transparent;      /* já temos o fundo branco no wrapper */
+      background: transparent;
       box-shadow: none;
     }
 
@@ -96,7 +102,7 @@
       font-size: 14px;
       line-height: 18px;
       letter-spacing: 0.1px;
-      margin-bottom: 16px;          /* altura já está ok */
+      margin-bottom: 16px;
     }
 
     .hero {
@@ -274,8 +280,8 @@
     <section class="hero">
       <!-- IMAGEM DO HERO -->
       <div class="hero-media">
-        <!-- Troque o src para o caminho da sua imagem -->
-        <img src="img/hero-brinquedo.png" alt="Brinquedo Estranho" />
+        <!-- Certifique-se de que Imag-Hero.png está na mesma pasta deste HTML -->
+        <img src="Imag-Hero.png" alt="Brinquedo Estranho" />
       </div>
 
       <!-- TÍTULO + CARDS -->
