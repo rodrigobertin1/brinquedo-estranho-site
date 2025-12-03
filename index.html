@@ -1,1048 +1,363 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <title>Brinquedo Estranho</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root {
-      --text-main: #5d5d5d;
-      --accent: #be8200;
-      --badge-bg: #f7f2fa;
-      --badge-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      --green-cta: #16a34a;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      color: var(--text-main);
-      background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #fffdf7 40%,
-        #fff6df 100%
-      );
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* HEADER FIXO */
-    .top-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 72px;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-      z-index: 100;
-    }
-
-    .top-bar-inner {
-      width: 100%;
-      max-width: 1024px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-    }
-
-    .top-bar-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--text-main);
-    }
-
-    .top-bar-logo span {
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .top-bar-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .icon-button {
-      width: 24px;
-      height: 24px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border: none;
-      background: transparent;
-    }
-
-    main {
-      padding-top: 96px; /* espaço por causa do header fixo */
-      padding-bottom: 64px;
-    }
-
-    /* ================= HERO ================= */
-
-    .hero-wrapper {
-      max-width: 1024px;
-      margin: 0 auto;
-      padding: 40px 24px 48px;
-    }
-
-    .hero-card {
-      position: relative;
-      border-radius: 24px;
-      background: #ffffffcc;
-      box-shadow: 0 24px 40px rgba(0, 0, 0, 0.06);
-      padding: 40px 48px 48px;
-      overflow: hidden;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      align-items: center;
-      column-gap: 32px;
-    }
-
-    /* BEM-VINDO CENTRALIZADO */
-    .hero-welcome {
-      position: absolute;
-      top: 110px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 0.1px;
-      color: var(--text-main);
-    }
-
-    /* HERO ESQUERDA */
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 24px;
-    }
-
-    .hero-image {
-      width: 512px;
-      height: 385px;
-      object-fit: contain;
-      margin-left: 35px; /* ajuste fino aproximando do layout do Figma */
-    }
-
-    .hero-project-title {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .hero-project-text {
-      max-width: 384px;
-      font-size: 14px;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-    }
-
-    /* CTAs DO HERO */
-    .hero-cta {
-      margin-top: 16px;
-      display: flex;
-      gap: 24px;
-    }
-
-    .btn {
-      border: none;
-      cursor: pointer;
-      border-radius: 100px;
-      padding: 10px 16px;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        filter 0.12s ease;
-    }
-
-    .btn-primary {
-      background: var(--green-cta);
-      color: #ffffff;
-      box-shadow: 0px 16px 32px -8px rgba(12, 12, 13, 0.4) inset;
-    }
-
-    .btn-secondary {
-      background: var(--badge-bg);
-      color: var(--text-main);
-      box-shadow: var(--badge-shadow);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.03);
-    }
-
-    .btn:active {
-      transform: translateY(0);
-      filter: brightness(0.97);
-      box-shadow: none;
-    }
-
-    /* HERO DIREITA */
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 24px;
-    }
-
-    .hero-logo {
-      width: 279px;
-      height: auto;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-end;
-    }
-
-    .hero-badge {
-      background: var(--badge-bg);
-      box-shadow: var(--badge-shadow);
-      border-radius: 100px;
-      padding: 10px 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 240px;
-    }
-
-    .hero-badge-label {
-      font-size: 14px;
-      font-weight: 400;
-      margin-right: 4px;
-    }
-
-    .hero-badge-value {
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    /* RESPONSIVO BÁSICO DO HERO */
-    @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        row-gap: 32px;
-      }
-
-      .hero-right {
-        align-items: flex-start;
-      }
-
-      .hero-badges {
-        align-items: flex-start;
-      }
-
-      .hero-image {
-        margin-left: 0;
-        width: 100%;
-        height: auto;
-      }
-
-      .hero-cta {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero-card {
-        padding: 32px 20px 32px;
-      }
-
-      .top-bar-inner {
-        padding: 0 16px;
-      }
-
-      .hero-cta {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .hero-badge {
-        min-width: 0;
-        width: 100%;
-        justify-content: flex-start;
-      }
-    }
-
-    /* =============== SEÇÃO "PARA QUEM É" – FRAME ABSOLUTE =============== */
-
-    .section-para-quem {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .pq-frame {
-      width: 917px;
-      height: 407px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Bloco título + subtítulo */
-    .pq-header-block {
-      width: 382.05px;
-      position: absolute;
-      left: 45px;
-      top: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .pq-header-title {
-      color: #5d5d5d;
-      font-size: 20px;
-      font-weight: 600;
-      margin: 0 0 8px;
-    }
-
-    .pq-header-text {
-      color: #5d5d5d;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      margin: 0;
-    }
-
-    /* Textos das 3 colunas */
-    .pq-familias {
-      width: 241.39px;
-      position: absolute;
-      left: 45px;
-      top: 274.25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: left;
-    }
-
-    .pq-projetos {
-      width: 240.2px;
-      position: absolute;
-      left: 324.9px;
-      top: 274.25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .pq-escolas {
-      width: 241px;
-      position: absolute;
-      left: 603.61px;
-      top: 274.25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: right;
-    }
-
-    .pq-text-title {
-      color: #5d5d5d;
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      margin: 0 0 4px;
-    }
-
-    .pq-text-body {
-      color: #5d5d5d;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      margin: 0;
-    }
-
-    /* Ícones */
-    .pq-icon {
-      position: absolute;
-      object-fit: contain;
-      display: block;
-    }
-
-    .pq-icon-familias {
-      width: 120px;
-      height: 120px;
-      left: 109.98px;
-      top: 114.39px;
-    }
-
-    .pq-icon-projetos {
-      width: 140px;
-      height: 140px;
-      left: 375.01px;
-      top: 104.39px;
-    }
-
-    .pq-icon-escolas {
-      width: 140px;
-      height: 140px;
-      left: 673.92px;
-      top: 104.39px;
-    }
-
-    @media (max-width: 960px) {
-      .pq-frame {
-        transform: scale(0.9);
-        transform-origin: top center;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .pq-frame {
-        transform: scale(0.8);
-        transform-origin: top center;
-      }
-    }
-
-    /* =============== SEÇÃO "COMO BRINCAR" – FRAME ABSOLUTE =============== */
-
-    .section-como-brincar {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .cb-frame {
-      width: 911px;
-      height: 634px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* BLOCO TÍTULO + TEXTO INTRODUTÓRIO */
-    .cb-header-block {
-      width: 384px;
-      position: absolute;
-      left: 46px;
-      top: 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .cb-header-title {
-      color: #5d5d5d;
-      font-size: 20px;
-      font-weight: 600;
-      margin: 0 0 8px;
-    }
-
-    .cb-header-text {
-      color: #5d5d5d;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      margin: 0;
-    }
-
-    /* PASSOS / BLOCOS DE TEXTO */
-
-    .cb-step {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .cb-step-title {
-      color: #5d5d5d;
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      margin: 0 0 4px;
-    }
-
-    .cb-step-body {
-      color: #5d5d5d;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      margin: 0;
-    }
-
-    .cb-step-narrativa {
-      width: 198.65px;
-      left: 48.67px;
-      top: 254px;
-      text-align: left;
-    }
-
-    .cb-step-kit {
-      width: 198.04px;
-      left: 644.23px;
-      top: 143.08px;
-      text-align: right;
-    }
-
-    .cb-step-brinque {
-      width: 245.53px;
-      left: 591.85px;
-      top: 463.47px;
-      text-align: right;
-    }
-
-    /* IMAGENS: BASE, FOTO ROTACIONADA, FOTO REDONDA E ÍCONES */
-
-    .cb-photo-base {
-      position: absolute;
-      left: 175px;
-      top: 135px;
-      width: 318px;
-      height: 337px;
-      object-fit: cover;
-    }
-
-    .cb-photo-tilted {
-      position: absolute;
-      left: 331.38px;
-      top: 113.52px;
-      width: 283.17px;
-      height: 343.56px;
-      object-fit: cover;
-      transform: rotate(-16deg);
-      transform-origin: top left;
-    }
-
-    .cb-photo-circle {
-      position: absolute;
-      left: 312.58px;
-      top: 359px;
-      width: 213.47px;
-      height: 213.47px;
-      border-radius: 60px;
-      object-fit: cover;
-    }
-
-    /* ÍCONES REDONDOS */
-
-    .cb-icon {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-    }
-
-    .cb-icon-narrativa {
-      left: 185.36px;
-      top: 167.08px;
-    }
-
-    .cb-icon-kit {
-      left: 604.23px;
-      top: 73.52px;
-    }
-
-    .cb-icon-brinque {
-      left: 542.56px;
-      top: 451.47px;
-    }
-
-    @media (max-width: 960px) {
-      .cb-frame {
-        transform: scale(0.9);
-        transform-origin: top center;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .cb-frame {
-        transform: scale(0.8);
-        transform-origin: top center;
-      }
-    }
-
-    /* =============== SEÇÃO "MATERIAIS PARA BAIXAR" – FRAME ABSOLUTE =============== */
-
-    .section-materiais {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .mt-frame {
-      width: 923px;
-      height: 216px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .mt-header {
-      width: 237.63px;
-      position: absolute;
-      left: 60.24px;
-      top: 49.19px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .mt-header-title {
-      color: #5d5d5d;
-      font-size: 20px;
-      font-weight: 600;
-      margin: 0 0 8px;
-    }
-
-    .mt-header-text {
-      color: #5d5d5d;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      margin: 0;
-    }
-
-    .mt-manuais {
-      width: 253.93px;
-      position: absolute;
-      left: 604.56px;
-      top: 46.19px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .mt-narrativas {
-      width: 257.05px;
-      position: absolute;
-      left: 604.56px;
-      top: 113.19px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .mt-block-title {
-      color: #5d5d5d;
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      margin: 0 0 4px;
-    }
-
-    .mt-block-text {
-      color: #5d5d5d;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      margin: 0;
-    }
-
-    .mt-btn {
-      position: absolute;
-      left: 409.5px;
-      top: 82.69px;
-      width: 104px;
-      height: 48px;
-      padding: 10px 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @media (max-width: 960px) {
-      .mt-frame {
-        transform: scale(0.9);
-        transform-origin: top center;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .mt-frame {
-        transform: scale(0.8);
-        transform-origin: top center;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- MENU BAR DESKTOP / HEADER FIXO -->
-  <header class="top-bar">
-    <div class="top-bar-inner">
-      <div class="top-bar-logo">
-        Brinquedo<span>Estranho</span>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Brinquedo Estranho</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Fonte Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Seu CSS externo -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="top-bar">
+      <div class="top-bar-inner">
+        <div class="top-bar-logo">
+          Brinquedo<span>Estranho</span>
+        </div>
+
+        <div class="top-bar-actions">
+          <!-- ícone menu -->
+          <button class="icon-button" aria-label="Menu">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 12H21M3 6H21M3 18H21"
+                stroke="#757575"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <!-- ícone compartilhar -->
+          <button class="icon-button" aria-label="Compartilhar">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.59 13.51L15.42 17.49M15.41 6.51L8.59 10.49M21 5C21 6.65685 19.6569 8 18 8C16.3431 8 15 6.65685 15 5C15 3.34315 16.3431 2 18 2C19.6569 2 21 3.34315 21 5ZM9 12C9 13.6569 7.65685 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.65685 9 9 10.3431 9 12ZM21 19C21 20.6569 19.6569 22 18 22C16.3431 22 15 20.6569 15 19C15 17.3431 16.3431 16 18 16C19.6569 16 21 17.3431 21 19Z"
+                stroke="#757575"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
+    </header>
 
-      <div class="top-bar-actions">
-        <!-- ícone menu -->
-        <button class="icon-button" aria-label="Menu">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3 12H21M3 6H21M3 18H21"
-              stroke="#757575"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
+    <main>
+      <!-- HERO -->
+      <section class="hero-wrapper">
+        <div class="hero-card">
+          <div class="hero-welcome">Bem-vindo!</div>
 
-        <!-- ícone compartilhar -->
-        <button class="icon-button" aria-label="Compartilhar">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.59 13.51L15.42 17.49M15.41 6.51L8.59 10.49M21 5C21 6.65685 19.6569 8 18 8C16.3431 8 15 6.65685 15 5C15 3.34315 16.3431 2 18 2C19.6569 2 21 3.34315 21 5ZM9 12C9 13.6569 7.65685 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.65685 9 9 10.3431 9 12ZM21 19C21 20.6569 19.6569 22 18 22C16.3431 22 15 20.6569 15 19C15 17.3431 16.3431 16 18 16C19.6569 16 21 17.3431 21 19Z"
-              stroke="#757575"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
+          <div class="hero-inner">
+            <!-- ESQUERDA -->
+            <div class="hero-left">
+              <img
+                src="images/Imag-Hero.png"
+                alt="Brinquedo Estranho"
+                class="hero-image"
+              />
 
-  <main>
-    <!-- HERO -->
-    <section class="hero-wrapper">
-      <div class="hero-card">
-        <div class="hero-welcome">Bem-vindo!</div>
-
-        <div class="hero-inner">
-          <!-- LADO ESQUERDO -->
-          <div class="hero-left">
-            <img
-              src="images/Imag-Hero.png"
-              alt="Brinquedo Estranho"
-              class="hero-image"
-            />
-
-            <div>
-              <div class="hero-project-title">O projeto</div>
-              <p class="hero-project-text">
-                Um kit maker aberto, com narrativas e atividades, para adultos
-                brincarem com crianças de 2 a 7 anos em casa, na escola ou em
-                projetos sociais.
-              </p>
-            </div>
-
-            <!-- BOTÕES / CTAs -->
-            <div class="hero-cta">
-              <button class="btn btn-primary">Começar a brincar</button>
-              <button class="btn btn-secondary">Conheça o projeto</button>
-            </div>
-          </div>
-
-          <!-- LADO DIREITO -->
-          <div class="hero-right">
-            <!-- Logotipo grande do hero -->
-            <div class="hero-logo">
-              <!-- Cole aqui o SVG COMPLETO do logotipo -->
-              <svg
-                width="279"
-                height="95"
-                viewBox="0 0 600 204"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <!-- TODO: colocar aqui o SVG completo do logo -->
-              </svg>
-            </div>
-
-            <div class="hero-badges">
-              <div class="hero-badge">
-                <span class="hero-badge-label">Idade:</span>
-                <span class="hero-badge-value">2 - 7 anos</span>
+              <div>
+                <div class="hero-project-title">O projeto</div>
+                <p class="hero-project-text">
+                  Um kit maker aberto, com narrativas e atividades, para adultos
+                  brincarem com crianças de 2 a 7 anos em casa, na escola ou em
+                  projetos sociais.
+                </p>
               </div>
 
-              <div class="hero-badge">
-                <span class="hero-badge-label">Modo de Uso:</span>
-                <span class="hero-badge-value">Adulto + Criança</span>
+              <div class="hero-cta">
+                <button class="btn btn-primary">Começar a brincar</button>
+                <button class="btn btn-secondary">Conheça o projeto</button>
+              </div>
+            </div>
+
+            <!-- DIREITA -->
+            <div class="hero-right">
+              <div class="hero-logo">
+                <!-- Coloque aqui o SVG do logo quando quiser -->
               </div>
 
-              <div class="hero-badge">
-                <span class="hero-badge-label">Formato:</span>
-                <span class="hero-badge-value">Peças + Narrativa / Livre</span>
+              <div class="hero-badges">
+                <div class="hero-badge">
+                  <span class="hero-badge-label">Idade:</span>
+                  <span class="hero-badge-value">2 - 7 anos</span>
+                </div>
+
+                <div class="hero-badge">
+                  <span class="hero-badge-label">Modo de Uso:</span>
+                  <span class="hero-badge-value">Adulto + Criança</span>
+                </div>
+
+                <div class="hero-badge">
+                  <span class="hero-badge-label">Formato:</span>
+                  <span class="hero-badge-value">
+                    Peças + Narrativa / Livre
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- SEÇÃO: PARA QUEM É -->
-    <section class="section-para-quem">
-      <div class="pq-frame">
-        <!-- título + subtítulo -->
-        <div class="pq-header-block">
-          <h2 class="pq-header-title">Para quem é</h2>
-          <p class="pq-header-text">
-            Um mesmo kit, pensado para contextos diferentes, sempre com foco na
-            relação adulto–criança.
-          </p>
+      <!-- PARA QUEM É -->
+      <section class="section-para-quem">
+        <div class="pq-frame">
+          <div class="pq-header-block">
+            <h2 class="pq-header-title">Para quem é</h2>
+            <p class="pq-header-text">
+              Um mesmo kit, pensado para contextos diferentes, sempre com foco
+              na relação adulto–criança.
+            </p>
+          </div>
+
+          <div class="pq-familias">
+            <div class="pq-text-title">Famílias</div>
+            <p class="pq-text-body">
+              Pais e responsáveis que buscam momentos de qualidade com
+              crianças, com atividades abertas, criativas e sem telas.
+            </p>
+          </div>
+
+          <div class="pq-projetos">
+            <div class="pq-text-title">Projetos sociais e ONGs</div>
+            <p class="pq-text-body">
+              Iniciativas de terceiro setor, bibliotecas, centros culturais e
+              projetos maker que desejam um recurso aberto e replicável.
+            </p>
+          </div>
+
+          <div class="pq-escolas">
+            <div class="pq-text-title">Escolas e educação</div>
+            <p class="pq-text-body">
+              Professores da educação infantil e anos iniciais que desejam
+              atividades de exploração, montagem e narrativa em sala.
+            </p>
+          </div>
+
+          <img
+            src="images/icon-familias.png"
+            alt="Famílias"
+            class="pq-icon pq-icon-familias"
+          />
+          <img
+            src="images/icon-projetos-sociais.png"
+            alt="Projetos sociais e ONGs"
+            class="pq-icon pq-icon-projetos"
+          />
+          <img
+            src="images/icon-escola.png"
+            alt="Escolas e educação"
+            class="pq-icon pq-icon-escolas"
+          />
         </div>
+      </section>
 
-        <!-- textos das colunas -->
-        <div class="pq-familias">
-          <div class="pq-text-title">Famílias</div>
-          <p class="pq-text-body">
-            Pais e responsáveis que buscam momentos de qualidade com crianças,
-            com atividades abertas, criativas e sem telas.
-          </p>
+      <!-- COMO BRINCAR -->
+      <section class="section-como-brincar">
+        <div class="cb-frame">
+          <div class="cb-header-block">
+            <h2 class="cb-header-title">Como brincar</h2>
+            <p class="cb-header-text">
+              O Brinquedo Estranho foi pensado para ser usado sempre com um
+              adulto mediador: pai, mãe, professor ou educador social.
+            </p>
+          </div>
+
+          <div class="cb-step cb-step-kit">
+            <h3 class="cb-step-title">Tenha acesso ao kit</h3>
+            <p class="cb-step-body">
+              Imprima as peças em uma impressora 3D (MakerLab, escola, ONG) ou
+              acesse um kit já disponível no seu projeto.
+            </p>
+          </div>
+
+          <div class="cb-step cb-step-brinque">
+            <h3 class="cb-step-title">Brinque, observe e adapte</h3>
+            <p class="cb-step-body">
+              Use as peças com a criança, observe como ela interage e registre
+              descobertas nos manuais. Isso te ajuda a adaptar as próximas
+              brincadeiras.
+            </p>
+          </div>
+
+          <div class="cb-step cb-step-narrativa">
+            <h3 class="cb-step-title">Escolha uma narrativa</h3>
+            <p class="cb-step-body">
+              Cada narrativa é um roteiro de história com falas, desafios e
+              momentos de experimentação para conduzir a brincadeira.
+            </p>
+          </div>
+
+          <img
+            src="images/como-brincar-base.png"
+            alt="Base de fundo do kit"
+            class="cb-photo-base"
+          />
+          <img
+            src="images/como-brincar-foto-rotacionada.png"
+            alt="Foto do kit em uso"
+            class="cb-photo-tilted"
+          />
+          <img
+            src="images/como-brincar-crianca.png"
+            alt="Criança brincando com o kit"
+            class="cb-photo-circle"
+          />
+
+          <img
+            src="images/como-brincar-icon-narrativa.png"
+            alt="Ícone narrativa"
+            class="cb-icon cb-icon-narrativa"
+          />
+          <img
+            src="images/como-brincar-icon-kit.png"
+            alt="Ícone kit"
+            class="cb-icon cb-icon-kit"
+          />
+          <img
+            src="images/como-brincar-icon-brinque.png"
+            alt="Ícone brincadeira"
+            class="cb-icon cb-icon-brinque"
+          />
         </div>
+      </section>
 
-        <div class="pq-projetos">
-          <div class="pq-text-title">Projetos sociais e ONGs</div>
-          <p class="pq-text-body">
-            Iniciativas de terceiro setor, bibliotecas, centros culturais e
-            projetos maker que desejam um recurso aberto e replicável.
-          </p>
+      <!-- MATERIAIS PARA BAIXAR -->
+      <section class="section-materiais">
+        <div class="mt-frame">
+          <div class="mt-header">
+            <h2 class="mt-header-title">Materiais para baixar</h2>
+            <p class="mt-header-text">
+              Narrativas prontas e manuais para apoiar o adulto na mediação da
+              brincadeira. Em breve, todos os arquivos estarão disponíveis aqui.
+            </p>
+          </div>
+
+          <div class="mt-manuais">
+            <div class="mt-block-title">Manuais</div>
+            <p class="mt-block-text">
+              Guia rápido para adultos<br />
+              Baixar tudo em PDF (em breve)
+            </p>
+          </div>
+
+          <div class="mt-narrativas">
+            <div class="mt-block-title">Narrativas</div>
+            <p class="mt-block-text">
+              Narrativa de Introdução: “A Minhoca Zing e o Escorrega Mágico”
+            </p>
+          </div>
+
+          <button class="btn btn-primary mt-btn">Download</button>
         </div>
+      </section>
 
-        <div class="pq-escolas">
-          <div class="pq-text-title">Escolas e educação</div>
-          <p class="pq-text-body">
-            Professores da educação infantil e anos iniciais que desejam
-            atividades de exploração, montagem e narrativa em sala.
-          </p>
+      <!-- POR TRÁS DO BRINQUEDO ESTRANHO -->
+      <section class="section-bastidores">
+        <div class="bt-frame">
+          <img
+            src="images/por-tras-main.png"
+            alt="Processo de criação do Brinquedo Estranho"
+            class="bt-photo-main"
+          />
+          <img
+            src="images/por-tras-secondary.png"
+            alt="Detalhe do protótipo do Brinquedo Estranho"
+            class="bt-photo-secondary"
+          />
+
+          <div class="bt-intro">
+            <h2 class="bt-intro-title">Por trás do Brinquedo Estranho</h2>
+            <p class="bt-intro-text">
+              Este projeto faz parte do meu TCC em UX Design e investiga como um
+              kit físico, narrativas e uma metodologia maker podem apoiar o
+              trabalho de adultos com crianças em diferentes contextos.
+            </p>
+          </div>
+
+          <div class="bt-card bt-card-pesquisa">
+            <h3 class="bt-card-title">Pesquisa com crianças e educadores</h3>
+            <p class="bt-card-text">
+              Revisão teórica (Piaget, Froebel, UX para infância) combinada com
+              entrevistas, shadowing e observação em contextos reais.
+            </p>
+          </div>
+          <img
+            src="images/por-tras-icon-pesquisa.png"
+            alt="Ícone da pesquisa com crianças e educadores"
+            class="bt-icon bt-icon-pesquisa"
+          />
+
+          <div class="bt-card bt-card-prototipagem">
+            <h3 class="bt-card-title">Prototipagem e testes de usabilidade</h3>
+            <p class="bt-card-text">
+              Ciclos de modelagem 3D, impressão e testes com crianças para
+              ajustar forma, tamanho, encaixes e possibilidades de exploração do
+              kit.
+            </p>
+          </div>
+          <img
+            src="images/por-tras-icon-prototipagem.png"
+            alt="Ícone de prototipagem e testes"
+            class="bt-icon bt-icon-prototipagem"
+          />
+
+          <div class="bt-card bt-card-metodologia">
+            <h3 class="bt-card-title">Metodologia maker + narrativas</h3>
+            <p class="bt-card-text">
+              Construção de uma abordagem que une peças físicas, histórias
+              guiadas e registros de observação, facilitando o uso por pais,
+              professores e educadores sociais.
+            </p>
+          </div>
+          <img
+            src="images/por-tras-icon-metodologia.png"
+            alt="Ícone da metodologia maker e narrativas"
+            class="bt-icon bt-icon-metodologia"
+          />
+
+          <div class="bt-card bt-card-impacto">
+            <h3 class="bt-card-title">Foco em impacto social</h3>
+            <p class="bt-card-text">
+              O projeto é aberto e pensado para ser replicado por escolas
+              públicas, ONGs e espaços maker, com arquivos 3D e materiais de
+              apoio disponibilizados gratuitamente.<br />
+              Projeto concebido e desenvolvido por Rodrigo Bertini, designer e
+              pesquisador em UX para infância e educação maker.
+            </p>
+          </div>
+          <img
+            src="images/por-tras-icon-impacto.png"
+            alt="Ícone de impacto social"
+            class="bt-icon bt-icon-impacto"
+          />
         </div>
-
-        <!-- ícones (troque os src pelos seus arquivos) -->
-        <img
-          src="images/icon-familias.png"
-          alt="Famílias"
-          class="pq-icon pq-icon-familias"
-        />
-        <img
-          src="images/icon-projetos-sociais.png"
-          alt="Projetos sociais e ONGs"
-          class="pq-icon pq-icon-projetos"
-        />
-        <img
-          src="images/icon-escola.png"
-          alt="Escolas e educação"
-          class="pq-icon pq-icon-escolas"
-        />
-      </div>
-    </section>
-
-    <!-- SEÇÃO: COMO BRINCAR -->
-    <section class="section-como-brincar">
-      <div class="cb-frame">
-        <!-- Título + texto introdutório -->
-        <div class="cb-header-block">
-          <h2 class="cb-header-title">Como brincar</h2>
-          <p class="cb-header-text">
-            O Brinquedo Estranho foi pensado para ser usado sempre com um adulto mediador:
-            pai, mãe, professor ou educador social.
-          </p>
-        </div>
-
-        <!-- Passo 1 – Tenha acesso ao kit -->
-        <div class="cb-step cb-step-kit">
-          <h3 class="cb-step-title">Tenha acesso ao kit</h3>
-          <p class="cb-step-body">
-            Imprima as peças em uma impressora 3D (MakerLab, escola, ONG)
-            ou acesse um kit já disponível no seu projeto.
-          </p>
-        </div>
-
-        <!-- Passo 2 – Brinque, observe e adapte -->
-        <div class="cb-step cb-step-brinque">
-          <h3 class="cb-step-title">Brinque, observe e adapte</h3>
-          <p class="cb-step-body">
-            Use as peças com a criança, observe como ela interage e registre
-            descobertas nos manuais. Isso te ajuda a adaptar as próximas brincadeiras.
-          </p>
-        </div>
-
-        <!-- Passo 3 – Escolha uma narrativa -->
-        <div class="cb-step cb-step-narrativa">
-          <h3 class="cb-step-title">Escolha uma narrativa</h3>
-          <p class="cb-step-body">
-            Cada narrativa é um roteiro de história com falas, desafios e
-            momentos de experimentação para conduzir a brincadeira.
-          </p>
-        </div>
-
-        <!-- Imagens principais (troque os src pelos exports do Figma) -->
-        <img
-          src="images/como-brincar-base.png"
-          alt="Base de fundo do kit"
-          class="cb-photo-base"
-        />
-        <img
-          src="images/como-brincar-foto-rotacionada.png"
-          alt="Foto do kit em uso"
-          class="cb-photo-tilted"
-        />
-        <img
-          src="images/como-brincar-crianca.png"
-          alt="Criança brincando com o kit"
-          class="cb-photo-circle"
-        />
-
-        <!-- Ícones dos passos -->
-        <img
-          src="images/como-brincar-icon-narrativa.png"
-          alt="Ícone narrativa"
-          class="cb-icon cb-icon-narrativa"
-        />
-        <img
-          src="images/como-brincar-icon-kit.png"
-          alt="Ícone kit"
-          class="cb-icon cb-icon-kit"
-        />
-        <img
-          src="images/como-brincar-icon-brinque.png"
-          alt="Ícone brincadeira"
-          class="cb-icon cb-icon-brinque"
-        />
-      </div>
-    </section>
-<!-- SEÇÃO: POR TRÁS DO BRINQUEDO ESTRANHO -->
-<section class="section-bastidores">
-  <div class="bt-frame">
-    <!-- FOTOS GRANDES NO TOPO DIREITO -->
-    <img
-      src="images/por-tras-main.png"
-      alt="Processo de criação do Brinquedo Estranho"
-      class="bt-photo-main"
-    />
-    <img
-      src="images/por-tras-secondary.png"
-      alt="Detalhe do protótipo do Brinquedo Estranho"
-      class="bt-photo-secondary"
-    />
-
-    <!-- INTRODUÇÃO -->
-    <div class="bt-intro">
-      <h2 class="bt-intro-title">Por trás do Brinquedo Estranho</h2>
-      <p class="bt-intro-text">
-        Este projeto faz parte do meu TCC em UX Design e investiga como um kit
-        físico, narrativas e uma metodologia maker podem apoiar o trabalho de
-        adultos com crianças em diferentes contextos.
-      </p>
-    </div>
-
-    <!-- CARD 1 – Pesquisa com crianças e educadores -->
-    <div class="bt-card bt-card-pesquisa">
-      <h3 class="bt-card-title">Pesquisa com crianças e educadores</h3>
-      <p class="bt-card-text">
-        Revisão teórica (Piaget, Froebel, UX para infância) combinada com
-        entrevistas, shadowing e observação em contextos reais.
-      </p>
-    </div>
-    <img
-      src="images/por-tras-icon-pesquisa.png"
-      alt="Ícone da pesquisa com crianças e educadores"
-      class="bt-icon bt-icon-pesquisa"
-    />
-
-    <!-- CARD 2 – Prototipagem e testes de usabilidade -->
-    <div class="bt-card bt-card-prototipagem">
-      <h3 class="bt-card-title">Prototipagem e testes de usabilidade</h3>
-      <p class="bt-card-text">
-        Ciclos de modelagem 3D, impressão e testes com crianças para ajustar
-        forma, tamanho, encaixes e possibilidades de exploração do kit.
-      </p>
-    </div>
-    <img
-      src="images/por-tras-icon-prototipagem.png"
-      alt="Ícone de prototipagem e testes"
-      class="bt-icon bt-icon-prototipagem"
-    />
-
-    <!-- CARD 3 – Metodologia maker + narrativas -->
-    <div class="bt-card bt-card-metodologia">
-      <h3 class="bt-card-title">Metodologia maker + narrativas</h3>
-      <p class="bt-card-text">
-        Construção de uma abordagem que une peças físicas, histórias guiadas e
-        registros de observação, facilitando o uso por pais, professores e
-        educadores sociais.
-      </p>
-    </div>
-    <img
-      src="images/por-tras-icon-metodologia.png"
-      alt="Ícone da metodologia maker e narrativas"
-      class="bt-icon bt-icon-metodologia"
-    />
-
-    <!-- CARD 4 – Foco em impacto social -->
-    <div class="bt-card bt-card-impacto">
-      <h3 class="bt-card-title">Foco em impacto social</h3>
-      <p class="bt-card-text">
-        O projeto é aberto e pensado para ser replicado por escolas públicas,
-        ONGs e espaços maker, com arquivos 3D e materiais de apoio
-        disponibilizados gratuitamente.<br />
-        Projeto concebido e desenvolvido por Rodrigo Bertini, designer e
-        pesquisador em UX para infância e educação maker.
-      </p>
-    </div>
-    <img
-      src="images/por-tras-icon-impacto.png"
-      alt="Ícone de impacto social"
-      class="bt-icon bt-icon-impacto"
-    />
-  </div>
-</section>
-  </main>
-</body>
+      </section>
+    </main>
+  </body>
 </html>
-
-
-
-
