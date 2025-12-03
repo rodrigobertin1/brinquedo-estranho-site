@@ -901,10 +901,183 @@ section {
 }
 /* =============== SEÇÃO "POR TRÁS DO BRINQUEDO ESTRANHO" – IGUAL AO FIGMA =============== */
 
+/* =============== SEÇÃO "POR TRÁS DO BRINQUEDO ESTRANHO" – IGUAL AO FIGMA =============== */
+
+/* sobrescreve o section padrão */
 .section-bastidores {
-  margin-top: 56px;
+  width: 100%;          /* solta da largura 960px do section padrão */
+  margin: 56px 0 0;     /* espaçamento só em cima */
+  padding: 0;           /* sem padding lateral, igual ao Figma */
   display: flex;
   justify-content: center;
+}
+
+/* Frame central de 1024px, igual ao Figma */
+.bt-frame {
+  width: 1024px;
+  height: 698px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+
+  /* fundo kraft rasgado – ajuste o nome do arquivo conforme você exportou */
+  background: url("images/por-tras-bg-kraft.png") center top / cover no-repeat;
+}
+
+/* BLOCO INTRODUÇÃO (título + texto) */
+
+.bt-intro {
+  width: 796.74px;
+  position: absolute;
+  left: 115.26px;
+  top: 256.15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bt-intro-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 8px;
+}
+
+.bt-intro-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* CARDS DE TEXTO (4 blocos) */
+
+.bt-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bt-card-title {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0 0 4px;
+}
+
+.bt-card-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* Pesquisa com crianças e educadores */
+.bt-card-pesquisa {
+  width: 322.64px;
+  left: 184.68px;
+  top: 341.31px;
+}
+
+/* Prototipagem e testes de usabilidade */
+.bt-card-prototipagem {
+  width: 266.71px;
+  left: 184.68px;
+  top: 487.74px;
+}
+
+/* Metodologia maker + narrativas */
+.bt-card-metodologia {
+  width: 295.08px;
+  left: 629.36px;
+  top: 332.81px;
+}
+
+/* Foco em impacto social */
+.bt-card-impacto {
+  width: 300.76px;
+  left: 629.36px;
+  top: 487.74px;
+}
+
+/* FOTOS GRANDES NO TOPO DIREITO */
+
+.bt-photo-main {
+  position: absolute;
+  left: 639.92px;
+  top: 32.15px;
+  width: 168px;
+  height: 224px;
+  object-fit: cover;
+  border-radius: 16px;
+  opacity: 0.68; /* igual ao Figma */
+}
+
+.bt-photo-secondary {
+  position: absolute;
+  left: 776.90px;
+  top: 101px;
+  width: 228px;
+  height: 159px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* ÍCONES 90x90 AO LADO DOS CARDS */
+
+.bt-icon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Ícone da pesquisa */
+.bt-icon-pesquisa {
+  left: 94.68px;
+  top: 332.81px;
+}
+
+/* Ícone da prototipagem */
+.bt-icon-prototipagem {
+  left: 94.68px;
+  top: 497.24px;
+}
+
+/* Ícone da metodologia */
+.bt-icon-metodologia {
+  left: 539.36px;
+  top: 342.31px;
+}
+
+/* Ícone do impacto social */
+.bt-icon-impacto {
+  left: 539.36px;
+  top: 533.24px;
+}
+
+/* Responsivo leve: mesma lógica das outras seções absolutas */
+@media (max-width: 960px) {
+  .bt-frame {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 768px) {
+  .bt-frame {
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
 }
 
 /* Frame central de 1024px, igual ao Figma */
@@ -1074,3 +1247,4 @@ section {
     transform-origin: top center;
   }
 }
+
