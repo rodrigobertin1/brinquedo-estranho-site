@@ -1,324 +1,283 @@
-/* RESET BÁSICO */
-*,
-*::before,
-*::after {
+:root {
+  --text-main: #5d5d5d;
+  --accent: #be8200;
+  --badge-bg: #f7f2fa;
+  --badge-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --green-cta: #16a34a;
+}
+
+* {
   box-sizing: border-box;
 }
 
-html,
 body {
   margin: 0;
-  padding: 0;
-}
-
-body {
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  color: #333333;
-  background: #f3f4f6;
+  color: var(--text-main);
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #fffdf7 40%,
+    #fff6df 100%
+  );
 }
 
-/* LAYOUT GERAL */
-
-.page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-.content {
-  flex: 1;
-  padding: 72px 0 96px;
-}
+/* ================= HEADER FIXO ================= */
 
-/* TOPO */
-
-.topbar {
+.top-bar {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(100%, 960px);
-  padding: 12px 16px;
+  left: 0;
+  right: 0;
+  height: 72px;
   background: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  z-index: 20;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  z-index: 100;
 }
 
-.topbar__logo {
-  height: 28px;
-}
-
-.topbar__actions {
+.top-bar-inner {
+  width: 100%;
+  max-width: 1024px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.top-bar-logo {
+  display: flex;
+  align-items: center;
   gap: 8px;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-main);
+}
+
+.top-bar-logo span {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.top-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .icon-button {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   border: none;
   background: transparent;
-  padding: 6px;
-  border-radius: 999px;
-  cursor: pointer;
 }
 
-.icon-button img {
-  width: 20px;
-  height: 20px;
+main {
+  padding-top: 96px; /* espaço por causa do header fixo */
+  padding-bottom: 64px;
 }
 
-/* BOTÃO LIGHT (RODAPÉ) */
-.icon-button--light img {
-  filter: brightness(0) invert(1);
+/* ================= HERO ================= */
+
+.hero-wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 40px 24px 48px;
 }
 
-/* BARRA INFERIOR */
+.hero-card {
+  position: relative;
+  border-radius: 24px;
+  background: #ffffffcc;
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.06);
+  padding: 40px 48px 48px;
+  overflow: hidden;
+}
 
-.bottombar {
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: min(1064px, calc(100% - 32px));
-  padding: 12px 20px;
-  background: #c08400;
-  color: #ffffff;
-  border-radius: 24px 24px 0 0;
-  display: flex;
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
   align-items: center;
-  justify-content: space-between;
+  column-gap: 32px;
 }
 
-.bottombar__brand {
+/* “Bem-vindo!” centralizado no topo do card */
+.hero-welcome {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  color: var(--text-main);
 }
 
-.bottombar__brand span {
+/* LADO ESQUERDO DO HERO */
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.hero-image {
+  width: 512px;
+  height: 385px;
+  object-fit: contain;
+  margin-left: 35px; /* ajuste fino para bater com o Figma */
+}
+
+.hero-project-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.hero-project-text {
+  max-width: 384px;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+}
+
+.hero-cta {
+  margin-top: 16px;
+  display: flex;
+  gap: 24px;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 100px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    filter 0.12s ease;
+}
+
+.btn-primary {
+  background: var(--green-cta);
+  color: #ffffff;
+  box-shadow: 0px 16px 32px -8px rgba(12, 12, 13, 0.4) inset;
+}
+
+.btn-secondary {
+  background: var(--badge-bg);
+  color: var(--text-main);
+  box-shadow: var(--badge-shadow);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.btn:active {
+  transform: translateY(0);
+  filter: brightness(0.97);
+  box-shadow: none;
+}
+
+/* LADO DIREITO DO HERO */
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.hero-logo {
+  width: 279px;
+  height: auto;
+}
+
+.hero-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.hero-badge {
+  background: var(--badge-bg);
+  box-shadow: var(--badge-shadow);
+  border-radius: 100px;
+  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 240px;
+}
+
+.hero-badge-label {
+  font-size: 14px;
+  font-weight: 400;
+  margin-right: 4px;
+}
+
+.hero-badge-value {
+  font-size: 15px;
   font-weight: 700;
 }
 
-/* SEÇÕES */
-
-section {
-  width: min(100%, 960px);
-  margin: 0 auto;
-  padding: 32px 16px;
-}
-
-.section--light {
-  background: #f9fafb;
-  border-radius: 24px;
-}
-
-.section--kraft {
-  background: #d3b08b;
-  color: #ffffff;
-  border-radius: 24px 24px 0 0;
-}
-
-.section__intro {
-  max-width: 640px;
-  margin: 0 auto 24px;
-  text-align: left;
-}
-
-.section__intro h2 {
-  font-size: 20px;
-  margin: 0 0 8px;
-}
-
-.section__intro p {
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.section__intro--light {
-  color: #ffffff;
-}
-
-/* HERO */
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-
-.hero__text {
-  text-align: center;
-}
-
-.hero__eyebrow {
-  font-size: 12px;
-  color: #6b7280;
-  margin: 0 0 4px;
-}
-
-.hero__title {
-  font-size: 24px;
-  margin: 0;
-  font-weight: 600;
-}
-
-.hero__title--highlight {
-  color: #c08400;
-}
-
-.hero__subtitle {
-  font-size: 14px;
-  line-height: 1.4;
-  margin: 12px 0 16px;
-  color: #4b5563;
-}
-
-.hero__tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.hero__ctas {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-}
-
-.hero__image img {
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  display: block;
-}
-
-/* PÍLULAS / TAGS */
-
-.pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  background: #e5e7eb;
-  color: #374151;
-}
-
-.pill--soft {
-  background: #f3f4ff;
-}
-
-/* BOTÕES */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.btn--primary {
-  background: #16a34a;
-  color: #ffffff;
-}
-
-.btn--ghost {
-  background: #e5e7eb;
-  color: #111827;
-}
-
-/* PROJETO */
-
-.project__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
-}
-
-/* COMO BRINCAR: PASSOS */
-
-.steps {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.step {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 16px;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
-  gap: 8px 12px;
-  align-items: center;
-}
-
-.step__number img {
-  width: 32px;
-}
-
-.step__content h3 {
-  font-size: 16px;
-  margin: 0 0 4px;
-}
-
-.step__content p {
-  font-size: 13px;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.step__image {
-  grid-column: 1 / -1;
-  margin-top: 8px;
-}
-
-.step__image img {
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  border-radius: 12px;
-  display: block;
-}
-
-/* PARA QUEM É – NOVO GRID */
+/* ================= SEÇÃO “PARA QUEM É” – FRAME ABSOLUTE ================= */
 
 .section-para-quem {
-  margin-top: 56px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 
-.section-para-quem-inner {
-  width: min(100%, 960px);
-  margin: 0 auto;
-  padding: 0 16px 64px;
+.pq-frame {
+  width: 917px;
+  height: 407px;
+  position: relative;
+  overflow: hidden;
 }
 
-.pq-header {
-  max-width: 382px;
+.pq-header-block {
+  width: 382.05px;
+  position: absolute;
+  left: 45px;
+  top: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.pq-title {
+.pq-header-title {
   color: #5d5d5d;
   font-size: 20px;
   font-weight: 600;
   margin: 0 0 8px;
 }
 
-.pq-subtitle {
+.pq-header-text {
   color: #5d5d5d;
   font-size: 14px;
   font-weight: 400;
@@ -327,207 +286,82 @@ section {
   margin: 0;
 }
 
-.pq-grid {
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 32px;
-}
-
-.pq-card {
+.pq-familias,
+.pq-projetos,
+.pq-escolas {
+  position: absolute;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  justify-content: center;
 }
 
-.pq-icon {
-  display: block;
-  object-fit: contain;
-}
-
-.pq-icon--small {
-  width: 120px;
-  height: 120px;
-}
-
-.pq-icon--large {
-  width: 140px;
-  height: 140px;
-}
-
-.pq-text {
-  color: #5d5d5d;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-}
-
-.pq-text-title {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 18px;
-  margin-bottom: 4px;
-}
-
-/* alinhamentos específicos, como no Figma */
-.pq-card--left {
-  align-items: flex-start;
+.pq-familias {
+  width: 241.39px;
+  left: 45px;
+  top: 274.25px;
   text-align: left;
 }
 
-.pq-card--center {
-  align-items: center;
+.pq-projetos {
+  width: 240.2px;
+  left: 324.9px;
+  top: 274.25px;
   text-align: center;
 }
 
-.pq-card--right {
-  align-items: flex-end;
+.pq-escolas {
+  width: 241px;
+  left: 603.61px;
+  top: 274.25px;
   text-align: right;
 }
 
-/* MATERIAIS */
-
-.materials {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  background: #f9fafb;
-  border-radius: 16px;
-  padding: 16px;
-}
-
-.materials__text h2 {
-  font-size: 18px;
+.pq-text-title {
+  color: #5d5d5d;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
   margin: 0 0 4px;
 }
 
-.materials__text p {
-  font-size: 13px;
-  margin: 0;
-}
-
-.materials__icon img {
-  width: 40px;
-  height: 40px;
-}
-
-.materials__cta {
-  margin-top: 16px;
-  text-align: center;
-}
-
-/* BASTIDORES / KRAFT */
-
-.behind {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.behind__item {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-
-.behind__icon img {
-  width: 32px;
-}
-
-.behind__text h3 {
+.pq-text-body {
+  color: #5d5d5d;
   font-size: 14px;
-  margin: 0 0 4px;
-}
-
-.behind__text p {
-  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
   margin: 0;
-  line-height: 1.4;
 }
 
-/* ===== DESKTOP (>= 1024px) ===== */
-
-@media (min-width: 1024px) {
-  .content {
-    padding-top: 96px;
-  }
-
-  .hero {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .hero__text {
-    flex: 1;
-    text-align: left;
-  }
-
-  .hero__ctas {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-
-  .hero__image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-
-  .hero__image img {
-    max-width: 600px; /* maior no desktop */
-  }
-
-  .section__intro {
-    text-align: left;
-  }
-
-  .steps {
-    gap: 16px;
-  }
-
-  .step {
-    grid-template-columns: auto 2fr 2fr;
-    grid-template-rows: auto;
-  }
-
-  .step__image {
-    grid-column: auto;
-    margin-top: 0;
-  }
-
-  /* grid da seção "para quem é" em 3 colunas */
-  .pq-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .behind {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.pq-icon {
+  position: absolute;
+  object-fit: contain;
+  display: block;
 }
 
-/* RESPONSIVO PARA A SEÇÃO "PARA QUEM É" */
-
-@media (max-width: 900px) {
-  .section-para-quem-inner {
-    padding-bottom: 40px;
-  }
-
-  .pq-grid {
-    grid-template-columns: 1fr;
-    row-gap: 32px;
-  }
-
-  .pq-card,
-  .pq-card--center,
-  .pq-card--right {
-    align-items: flex-start;
-    text-align: left;
-  }
+.pq-icon-familias {
+  width: 120px;
+  height: 120px;
+  left: 109.98px;
+  top: 114.39px;
 }
-/* =============== SEÇÃO "COMO BRINCAR" – FRAME IGUAL AO FIGMA =============== */
+
+.pq-icon-projetos {
+  width: 140px;
+  height: 140px;
+  left: 375.01px;
+  top: 104.39px;
+}
+
+.pq-icon-escolas {
+  width: 140px;
+  height: 140px;
+  left: 673.92px;
+  top: 104.39px;
+}
+
+/* ================= SEÇÃO “COMO BRINCAR” – FRAME ABSOLUTE ================= */
 
 .section-como-brincar {
   margin-top: 40px;
@@ -542,7 +376,6 @@ section {
   overflow: hidden;
 }
 
-/* BLOCO TÍTULO + TEXTO INTRODUTÓRIO */
 .cb-header-block {
   width: 384px;
   position: absolute;
@@ -569,8 +402,6 @@ section {
   margin: 0;
 }
 
-/* PASSOS / BLOCOS DE TEXTO */
-
 .cb-step {
   position: absolute;
   display: flex;
@@ -596,8 +427,6 @@ section {
   margin: 0;
 }
 
-/* ESPECÍFICOS DE CADA BLOCO, COPIANDO O FIGMA */
-
 .cb-step-narrativa {
   width: 198.65px;
   left: 48.67px;
@@ -618,8 +447,6 @@ section {
   top: 463.47px;
   text-align: right;
 }
-
-/* IMAGENS: BASE, FOTO ROTACIONADA, FOTO REDONDA E ÍCONES */
 
 .cb-photo-base {
   position: absolute;
@@ -651,8 +478,6 @@ section {
   object-fit: cover;
 }
 
-/* ÍCONES REDONDOS */
-
 .cb-icon {
   position: absolute;
   width: 80px;
@@ -675,23 +500,7 @@ section {
   top: 451.47px;
 }
 
-/* Ajuste leve em telas menores pra não quebrar feio (mesma lógica da seção "Para quem é") */
-@media (max-width: 960px) {
-  .cb-frame {
-    transform: scale(0.9);
-    transform-origin: top center;
-  }
-}
-
-@media (max-width: 768px) {
-  .cb-frame {
-    transform: scale(0.8);
-    transform-origin: top center;
-    /* a altura visual diminui junto com o scale,
-       então não precisa alterar o height real aqui */
-  }
-}
-/* =============== SEÇÃO "MATERIAIS PARA BAIXAR" – ABSOLUTE =============== */
+/* ================= SEÇÃO “MATERIAIS PARA BAIXAR” – FRAME ABSOLUTE ================= */
 
 .section-materiais {
   margin-top: 40px;
@@ -701,26 +510,15 @@ section {
 
 .mt-frame {
   width: 923px;
-  height: 217px;
+  height: 216px;
   position: relative;
   overflow: hidden;
 }
 
-/* Ícone à esquerda */
-.mt-icon {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  left: 53.7px;
-  top: 57.69px;
-  object-fit: contain;
-}
-
-/* Bloco título + texto */
 .mt-header {
-  width: 222.57px;
+  width: 237.63px;
   position: absolute;
-  left: 159.44px;
+  left: 60.24px;
   top: 49.19px;
   display: flex;
   flex-direction: column;
@@ -743,7 +541,6 @@ section {
   margin: 0;
 }
 
-/* Bloco "Manuais" */
 .mt-manuais {
   width: 253.93px;
   position: absolute;
@@ -782,11 +579,10 @@ section {
   margin: 0;
 }
 
-/* Botão "Download" – reaproveita .btn + .btn-primary */
 .mt-btn {
   position: absolute;
-  left: 425.5px;
-  top: 83.69px;
+  left: 409.5px;
+  top: 82.69px;
   width: 104px;
   height: 48px;
   padding: 10px 16px;
@@ -794,125 +590,15 @@ section {
   align-items: center;
   justify-content: center;
 }
-/* ===========================
-   MATERIAIS PARA BAIXAR
-   =========================== */
 
-.downloads-section {
-  margin-top: 48px;
-}
+/* ================= SEÇÃO “POR TRÁS DO BRINQUEDO ESTRANHO” – FRAME 1024PX ================= */
 
-.downloads-inner {
-  max-width: 923px;              /* igual ao Figma */
-  margin: 0 auto;
-  padding: 0 24px 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 48px;
-}
-
-/* ESQUERDA: ÍCONE + TÍTULO + TEXTO */
-
-.downloads-left {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  max-width: 380px;
-}
-
-.downloads-icon {
-  width: 100px;
-  height: 100px;
-  flex-shrink: 0;
-  object-fit: contain;
-}
-
-.downloads-text-block {
-  color: #5d5d5d;
-}
-
-.downloads-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin: 0 0 8px;
-}
-
-.downloads-text {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  margin: 0;
-}
-
-/* BOTÃO CENTRAL – reutiliza .btn .btn-primary do hero */
-
-.downloads-button {
-  min-width: 104px;  /* largura do Figma */
-  height: 48px;
-  padding: 10px 16px;
-}
-
-/* DIREITA: MANUAIS / NARRATIVAS */
-
-.downloads-right {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 260px;
-}
-
-.downloads-group-title {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  color: #5d5d5d;
-  margin: 0 0 4px;
-}
-
-.downloads-group-text {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  color: #5d5d5d;
-  margin: 0;
-}
-
-/* RESPONSIVO */
-
-@media (max-width: 900px) {
-  .downloads-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    padding-bottom: 40px;
-  }
-
-  .downloads-button {
-    align-self: flex-start;
-  }
-
-  .downloads-right {
-    max-width: 100%;
-  }
-}
-/* =============== SEÇÃO "POR TRÁS DO BRINQUEDO ESTRANHO" – IGUAL AO FIGMA =============== */
-
-/* =============== SEÇÃO "POR TRÁS DO BRINQUEDO ESTRANHO" – IGUAL AO FIGMA =============== */
-
-/* sobrescreve o section padrão */
 .section-bastidores {
-  width: 100%;          /* solta da largura 960px do section padrão */
-  margin: 56px 0 0;     /* espaçamento só em cima */
-  padding: 0;           /* sem padding lateral, igual ao Figma */
+  margin-top: 56px;
   display: flex;
   justify-content: center;
 }
 
-/* Frame central de 1024px, igual ao Figma */
 .bt-frame {
   width: 1024px;
   height: 698px;
@@ -920,11 +606,9 @@ section {
   overflow: hidden;
   border-radius: 24px;
 
-  /* fundo kraft rasgado – ajuste o nome do arquivo conforme você exportou */
+  /* fundo kraft rasgado */
   background: url("images/por-tras-bg-kraft.png") center top / cover no-repeat;
 }
-
-/* BLOCO INTRODUÇÃO (título + texto) */
 
 .bt-intro {
   width: 796.74px;
@@ -953,8 +637,6 @@ section {
   margin: 0;
 }
 
-/* CARDS DE TEXTO (4 blocos) */
-
 .bt-card {
   position: absolute;
   display: flex;
@@ -980,35 +662,29 @@ section {
   margin: 0;
 }
 
-/* Pesquisa com crianças e educadores */
 .bt-card-pesquisa {
   width: 322.64px;
   left: 184.68px;
   top: 341.31px;
 }
 
-/* Prototipagem e testes de usabilidade */
 .bt-card-prototipagem {
   width: 266.71px;
   left: 184.68px;
   top: 487.74px;
 }
 
-/* Metodologia maker + narrativas */
 .bt-card-metodologia {
   width: 295.08px;
   left: 629.36px;
   top: 332.81px;
 }
 
-/* Foco em impacto social */
 .bt-card-impacto {
   width: 300.76px;
   left: 629.36px;
   top: 487.74px;
 }
-
-/* FOTOS GRANDES NO TOPO DIREITO */
 
 .bt-photo-main {
   position: absolute;
@@ -1018,20 +694,18 @@ section {
   height: 224px;
   object-fit: cover;
   border-radius: 16px;
-  opacity: 0.68; /* igual ao Figma */
+  opacity: 0.68;
 }
 
 .bt-photo-secondary {
   position: absolute;
-  left: 776.90px;
+  left: 776.9px;
   top: 101px;
   width: 228px;
   height: 159px;
   object-fit: cover;
   border-radius: 16px;
 }
-
-/* ÍCONES 90x90 AO LADO DOS CARDS */
 
 .bt-icon {
   position: absolute;
@@ -1041,32 +715,56 @@ section {
   border-radius: 20px;
 }
 
-/* Ícone da pesquisa */
 .bt-icon-pesquisa {
   left: 94.68px;
   top: 332.81px;
 }
 
-/* Ícone da prototipagem */
 .bt-icon-prototipagem {
   left: 94.68px;
   top: 497.24px;
 }
 
-/* Ícone da metodologia */
 .bt-icon-metodologia {
   left: 539.36px;
   top: 342.31px;
 }
 
-/* Ícone do impacto social */
 .bt-icon-impacto {
   left: 539.36px;
   top: 533.24px;
 }
 
-/* Responsivo leve: mesma lógica das outras seções absolutas */
+/* ================= RESPONSIVO (SCALE LEVE) ================= */
+
 @media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  .hero-right {
+    align-items: flex-start;
+  }
+
+  .hero-badges {
+    align-items: flex-start;
+  }
+
+  .hero-image {
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-cta {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .pq-frame,
+  .cb-frame,
+  .mt-frame,
   .bt-frame {
     transform: scale(0.9);
     transform-origin: top center;
@@ -1074,177 +772,30 @@ section {
 }
 
 @media (max-width: 768px) {
+  .hero-card {
+    padding: 32px 20px 32px;
+  }
+
+  .top-bar-inner {
+    padding: 0 16px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-badge {
+    min-width: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .pq-frame,
+  .cb-frame,
+  .mt-frame,
   .bt-frame {
     transform: scale(0.8);
     transform-origin: top center;
   }
 }
-
-/* Frame central de 1024px, igual ao Figma */
-.bt-frame {
-  width: 1024px;
-  height: 698px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 24px;
-
-  /* fundo kraft rasgado – troque o nome do arquivo conforme você exportou */
-  background: url("images/por-tras-bg-kraft.png") center top / cover no-repeat;
-}
-
-/* BLOCO INTRODUÇÃO (título + texto) */
-
-.bt-intro {
-  width: 796.74px;
-  position: absolute;
-  left: 115.26px;
-  top: 256.15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.bt-intro-title {
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 20px;
-  margin: 0 0 8px;
-}
-
-.bt-intro-text {
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  margin: 0;
-}
-
-/* CARDS DE TEXTO (4 blocos) */
-
-.bt-card {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.bt-card-title {
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  margin: 0 0 4px;
-}
-
-.bt-card-text {
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  margin: 0;
-}
-
-/* Pesquisa com crianças e educadores */
-.bt-card-pesquisa {
-  width: 322.64px;
-  left: 184.68px;
-  top: 341.31px;
-}
-
-/* Prototipagem e testes de usabilidade */
-.bt-card-prototipagem {
-  width: 266.71px;
-  left: 184.68px;
-  top: 487.74px;
-}
-
-/* Metodologia maker + narrativas */
-.bt-card-metodologia {
-  width: 295.08px;
-  left: 629.36px;
-  top: 332.81px;
-}
-
-/* Foco em impacto social */
-.bt-card-impacto {
-  width: 300.76px;
-  left: 629.36px;
-  top: 487.74px;
-}
-
-/* FOTOS GRANDES NO TOPO DIREITO */
-
-.bt-photo-main {
-  position: absolute;
-  left: 639.92px;
-  top: 32.15px;
-  width: 168px;
-  height: 224px;
-  object-fit: cover;
-  border-radius: 16px;
-  opacity: 0.68; /* igual ao Figma */
-}
-
-.bt-photo-secondary {
-  position: absolute;
-  left: 776.90px;
-  top: 101px;
-  width: 228px;
-  height: 159px;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
-/* ÍCONES 90x90 AO LADO DOS CARDS */
-
-.bt-icon {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-/* Ícone da pesquisa */
-.bt-icon-pesquisa {
-  left: 94.68px;
-  top: 332.81px;
-}
-
-/* Ícone da prototipagem */
-.bt-icon-prototipagem {
-  left: 94.68px;
-  top: 497.24px;
-}
-
-/* Ícone da metodologia */
-.bt-icon-metodologia {
-  left: 539.36px;
-  top: 342.31px;
-}
-
-/* Ícone do impacto social */
-.bt-icon-impacto {
-  left: 539.36px;
-  top: 533.24px;
-}
-
-/* Responsivo leve: mesma lógica de scale usada nas outras seções com absolute */
-@media (max-width: 960px) {
-  .bt-frame {
-    transform: scale(0.9);
-    transform-origin: top center;
-  }
-}
-
-@media (max-width: 768px) {
-  .bt-frame {
-    transform: scale(0.8);
-    transform-origin: top center;
-  }
-}
-
