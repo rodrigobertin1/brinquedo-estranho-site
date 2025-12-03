@@ -970,5 +970,131 @@ main {
 .footer-share-btn svg path {
   stroke: #f5f5f5;
 }
+/* =============== CARD AMARELO: "POR TRÁS" + "COMUNIDADE" =============== */
+
+/* Wrapper que centraliza o card */
+.section-kraft-card {
+  width: 100%;
+  margin-top: 56px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card amarelo que envolve
+   - Por trás do Brinquedo Estranho
+   - Comunidade e próximos passos
+*/
+.section-kraft-card-inner {
+  width: 1024px;
+  border-radius: 24px;
+  background: #d59200; /* mesmo amarelo da seção Comunidade */
+  overflow: hidden;
+  padding-bottom: 32px; /* respiro no final do card */
+}
+
+/* Garante que o frame "Por trás" fique centralizado dentro do card */
+.section-kraft-card-inner .bt-frame {
+  margin: 0 auto;
+}
+
+/* ================= "Comunidade e próximos passos" dentro do card ================= */
+
+.cm-frame {
+  width: 1024px;
+  height: 270px;
+  position: relative;
+  overflow: hidden;
+  margin: 24px auto 0; /* afasta um pouco do "Por trás" */
+}
+
+/* Bloco título + texto */
+.cm-intro {
+  width: 257.19px;
+  position: absolute;
+  left: 112px;
+  top: 71.24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cm-intro-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 8px;
+}
+
+.cm-intro-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* Blocos de texto (3 itens) */
+.cm-block {
+  position: absolute;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* Captação de métricas */
+.cm-block-metricas {
+  width: 149px;
+  left: 400.61px;
+  top: 71.74px;
+}
+
+/* Guia de impressão 3D */
+.cm-block-guia {
+  width: 149px;
+  left: 549.49px;
+  top: 155.74px;
+}
+
+/* Espaço curado de registros */
+.cm-block-registros {
+  width: 179.27px;
+  left: 718.89px;
+  top: 53.74px;
+}
+
+.cm-block-registros span {
+  display: block;
+}
+
+/* Ícones 90x90 */
+.cm-icon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Posições dos ícones, igual ao Figma */
+.cm-icon-metricas {
+  left: 430.11px;
+  top: 137.74px;
+}
+
+.cm-icon-guia {
+  left: 578.99px;
+  top: 53.74px;
+}
+
+.cm-icon-registros {
+  left: 763.53px;
+  top: 147.74px;
+}
+
 
 
