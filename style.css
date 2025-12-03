@@ -929,4 +929,46 @@ main {
     transform-origin: top center;
   }
 }
+/* ====================== FOOTER ====================== */
+
+.site-footer {
+  background: #d59200; /* cor do Figma */
+}
+
+.site-footer-inner {
+  max-width: 1024px;
+  height: 55px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 110px; /* aproxima as posições 110px (logo) e 912px (ícone) */
+}
+
+/* logo do footer (imagem 226x25 no Figma) */
+.footer-logo {
+  height: 25px;
+  width: auto;
+  display: block;
+}
+
+/* botão de compartilhar no footer */
+.footer-share-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* deixa o ícone branco, como no Figma */
+.footer-share-btn svg path {
+  stroke: #f5f5f5;
+}
+
 
