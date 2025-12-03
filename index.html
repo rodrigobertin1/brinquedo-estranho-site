@@ -91,6 +91,8 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      border: none;
+      background: transparent;
     }
 
     main {
@@ -301,7 +303,7 @@
       }
     }
 
-    /* =============== SEÇÃO "PARA QUEM É" – ABSOLUTE, IGUAL FIGMA =============== */
+    /* =============== SEÇÃO "PARA QUEM É" – FRAME ABSOLUTE =============== */
 
     .section-para-quem {
       margin-top: 40px;
@@ -423,7 +425,6 @@
       top: 104.39px;
     }
 
-    /* Pequeno ajuste pra telas menores (não é perfeito, mas evita quebrar feio) */
     @media (max-width: 960px) {
       .pq-frame {
         transform: scale(0.9);
@@ -434,11 +435,11 @@
     @media (max-width: 768px) {
       .pq-frame {
         transform: scale(0.8);
-        height: 407px * 0.8; /* só pra referência, visual */
+        transform-origin: top center;
       }
     }
 
-    /* =============== SEÇÃO "COMO BRINCAR" – ABSOLUTE, IGUAL FIGMA =============== */
+    /* =============== SEÇÃO "COMO BRINCAR" – FRAME ABSOLUTE =============== */
 
     .section-como-brincar {
       margin-top: 40px;
@@ -506,8 +507,6 @@
       letter-spacing: 0.1px;
       margin: 0;
     }
-
-    /* ESPECÍFICOS DE CADA BLOCO, COPIANDO O FIGMA */
 
     .cb-step-narrativa {
       width: 198.65px;
@@ -586,7 +585,6 @@
       top: 451.47px;
     }
 
-    /* Ajuste leve em telas menores pra não quebrar feio (mesma lógica da seção "Para quem é") */
     @media (max-width: 960px) {
       .cb-frame {
         transform: scale(0.9);
@@ -596,6 +594,111 @@
 
     @media (max-width: 768px) {
       .cb-frame {
+        transform: scale(0.8);
+        transform-origin: top center;
+      }
+    }
+
+    /* =============== SEÇÃO "MATERIAIS PARA BAIXAR" – FRAME ABSOLUTE =============== */
+
+    .section-materiais {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .mt-frame {
+      width: 923px;
+      height: 216px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mt-header {
+      width: 237.63px;
+      position: absolute;
+      left: 60.24px;
+      top: 49.19px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mt-header-title {
+      color: #5d5d5d;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+
+    .mt-header-text {
+      color: #5d5d5d;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      margin: 0;
+    }
+
+    .mt-manuais {
+      width: 253.93px;
+      position: absolute;
+      left: 604.56px;
+      top: 46.19px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mt-narrativas {
+      width: 257.05px;
+      position: absolute;
+      left: 604.56px;
+      top: 113.19px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mt-block-title {
+      color: #5d5d5d;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      margin: 0 0 4px;
+    }
+
+    .mt-block-text {
+      color: #5d5d5d;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      margin: 0;
+    }
+
+    .mt-btn {
+      position: absolute;
+      left: 409.5px;
+      top: 82.69px;
+      width: 104px;
+      height: 48px;
+      padding: 10px 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 960px) {
+      .mt-frame {
+        transform: scale(0.9);
+        transform-origin: top center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mt-frame {
         transform: scale(0.8);
         transform-origin: top center;
       }
@@ -612,7 +715,7 @@
 
       <div class="top-bar-actions">
         <!-- ícone menu -->
-        <div class="icon-button" aria-label="Menu">
+        <button class="icon-button" aria-label="Menu">
           <svg
             width="24"
             height="24"
@@ -628,10 +731,10 @@
               stroke-linejoin="round"
             />
           </svg>
-        </div>
+        </button>
 
         <!-- ícone compartilhar -->
-        <div class="icon-button" aria-label="Compartilhar">
+        <button class="icon-button" aria-label="Compartilhar">
           <svg
             width="24"
             height="24"
@@ -647,7 +750,7 @@
               stroke-linejoin="round"
             />
           </svg>
-        </div>
+        </button>
       </div>
     </div>
   </header>
@@ -687,8 +790,7 @@
           <div class="hero-right">
             <!-- Logotipo grande do hero -->
             <div class="hero-logo">
-              <!-- Cole aqui o SVG COMPLETO do logotipo (o mesmo que você já tem) -->
-              <!-- INÍCIO SVG -->
+              <!-- Cole aqui o SVG COMPLETO do logotipo -->
               <svg
                 width="279"
                 height="95"
@@ -698,7 +800,6 @@
               >
                 <!-- TODO: colocar aqui o SVG completo do logo -->
               </svg>
-              <!-- FIM SVG -->
             </div>
 
             <div class="hero-badges">
@@ -834,7 +935,7 @@
           class="cb-photo-circle"
         />
 
-        <!-- Ícones dos passos (ajuste os caminhos dos arquivos) -->
+        <!-- Ícones dos passos -->
         <img
           src="images/como-brincar-icon-narrativa.png"
           alt="Ícone narrativa"
@@ -852,47 +953,38 @@
         />
       </div>
     </section>
-        <!-- SEÇÃO: MATERIAIS PARA BAIXAR -->
-<section class="downloads-section">
-  <div class="downloads-inner">
-    <!-- LADO ESQUERDO: ÍCONE + TEXTO -->
-    <div class="downloads-left">
-      <img
-        src="images/icon-materiais.png"
-        alt="Ícone de materiais para baixar"
-        class="downloads-icon"
-      />
 
-      <div class="downloads-text-block">
-        <h2 class="downloads-title">Materiais para baixar</h2>
-        <p class="downloads-text">
-          Narrativas prontas e manuais para apoiar o adulto na mediação da
-          brincadeira. Em breve, todos os arquivos estarão disponíveis aqui.
-        </p>
+    <!-- SEÇÃO: MATERIAIS PARA BAIXAR -->
+    <section class="section-materiais">
+      <div class="mt-frame">
+        <div class="mt-header">
+          <h2 class="mt-header-title">Materiais para baixar</h2>
+          <p class="mt-header-text">
+            Narrativas prontas e manuais para apoiar o adulto na mediação da
+            brincadeira. Em breve, todos os arquivos estarão disponíveis aqui.
+          </p>
+        </div>
+
+        <div class="mt-manuais">
+          <h3 class="mt-block-title">Manuais</h3>
+          <p class="mt-block-text">
+            Guia rápido para adultos <br />
+            Baixar tudo em PDF (em breve)
+          </p>
+        </div>
+
+        <div class="mt-narrativas">
+          <h3 class="mt-block-title">Narrativas</h3>
+          <p class="mt-block-text">
+            Narrativa de Introdução: “A Minhoca Zing e o Escorrega Mágico”
+          </p>
+        </div>
+
+        <button class="btn btn-primary mt-btn" type="button">
+          Download
+        </button>
       </div>
-    </div>
-
-    <!-- BOTÃO CENTRAL -->
-    <button class="btn btn-primary downloads-button" type="button">
-      Download
-    </button>
-
-    <!-- LADO DIREITO: LISTA DE ITENS -->
-    <div class="downloads-right">
-      <div class="downloads-group">
-        <div class="downloads-group-title">Manuais</div>
-        <p class="downloads-group-text">
-          Guia rápido para adultos <br />
-          Baixar tudo em PDF (em breve)
-        </p>
-      </div>
-
-      <div class="downloads-group">
-        <div class="downloads-group-title">Narrativas</div>
-        <p class="downloads-group-text">
-          Narrativa de Introdução: “A Minhoca Zing e o Escorrega Mágico”
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
+</body>
+</html>
