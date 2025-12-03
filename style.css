@@ -794,5 +794,111 @@ section {
   align-items: center;
   justify-content: center;
 }
+/* ===========================
+   MATERIAIS PARA BAIXAR
+   =========================== */
+
+.downloads-section {
+  margin-top: 48px;
+}
+
+.downloads-inner {
+  max-width: 923px;              /* igual ao Figma */
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+/* ESQUERDA: ÍCONE + TÍTULO + TEXTO */
+
+.downloads-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 380px;
+}
+
+.downloads-icon {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.downloads-text-block {
+  color: #5d5d5d;
+}
+
+.downloads-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.downloads-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* BOTÃO CENTRAL – reutiliza .btn .btn-primary do hero */
+
+.downloads-button {
+  min-width: 104px;  /* largura do Figma */
+  height: 48px;
+  padding: 10px 16px;
+}
+
+/* DIREITA: MANUAIS / NARRATIVAS */
+
+.downloads-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 260px;
+}
+
+.downloads-group-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  color: #5d5d5d;
+  margin: 0 0 4px;
+}
+
+.downloads-group-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  color: #5d5d5d;
+  margin: 0;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+  .downloads-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 40px;
+  }
+
+  .downloads-button {
+    align-self: flex-start;
+  }
+
+  .downloads-right {
+    max-width: 100%;
+  }
+}
+
 
 
