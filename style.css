@@ -691,4 +691,108 @@ section {
        então não precisa alterar o height real aqui */
   }
 }
+/* =============== SEÇÃO "MATERIAIS PARA BAIXAR" – ABSOLUTE =============== */
+
+.section-materiais {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.mt-frame {
+  width: 923px;
+  height: 217px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ícone à esquerda */
+.mt-icon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 53.7px;
+  top: 57.69px;
+  object-fit: contain;
+}
+
+/* Bloco título + texto */
+.mt-header {
+  width: 222.57px;
+  position: absolute;
+  left: 159.44px;
+  top: 49.19px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mt-header-title {
+  color: #5d5d5d;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.mt-header-text {
+  color: #5d5d5d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* Bloco "Manuais" */
+.mt-manuais {
+  width: 253.93px;
+  position: absolute;
+  left: 604.56px;
+  top: 46.19px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mt-narrativas {
+  width: 257.05px;
+  position: absolute;
+  left: 604.56px;
+  top: 113.19px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mt-block-title {
+  color: #5d5d5d;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0 0 4px;
+}
+
+.mt-block-text {
+  color: #5d5d5d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* Botão "Download" – reaproveita .btn + .btn-primary */
+.mt-btn {
+  position: absolute;
+  left: 425.5px;
+  top: 83.69px;
+  width: 104px;
+  height: 48px;
+  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
