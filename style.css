@@ -799,3 +799,134 @@ main {
     transform-origin: top center;
   }
 }
+/* ================= SEÇÃO “COMUNIDADE E PRÓXIMOS PASSOS” ================= */
+
+.section-comunidade {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.cm-frame {
+  width: 1024px;
+  height: 270px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+  background: #c08400; /* barra laranja, texto branco */
+}
+
+/* bloco título + texto da esquerda */
+.cm-intro {
+  width: 257.19px;
+  position: absolute;
+  left: 112px;
+  top: 71.24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cm-intro-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 8px;
+}
+
+.cm-intro-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* blocos de texto dos “cards” à direita */
+
+.cm-block {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.cm-block-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0 0 4px;
+}
+
+.cm-block-subtext {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* Captação de métricas (texto em cima, quadrado embaixo) */
+.cm-block-metricas {
+  width: 149px;
+  left: 400.61px;
+  top: 71.74px;
+}
+
+.cm-icon-metricas {
+  left: 430.11px;
+  top: 137.74px;
+}
+
+/* Guia de impressão 3D (quadrado em cima, texto embaixo) */
+.cm-block-guia {
+  width: 149px;
+  left: 549.49px;
+  top: 155.74px;
+}
+
+.cm-icon-guia {
+  left: 578.99px;
+  top: 53.74px;
+}
+
+/* Espaço curado (texto à direita + subtítulo, quadrado embaixo) */
+.cm-block-espaco {
+  width: 179.27px;
+  left: 718.89px;
+  top: 53.74px;
+}
+
+.cm-icon-espaco {
+  left: 763.53px;
+  top: 147.74px;
+}
+
+/* quadradinhos 90x90 (placeholders dos ícones) */
+.cm-icon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  background: #d9d9d9;
+}
+
+/* RESPONSIVO: aproveitar o scale das outras frames */
+@media (max-width: 960px) {
+  .cm-frame {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 768px) {
+  .cm-frame {
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
+}
+
