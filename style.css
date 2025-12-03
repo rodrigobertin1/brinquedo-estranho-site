@@ -899,7 +899,7 @@ section {
     max-width: 100%;
   }
 }
-/* =============== SEÇÃO "POR TRÁS DO BRINQUEDO ESTRANHO" – FRAME ABSOLUTE =============== */
+/* =============== SEÇÃO "POR TRÁS DO BRINQUEDO ESTRANHO" – ABSOLUTE, IGUAL FIGMA =============== */
 
 .section-bastidores {
   margin-top: 56px;
@@ -912,12 +912,13 @@ section {
   height: 698px;
   position: relative;
   overflow: hidden;
-  /* Fundo da seção: ajuste o caminho da imagem conforme sua pasta */
-  background: #1f2933 url("images/por-tras-bg.jpg") center/cover no-repeat;
   border-radius: 24px;
+
+  /* fundo kraft rasgado – troque o nome do arquivo conforme você salvar */
+  background: url("images/por-tras-bg-kraft.png") center top / cover no-repeat;
 }
 
-/* BLOCO INTRODUÇÃO (título + texto central) */
+/* BLOCO INTRODUÇÃO (título + texto centralizado) */
 
 .bt-intro {
   width: 796.74px;
@@ -976,47 +977,48 @@ section {
 /* Pesquisa com crianças e educadores */
 .bt-card-pesquisa {
   width: 322.64px;
-  left: 196.34px;
-  top: 352.31px;
+  left: 184.68px;
+  top: 341.31px;
 }
 
 /* Prototipagem e testes de usabilidade */
 .bt-card-prototipagem {
   width: 266.71px;
-  left: 196.34px;
-  top: 492.35px;
+  left: 184.68px;
+  top: 487.74px;
 }
 
 /* Metodologia maker + narrativas */
 .bt-card-metodologia {
   width: 295.08px;
-  left: 608.97px;
-  top: 343.81px;
+  left: 629.36px;
+  top: 332.81px;
 }
 
 /* Foco em impacto social */
 .bt-card-impacto {
   width: 300.76px;
-  left: 608.97px;
-  top: 492.35px;
+  left: 629.36px;
+  top: 487.74px;
 }
 
-/* FOTOS GRANDES À DIREITA */
+/* FOTOS GRANDES NO TOPO DIREITO */
 
 .bt-photo-main {
   position: absolute;
-  left: 635.81px;
+  left: 639.92px;
   top: 32.15px;
   width: 168px;
   height: 224px;
   object-fit: cover;
   border-radius: 16px;
+  opacity: 0.68; /* igual ao Figma */
 }
 
 .bt-photo-secondary {
   position: absolute;
-  left: 775.36px;
-  top: 97.15px;
+  left: 776.90px;
+  top: 101px;
   width: 228px;
   height: 159px;
   object-fit: cover;
@@ -1035,30 +1037,29 @@ section {
 
 /* Ícone da pesquisa */
 .bt-icon-pesquisa {
-  left: 106.34px;
-  top: 343.81px;
+  left: 94.68px;
+  top: 332.81px;
 }
 
 /* Ícone da prototipagem */
 .bt-icon-prototipagem {
-  left: 106.34px;
-  top: 501.85px;
+  left: 94.68px;
+  top: 497.24px;
 }
 
 /* Ícone da metodologia */
 .bt-icon-metodologia {
-  left: 518.97px;
-  top: 353.31px;
+  left: 539.36px;
+  top: 342.31px;
 }
 
 /* Ícone do impacto social */
 .bt-icon-impacto {
-  left: 518.97px;
-  top: 537.85px;
+  left: 539.36px;
+  top: 533.24px;
 }
 
-/* Responsivo leve: mesma lógica dos outros frames (scale) */
-
+/* Responsivo leve: mesma ideia dos outros frames (scale) */
 @media (max-width: 960px) {
   .bt-frame {
     transform: scale(0.9);
@@ -1072,7 +1073,3 @@ section {
     transform-origin: top center;
   }
 }
-
-
-
-
