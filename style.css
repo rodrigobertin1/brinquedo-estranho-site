@@ -899,6 +899,180 @@ section {
     max-width: 100%;
   }
 }
+/* =============== SEÇÃO "POR TRÁS DO BRINQUEDO ESTRANHO" – FRAME ABSOLUTE =============== */
+
+.section-bastidores {
+  margin-top: 56px;
+  display: flex;
+  justify-content: center;
+}
+
+.bt-frame {
+  width: 1024px;
+  height: 698px;
+  position: relative;
+  overflow: hidden;
+  /* Fundo da seção: ajuste o caminho da imagem conforme sua pasta */
+  background: #1f2933 url("images/por-tras-bg.jpg") center/cover no-repeat;
+  border-radius: 24px;
+}
+
+/* BLOCO INTRODUÇÃO (título + texto central) */
+
+.bt-intro {
+  width: 796.74px;
+  position: absolute;
+  left: 115.26px;
+  top: 256.15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bt-intro-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 8px;
+}
+
+.bt-intro-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* CARDS DE TEXTO (4 blocos) */
+
+.bt-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bt-card-title {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0 0 4px;
+}
+
+.bt-card-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* Pesquisa com crianças e educadores */
+.bt-card-pesquisa {
+  width: 322.64px;
+  left: 196.34px;
+  top: 352.31px;
+}
+
+/* Prototipagem e testes de usabilidade */
+.bt-card-prototipagem {
+  width: 266.71px;
+  left: 196.34px;
+  top: 492.35px;
+}
+
+/* Metodologia maker + narrativas */
+.bt-card-metodologia {
+  width: 295.08px;
+  left: 608.97px;
+  top: 343.81px;
+}
+
+/* Foco em impacto social */
+.bt-card-impacto {
+  width: 300.76px;
+  left: 608.97px;
+  top: 492.35px;
+}
+
+/* FOTOS GRANDES À DIREITA */
+
+.bt-photo-main {
+  position: absolute;
+  left: 635.81px;
+  top: 32.15px;
+  width: 168px;
+  height: 224px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.bt-photo-secondary {
+  position: absolute;
+  left: 775.36px;
+  top: 97.15px;
+  width: 228px;
+  height: 159px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* ÍCONES 90x90 AO LADO DOS CARDS */
+
+.bt-icon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Ícone da pesquisa */
+.bt-icon-pesquisa {
+  left: 106.34px;
+  top: 343.81px;
+}
+
+/* Ícone da prototipagem */
+.bt-icon-prototipagem {
+  left: 106.34px;
+  top: 501.85px;
+}
+
+/* Ícone da metodologia */
+.bt-icon-metodologia {
+  left: 518.97px;
+  top: 353.31px;
+}
+
+/* Ícone do impacto social */
+.bt-icon-impacto {
+  left: 518.97px;
+  top: 537.85px;
+}
+
+/* Responsivo leve: mesma lógica dos outros frames (scale) */
+
+@media (max-width: 960px) {
+  .bt-frame {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 768px) {
+  .bt-frame {
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
+}
+
 
 
 
