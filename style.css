@@ -614,7 +614,7 @@ main {
   width: 796.74px;
   position: absolute;
   left: 115.26px;
-  top: 256.15px;
+  top: 32px; /* agora o título fica 32px abaixo do topo do kraft */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1095,6 +1095,7 @@ main {
   left: 763.53px;
   top: 147.74px;
 }
+
 
 
 
