@@ -1149,4 +1149,30 @@ main {
 .footer-share-btn svg path {
   stroke: #f5f5f5;
 }
+/* ====== ajuste de largura do card final para 948px ====== */
+
+.section-kraft-card-inner {
+  position: relative;
+  width: 948px;
+}
+
+.bt-frame {
+  position: relative;
+  width: 948px;
+  height: 698px;
+  overflow: hidden;
+}
+
+/* Comunidade e próximos passos (mesmo card, 948px) */
+.cm-frame {
+  position: relative;
+  width: 948px;
+  height: 270px;
+  margin-top: 0;
+  overflow: hidden;
+  background: #d59200;
+  border-radius: 0 0 32px 32px;
+  color: #ffffff;
+}
+
 
