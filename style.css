@@ -1174,5 +1174,19 @@ main {
   border-radius: 0 0 32px 32px;
   color: #ffffff;
 }
+/* Ajuste: deixar o card "Por trás do Brinquedo Estranho"
+   com a mesma largura do card "Comunidade e próximos passos" */
+
+.bt-bg-card {
+  left: 0;          /* encosta na borda esquerda do card */
+  width: 100%;      /* mesma largura de .section-kraft-card-inner (948px) */
+  height: 460px;    /* mantém a altura original */
+  top: 238px;       /* mantém a posição vertical */
+  background: #d59200;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  position: absolute;
+  z-index: 1;
+}
 
 
