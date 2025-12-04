@@ -976,6 +976,7 @@ main {
 .section-kraft-card {
   width: 100%;
   margin-top: 56px;
+  margin-bottom: -64px; /* puxa o card pra baixo, cancelando o padding-bottom do <main> */
   display: flex;
   justify-content: center;
 }
@@ -1095,6 +1096,7 @@ main {
   left: 763.53px;
   top: 147.74px;
 }
+
 
 
 
