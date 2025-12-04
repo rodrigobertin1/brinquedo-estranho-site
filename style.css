@@ -591,50 +591,54 @@ main {
   justify-content: center;
 }
 
-/* ========== BLOCO ENTRE “MATERIAIS” E CARD AMARELO (RODRIGO + VIGA) ========== */
+/* ========== BLOCO ENTRE “MATERIAIS” E “POR TRÁS” (RODRIGO + VIGA) ========== */
 
 .section-viga-portrait {
   margin-top: 40px;
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 3; /* fotos acima do card de baixo */
 }
 
 .viga-portrait-wrapper {
   position: relative;
   width: 1024px;
-  height: 260px; /* altura do bloco das imagens */
+  height: 200px;      /* área de respiro acima do card */
+  overflow: visible;  /* permite as imagens passarem da borda inferior */
 }
 
-/* VIGA_002.png – 228px de largura, centro vertical */
+/* VIGA_002.png – 228px de largura, centro alinhado ao topo do card */
 .viga-image {
   position: absolute;
   width: 228px;
   height: auto;
-  right: 112px;        /* alinhada com a margem direita do conteúdo */
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-/* Rodrigo-Bertini.png – encostando na VIGA, base tangente ao topo do card */
-.rod-portrait-image {
-  position: absolute;
-  height: 220px;
-  width: auto;
-  right: 340px;        /* 112px + 228px => tangente à VIGA */
-  top: 50%;
+  left: 560px;          /* ajuste fino horizontal; pode mexer depois */
+  top: 100%;            /* borda inferior do wrapper (topo do card) */
   transform: translateY(-50%);
   z-index: 3;
+}
+
+/* Rodrigo-Bertini.png – base apoiada no topo do card,
+   lado direito tangente à VIGA */
+.rod-portrait-image {
+  position: absolute;
+  width: 228px;
+  height: auto;
+  left: 332px;          /* 332 + 228 = 560 → encosta na VIGA */
+  top: 100%;
+  transform: translateY(-100%);
+  z-index: 4;
 }
 
 /* ================= SEÇÃO “POR TRÁS DO BRINQUEDO ESTRANHO” – FRAME 1024PX ================= */
 
 .section-bastidores {
-  /* card amarelo sobe e passa por trás das imagens */
-  margin-top: -80px;   /* sobreposição: linha do topo do card passa abaixo do centro das imagens */
-  margin-bottom: -64px; /* base do card encostando no footer */
+  margin-top: 0;       /* encosta no bloco das fotos */
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1;          /* fica por baixo das fotos */
 }
 
 .bt-frame {
@@ -644,7 +648,7 @@ main {
   overflow: hidden;
   border-radius: 24px;
 
-  /* fundo kraft rasgado */
+  /* fundo kraft rasgado (já inclui o amarelo do card) */
   background: url("images/por-tras-bg-kraft.png") center top / cover no-repeat;
 }
 
@@ -652,7 +656,7 @@ main {
   width: 796.74px;
   position: absolute;
   left: 115.26px;
-  top: 256.15px; /* posição original do Figma */
+  top: 256.15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -773,6 +777,122 @@ main {
   top: 533.24px;
 }
 
+/* ================= SEÇÃO “COMUNIDADE E PRÓXIMOS PASSOS” ================= */
+
+.section-comunidade {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.cm-frame {
+  width: 1024px;
+  height: 270px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+  background: #c08400; /* barra laranja, texto branco */
+}
+
+/* bloco título + texto da esquerda */
+.cm-intro {
+  width: 257.19px;
+  position: absolute;
+  left: 112px;
+  top: 71.24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cm-intro-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 8px;
+}
+
+.cm-intro-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* blocos de texto dos “cards” à direita */
+
+.cm-block {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.cm-block-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0 0 4px;
+}
+
+.cm-block-subtext {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* Captação de métricas (texto em cima, quadrado embaixo) */
+.cm-block-metricas {
+  width: 149px;
+  left: 400.61px;
+  top: 71.74px;
+}
+
+.cm-icon-metricas {
+  left: 430.11px;
+  top: 137.74px;
+}
+
+/* Guia de impressão 3D (quadrado em cima, texto embaixo) */
+.cm-block-guia {
+  width: 149px;
+  left: 549.49px;
+  top: 155.74px;
+}
+
+.cm-icon-guia {
+  left: 578.99px;
+  top: 53.74px;
+}
+
+/* Espaço curado (texto à direita + subtítulo, quadrado embaixo) */
+.cm-block-espaco {
+  width: 179.27px;
+  left: 718.89px;
+  top: 53.74px;
+}
+
+.cm-icon-espaco {
+  left: 763.53px;
+  top: 147.74px;
+}
+
+/* quadradinhos 90x90 (placeholders dos ícones) */
+.cm-icon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  background: #d9d9d9;
+}
+
 /* ================= RESPONSIVO (SCALE LEVE) ================= */
 
 @media (max-width: 960px) {
@@ -803,7 +923,8 @@ main {
   .pq-frame,
   .cb-frame,
   .mt-frame,
-  .bt-frame {
+  .bt-frame,
+  .cm-frame {
     transform: scale(0.9);
     transform-origin: top center;
   }
@@ -837,7 +958,8 @@ main {
   .pq-frame,
   .cb-frame,
   .mt-frame,
-  .bt-frame {
+  .bt-frame,
+  .cm-frame {
     transform: scale(0.8);
     transform-origin: top center;
   }
