@@ -53,7 +53,12 @@ img {
   padding: 0 24px;
 }
 
-.top-bar-logo {
+.top-bar-logo {.top-bar-logo-image {
+  height: 25px;  /* mesmo tamanho do Figma */
+  width: auto;
+  display: block;
+}
+
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1188,5 +1193,6 @@ main {
   position: absolute;
   z-index: 1;
 }
+
 
 
