@@ -597,49 +597,44 @@ main {
   margin-top: 40px;
   display: flex;
   justify-content: center;
-  position: relative;
-  z-index: 2;           /* fica acima do card amarelo */
 }
 
 .viga-portrait-wrapper {
   position: relative;
   width: 1024px;
-  height: 224px;        /* mesma altura da VIGA_002.png */
+  height: 260px; /* altura do bloco das imagens */
 }
 
-/* VIGA_002.png – 168px x 224px
-   centro vertical vai alinhar com o topo do card amarelo */
+/* VIGA_002.png – 228px de largura, centro vertical */
 .viga-image {
   position: absolute;
-  width: 168px;
-  height: 224px;
-  right: 112px;         /* alinhada com a margem direita do conteúdo */
-  top: 0;
+  width: 228px;
+  height: auto;
+  right: 112px;        /* alinhada com a margem direita do conteúdo */
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 2;
 }
 
-/* Rodrigo-Bertini.png – 228px x 159px
-   - base alinhada ao topo do card (mesma linha do centro da VIGA)
-   - lado direito encostando na VIGA */
+/* Rodrigo-Bertini.png – encostando na VIGA, base tangente ao topo do card */
 .rod-portrait-image {
   position: absolute;
-  width: 228px;
-  height: 159px;
-  right: 280px;         /* 112px (margem) + 168px (largura da VIGA) */
-  bottom: 112px;        /* 224 - 112 => base na metade da VIGA */
+  height: 220px;
+  width: auto;
+  right: 340px;        /* 112px + 228px => tangente à VIGA */
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 3;
 }
 
 /* ================= SEÇÃO “POR TRÁS DO BRINQUEDO ESTRANHO” – FRAME 1024PX ================= */
 
 .section-bastidores {
-  /* card amarelo sobe e “entra” 112px na área das imagens */
-  margin-top: -112px;    /* metade da altura da VIGA */
-  margin-bottom: -64px;  /* base do card encostando no footer, como você tinha */
+  /* card amarelo sobe e passa por trás das imagens */
+  margin-top: -80px;   /* sobreposição: linha do topo do card passa abaixo do centro das imagens */
+  margin-bottom: -64px; /* base do card encostando no footer */
   display: flex;
   justify-content: center;
-  position: relative;
-  z-index: 1;            /* fica atrás das imagens */
 }
 
 .bt-frame {
