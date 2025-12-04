@@ -776,6 +776,178 @@ main {
   top: 553.24px;
 }
 
+/* ========== BLOCO FINAL: "POR TRÁS DO BRINQUEDO ESTRANHO" + COMUNIDADE ========== */
+
+.section-kraft-card {
+  margin-top: 40px;
+  margin-bottom: 64px;
+  display: flex;
+  justify-content: center;
+}
+
+.section-kraft-card-inner {
+  position: relative;
+  width: 1024px;
+}
+
+/* Frame geral da seção "Por trás" (1024 x 698) */
+.bt-frame {
+  position: relative;
+  width: 1024px;
+  height: 698px;
+  overflow: hidden;
+  /* fundo kraft rasgado */
+  background: url("images/por-tras-bg-kraft.png") center top / cover no-repeat;
+}
+
+/* retângulo laranja 836 x 460 com raio só no topo */
+.bt-bg-card {
+  position: absolute;
+  left: 94px;
+  top: 238px;
+  width: 836px;
+  height: 460px;
+  background: #d59200;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  z-index: 1;
+}
+
+/* NÃO USAMOS MAIS VIGA_002 NEM RODRIGO AQUI */
+.bt-photo-viga,
+.bt-photo-rodrigo {
+  display: none;
+}
+
+/* Imagem principal: Img-Por tras do brinquedo (1).png */
+/* mantendo a posição do Figma (canto superior direito), com o tamanho 375x254 */
+.bt-photo-main {
+  position: absolute;
+  left: 639.92px;
+  top: 32.15px;
+  width: 375px;
+  height: 254px;
+  object-fit: cover;
+  border-radius: 16px;
+  z-index: 2;
+}
+
+/* Se existir ainda alguma imagem secundária antiga, escondemos também */
+.bt-photo-secondary {
+  display: none;
+}
+
+/* bloco título + texto "Por trás..." */
+.bt-intro {
+  position: absolute;
+  left: 115px;
+  top: 256px;
+  width: 566px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.bt-intro-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 8px;
+}
+
+.bt-intro-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* cards de texto */
+.bt-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.bt-card-title {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0 0 4px;
+}
+
+.bt-card-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* posições conforme Figma */
+.bt-card-pesquisa {
+  width: 322.64px;
+  left: 184.68px;
+  top: 361.31px;
+}
+
+.bt-card-prototipagem {
+  width: 266.71px;
+  left: 184.68px;
+  top: 507.74px;
+}
+
+.bt-card-metodologia {
+  width: 295.08px;
+  left: 629.36px;
+  top: 352.81px;
+}
+
+.bt-card-impacto {
+  width: 300.76px;
+  left: 629.36px;
+  top: 507.74px;
+}
+
+/* ícones de 90 x 90 */
+.bt-icon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.bt-icon-pesquisa {
+  left: 94.68px;
+  top: 352.81px;
+}
+
+.bt-icon-prototipagem {
+  left: 94.68px;
+  top: 517.24px;
+}
+
+.bt-icon-metodologia {
+  left: 539.36px;
+  top: 362.31px;
+}
+
+.bt-icon-impacto {
+  left: 539.36px;
+  top: 553.24px;
+}
+
 /* =================== Comunidade e próximos passos =================== */
 
 .cm-frame {
@@ -977,3 +1149,4 @@ main {
 .footer-share-btn svg path {
   stroke: #f5f5f5;
 }
+
