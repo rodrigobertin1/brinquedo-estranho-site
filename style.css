@@ -499,4 +499,481 @@ main {
   top: 451.47px;
 }
 
-/* =========*
+/* ================= SEÇÃO “MATERIAIS PARA BAIXAR” – FRAME ABSOLUTE ================= */
+
+.section-materiais {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.mt-frame {
+  width: 923px;
+  height: 216px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mt-header {
+  width: 237.63px;
+  position: absolute;
+  left: 60.24px;
+  top: 49.19px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mt-header-title {
+  color: #5d5d5d;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.mt-header-text {
+  color: #5d5d5d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+.mt-manuais {
+  width: 253.93px;
+  position: absolute;
+  left: 604.56px;
+  top: 46.19px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mt-narrativas {
+  width: 257.05px;
+  position: absolute;
+  left: 604.56px;
+  top: 113.19px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mt-block-title {
+  color: #5d5d5d;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0 0 4px;
+}
+
+.mt-block-text {
+  color: #5d5d5d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+.mt-btn {
+  position: absolute;
+  left: 409.5px;
+  top: 82.69px;
+  width: 104px;
+  height: 48px;
+  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =============== CARD "POR TRÁS" + COMUNIDADE (Figma) =============== */
+
+.section-kraft-card {
+  margin-top: 40px;
+  margin-bottom: 64px;
+  display: flex;
+  justify-content: center;
+}
+
+.section-kraft-card-inner {
+  position: relative;
+  width: 1024px;
+}
+
+/* Frame geral da seção "Por trás" (1024 x 698) */
+.bt-frame {
+  position: relative;
+  width: 1024px;
+  height: 698px;
+  overflow: hidden;
+  /* fundo kraft rasgado */
+  background: url("images/por-tras-bg-kraft.png") center top / cover no-repeat;
+}
+
+/* retângulo laranja 836 x 460 com raio só no topo */
+.bt-bg-card {
+  position: absolute;
+  left: 94px;
+  top: 238px;
+  width: 836px;
+  height: 460px;
+  background: #d59200;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  z-index: 1;
+}
+
+/* Imagem principal do processo – Img-Por tras do brinquedo (1).png */
+.bt-photo-main {
+  position: absolute;
+  left: 115px;
+  top: 32px;
+  width: 375px;
+  height: 254px;
+  object-fit: cover;
+  border-radius: 16px;
+  z-index: 2;
+}
+
+/* Esconde a secundária por enquanto (se não quiser usar) */
+.bt-photo-secondary {
+  display: none;
+}
+
+/* VIGA_002.png – largura 228px, altura proporcional */
+.bt-photo-viga {
+  position: absolute;
+  left: 560.41px;
+  top: 14px;
+  width: 228px;   /* você pediu 228px */
+  height: auto;
+  opacity: 0.95;  /* ajuste fino depois, se quiser */
+  z-index: 3;
+}
+
+/* Rodrigo-Bertini.png – 228 x 159 no Figma, encostando na VIGA */
+.bt-photo-rodrigo {
+  position: absolute;
+  left: 702.12px;
+  top: 129.15px;
+  width: 228px;
+  height: auto;
+  z-index: 4;
+}
+
+/* bloco título + texto "Por trás..." */
+.bt-intro {
+  position: absolute;
+  left: 115px;
+  top: 256px;
+  width: 566px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.bt-intro-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 8px;
+}
+
+.bt-intro-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* cards de texto */
+.bt-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.bt-card-title {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0 0 4px;
+}
+
+.bt-card-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* posições conforme Figma */
+.bt-card-pesquisa {
+  width: 322.64px;
+  left: 184.68px;
+  top: 361.31px;
+}
+
+.bt-card-prototipagem {
+  width: 266.71px;
+  left: 184.68px;
+  top: 507.74px;
+}
+
+.bt-card-metodologia {
+  width: 295.08px;
+  left: 629.36px;
+  top: 352.81px;
+}
+
+.bt-card-impacto {
+  width: 300.76px;
+  left: 629.36px;
+  top: 507.74px;
+}
+
+/* ícones de 90 x 90 */
+.bt-icon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.bt-icon-pesquisa {
+  left: 94.68px;
+  top: 352.81px;
+}
+
+.bt-icon-prototipagem {
+  left: 94.68px;
+  top: 517.24px;
+}
+
+.bt-icon-metodologia {
+  left: 539.36px;
+  top: 362.31px;
+}
+
+.bt-icon-impacto {
+  left: 539.36px;
+  top: 553.24px;
+}
+
+/* =================== Comunidade e próximos passos =================== */
+
+.cm-frame {
+  position: relative;
+  width: 1024px;
+  height: 270px;
+  margin-top: 0;
+  overflow: hidden;
+  background: #d59200;
+  border-radius: 0 0 32px 32px; /* continua o card laranja */
+  color: #ffffff;
+}
+
+.cm-intro {
+  width: 257.19px;
+  position: absolute;
+  left: 112px;
+  top: 71.24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cm-intro-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 8px;
+}
+
+.cm-intro-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+.cm-block {
+  position: absolute;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+.cm-block-metricas {
+  width: 149px;
+  left: 400.61px;
+  top: 71.74px;
+}
+
+.cm-block-guia {
+  width: 149px;
+  left: 549.49px;
+  top: 155.74px;
+}
+
+.cm-block-registros {
+  width: 179.27px;
+  left: 718.89px;
+  top: 53.74px;
+}
+
+.cm-block-registros span {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* ícones 90x90 */
+.cm-icon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.cm-icon-metricas {
+  left: 430.11px;
+  top: 137.74px;
+}
+
+.cm-icon-guia {
+  left: 578.99px;
+  top: 53.74px;
+}
+
+.cm-icon-registros {
+  left: 763.53px;
+  top: 147.74px;
+}
+
+/* ================= RESPONSIVO (SCALE LEVE) ================= */
+
+@media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  .hero-right {
+    align-items: flex-start;
+  }
+
+  .hero-badges {
+    align-items: flex-start;
+  }
+
+  .hero-image {
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-cta {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .pq-frame,
+  .cb-frame,
+  .mt-frame,
+  .section-kraft-card-inner {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-card {
+    padding: 32px 20px 32px;
+  }
+
+  .top-bar-inner {
+    padding: 0 16px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-badge {
+    min-width: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .pq-frame,
+  .cb-frame,
+  .mt-frame,
+  .section-kraft-card-inner {
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
+}
+
+/* ====================== FOOTER ====================== */
+
+.site-footer {
+  background: #d59200; /* cor do Figma */
+}
+
+.site-footer-inner {
+  max-width: 1024px;
+  height: 55px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 110px; /* aproxima as posições 110px (logo) e 912px (ícone) */
+}
+
+/* logo do footer (imagem 226x25 no Figma) */
+.footer-logo {
+  height: 25px;
+  width: auto;
+  display: block;
+}
+
+/* botão de compartilhar no footer */
+.footer-share-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* deixa o ícone branco, como no Figma */
+.footer-share-btn svg path {
+  stroke: #f5f5f5;
+}
