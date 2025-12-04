@@ -988,25 +988,25 @@ main {
 .section-kraft-card-inner {
   width: 1024px;
   border-radius: 24px;
-  background: #d59200; /* mesmo amarelo da seção Comunidade */
+  background: #d59200; /* amarelo do card */
   overflow: hidden;
-  padding-bottom: 32px; /* respiro no final do card */
+  padding-bottom: 19px; /* base do card fica ~19px abaixo dos textos de baixo */
 }
 
-/* Garante que o frame "Por trás" fique centralizado dentro do card
-   e que o topo do card fique ~32px acima do subtítulo */
+/* Sobe o kraft (bt-frame) para “cortar” o excesso de topo
+   e deixar o topo do card ~32px acima do título */
 .section-kraft-card-inner .bt-frame {
-  margin: -224.15px auto 0; /* sobe o kraft, “cortando” o topo dentro do card */
+  margin: -224.15px auto 0; /* 256.15 (posição do título) - 32 = 224.15 */
 }
 
 /* ================= "Comunidade e próximos passos" dentro do card ================= */
 
 .cm-frame {
   width: 1024px;
-  height: 270px;
+  height: 212px;          /* reduz a altura para o card ficar mais baixo */
   position: relative;
   overflow: hidden;
-  margin: 24px auto 0; /* afasta um pouco do "Por trás" */
+  margin: 24px auto 0;    /* distância entre “Por trás” e “Comunidade” */
 }
 
 /* Bloco título + texto */
@@ -1097,3 +1097,4 @@ main {
   left: 763.53px;
   top: 147.74px;
 }
+
