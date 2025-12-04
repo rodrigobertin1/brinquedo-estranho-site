@@ -614,7 +614,7 @@ main {
   width: 796.74px;
   position: absolute;
   left: 115.26px;
-  top: 256.15px; /* volta para a posição original do Figma */
+  top: 256.15px; /* posição original do Figma */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -799,6 +799,7 @@ main {
     transform-origin: top center;
   }
 }
+
 /* ================= SEÇÃO “COMUNIDADE E PRÓXIMOS PASSOS” ================= */
 
 .section-comunidade {
@@ -809,11 +810,10 @@ main {
 
 .cm-frame {
   width: 1024px;
-  height: 270px;
+  height: 212px;          /* altura ajustada para caber dentro do card */
   position: relative;
   overflow: hidden;
-  border-radius: 24px 24px 0 0;
-  background: #c08400; /* barra laranja, texto branco */
+  margin: 24px auto 0;    /* distância entre “Por trás” e “Comunidade” */
 }
 
 /* bloco título + texto da esquerda */
@@ -929,6 +929,7 @@ main {
     transform-origin: top center;
   }
 }
+
 /* ====================== FOOTER ====================== */
 
 .site-footer {
@@ -970,6 +971,7 @@ main {
 .footer-share-btn svg path {
   stroke: #f5f5f5;
 }
+
 /* =============== CARD AMARELO: "POR TRÁS" + "COMUNIDADE" =============== */
 
 /* Wrapper que centraliza o card */
@@ -991,6 +993,7 @@ main {
   background: #d59200; /* amarelo do card */
   overflow: hidden;
   padding-bottom: 19px; /* base do card fica ~19px abaixo dos textos de baixo */
+  position: relative;   /* referência para as imagens VIGA + Rodrigo */
 }
 
 /* Sobe o kraft (bt-frame) para “cortar” o excesso de topo
@@ -999,102 +1002,30 @@ main {
   margin: -224.15px auto 0; /* 256.15 (posição do título) - 32 = 224.15 */
 }
 
-/* ================= "Comunidade e próximos passos" dentro do card ================= */
+/* ========== IMAGENS ENTRE “MATERIAIS” E O CARD AMARELO ========== */
 
-.cm-frame {
-  width: 1024px;
-  height: 212px;          /* reduz a altura para o card ficar mais baixo */
-  position: relative;
-  overflow: hidden;
-  margin: 24px auto 0;    /* distância entre “Por trás” e “Comunidade” */
-}
-
-/* Bloco título + texto */
-.cm-intro {
-  width: 257.19px;
+/* VIGA_002: centralizada verticalmente no topo do card
+   e alinhada à esquerda com o texto (x ≈ 112px) */
+.top-card-viga {
   position: absolute;
   left: 112px;
-  top: 71.24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  top: 0;
+  width: 220px;    /* ajuste fino se quiser maior/menor */
+  height: auto;
+  transform: translateY(-50%); /* centro alinhado na linha do topo do card */
+  z-index: 2;
 }
 
-.cm-intro-title {
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 20px;
-  margin: 0 0 8px;
-}
-
-.cm-intro-text {
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  margin: 0;
-}
-
-/* Blocos de texto (3 itens) */
-.cm-block {
+/* Rodrigo-Bertini: encostado à esquerda da VIGA
+   (lado direito alinhado com o lado esquerdo da VIGA) */
+.top-card-rodrigo {
   position: absolute;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  margin: 0;
+  left: 112px;      /* mesmo X da VIGA */
+  top: 0;
+  width: 140px;     /* ajuste se quiser maior/menor */
+  height: auto;
+  transform: translate(-100%, -50%);
+  /* -100% em X = direita da foto alinhada com a esquerda da VIGA
+     -50% em Y = centro da foto também na linha do topo do card */
+  z-index: 2;
 }
-
-/* Captação de métricas */
-.cm-block-metricas {
-  width: 149px;
-  left: 400.61px;
-  top: 71.74px;
-}
-
-/* Guia de impressão 3D */
-.cm-block-guia {
-  width: 149px;
-  left: 549.49px;
-  top: 155.74px;
-}
-
-/* Espaço curado de registros */
-.cm-block-registros {
-  width: 179.27px;
-  left: 718.89px;
-  top: 53.74px;
-}
-
-.cm-block-registros span {
-  display: block;
-}
-
-/* Ícones 90x90 */
-.cm-icon {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-/* Posições dos ícones, igual ao Figma */
-.cm-icon-metricas {
-  left: 430.11px;
-  top: 137.74px;
-}
-
-.cm-icon-guia {
-  left: 578.99px;
-  top: 53.74px;
-}
-
-.cm-icon-registros {
-  left: 763.53px;
-  top: 147.74px;
-}
-
