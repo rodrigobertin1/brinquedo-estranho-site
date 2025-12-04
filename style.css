@@ -591,10 +591,48 @@ main {
   justify-content: center;
 }
 
+/* ========== BLOCO ENTRE “MATERIAIS” E CARD AMARELO (RODRIGO + VIGA) ========== */
+
+.section-viga-portrait {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.viga-portrait-wrapper {
+  position: relative;
+  width: 1024px;
+  height: 260px; /* altura do bloco das imagens */
+}
+
+/* VIGA_002.png – 228px de largura, centro vertical */
+.viga-image {
+  position: absolute;
+  width: 228px;
+  height: auto;
+  right: 112px;        /* alinhada com a margem direita do conteúdo */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* Rodrigo-Bertini.png – encostando na VIGA, base tangente ao topo do card */
+.rod-portrait-image {
+  position: absolute;
+  height: 220px;
+  width: auto;
+  right: 340px;        /* 112px + 228px => tangente à VIGA */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
 /* ================= SEÇÃO “POR TRÁS DO BRINQUEDO ESTRANHO” – FRAME 1024PX ================= */
 
 .section-bastidores {
-  margin-top: 56px;
+  /* card amarelo sobe e passa por trás das imagens */
+  margin-top: -80px;   /* sobreposição: linha do topo do card passa abaixo do centro das imagens */
+  margin-bottom: -64px; /* base do card encostando no footer */
   display: flex;
   justify-content: center;
 }
@@ -614,7 +652,7 @@ main {
   width: 796.74px;
   position: absolute;
   left: 115.26px;
-  top: 256.15px; /* volta para a posição original do Figma */
+  top: 256.15px; /* posição original do Figma */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -769,6 +807,11 @@ main {
     transform: scale(0.9);
     transform-origin: top center;
   }
+
+  .viga-portrait-wrapper {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -798,133 +841,8 @@ main {
     transform: scale(0.8);
     transform-origin: top center;
   }
-}
 
-/* ================= SEÇÃO “COMUNIDADE E PRÓXIMOS PASSOS” ================= */
-
-.section-comunidade {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-}
-
-.cm-frame {
-  width: 1024px;
-  height: 212px;          /* reduz a altura para o card ficar mais baixo */
-  position: relative;
-  overflow: hidden;
-  margin: 24px auto 0;    /* distância entre “Por trás” e “Comunidade” */
-}
-
-/* bloco título + texto da esquerda */
-.cm-intro {
-  width: 257.19px;
-  position: absolute;
-  left: 112px;
-  top: 71.24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.cm-intro-title {
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 20px;
-  margin: 0 0 8px;
-}
-
-.cm-intro-text {
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  margin: 0;
-}
-
-/* blocos de texto dos “cards” à direita */
-
-.cm-block {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #ffffff;
-}
-
-.cm-block-title {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  margin: 0 0 4px;
-}
-
-.cm-block-subtext {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  margin: 0;
-}
-
-/* Captação de métricas (texto em cima, quadrado embaixo) */
-.cm-block-metricas {
-  width: 149px;
-  left: 400.61px;
-  top: 71.74px;
-}
-
-.cm-icon-metricas {
-  left: 430.11px;
-  top: 137.74px;
-}
-
-/* Guia de impressão 3D (quadrado em cima, texto embaixo) */
-.cm-block-guia {
-  width: 149px;
-  left: 549.49px;
-  top: 155.74px;
-}
-
-.cm-icon-guia {
-  left: 578.99px;
-  top: 53.74px;
-}
-
-/* Espaço curado (texto à direita + subtítulo, quadrado embaixo) */
-.cm-block-espaco {
-  width: 179.27px;
-  left: 718.89px;
-  top: 53.74px;
-}
-
-.cm-icon-espaco {
-  left: 763.53px;
-  top: 147.74px;
-}
-
-/* quadradinhos 90x90 (placeholders dos ícones) */
-.cm-icon {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  border-radius: 20px;
-  background: #d9d9d9;
-}
-
-/* RESPONSIVO: aproveitar o scale das outras frames */
-@media (max-width: 960px) {
-  .cm-frame {
-    transform: scale(0.9);
-    transform-origin: top center;
-  }
-}
-
-@media (max-width: 768px) {
-  .cm-frame {
+  .viga-portrait-wrapper {
     transform: scale(0.8);
     transform-origin: top center;
   }
@@ -970,63 +888,4 @@ main {
 /* deixa o ícone branco, como no Figma */
 .footer-share-btn svg path {
   stroke: #f5f5f5;
-}
-
-/* =============== CARD AMARELO: "POR TRÁS" + "COMUNIDADE" =============== */
-
-/* Wrapper que centraliza o card */
-.section-kraft-card {
-  width: 100%;
-  margin-top: 56px;
-  margin-bottom: -64px; /* puxa o card para baixo, encostando no footer */
-  display: flex;
-  justify-content: center;
-}
-
-/* Card amarelo que envolve
-   - Por trás do Brinquedo Estranho
-   - Comunidade e próximos passos
-*/
-.section-kraft-card-inner {
-  width: 1024px;
-  border-radius: 24px;
-  background: #d59200; /* amarelo do card */
-  overflow: hidden;
-  padding-bottom: 19px; /* base do card fica ~19px abaixo dos textos de baixo */
-  position: relative;   /* referência para as imagens VIGA + Rodrigo */
-}
-
-/* Sobe o kraft (bt-frame) para “cortar” o excesso de topo
-   e deixar o topo do card ~32px acima do título */
-.section-kraft-card-inner .bt-frame {
-  margin: -224.15px auto 0; /* 256.15 (posição do título) - 32 = 224.15 */
-}
-
-/* ========== IMAGENS ENTRE “MATERIAIS” E O CARD AMARELO ========== */
-
-/* VIGA_002: metade fora, metade dentro,
-   centro alinhado exatamente na linha do topo do card */
-.top-card-viga {
-  position: absolute;
-  left: 112px;     /* alinha com o texto, como referência */
-  top: 0;
-  width: 228px;
-  height: auto;
-  transform: translateY(-50%); /* centro na linha do topo do card */
-  z-index: 2;
-}
-
-/* Rodrigo-Bertini: fora do card,
-   base tangente ao topo do card
-   e lado direito encostando no lado esquerdo da VIGA */
-.top-card-rodrigo {
-  position: absolute;
-  left: 112px;       /* mesmo X da VIGA */
-  top: 0;
-  width: 140px;
-  height: auto;
-  transform: translate(-100%, -100%);
-  /* -100% X => direita da foto encosta na esquerda da VIGA
-     -100% Y => base da foto encosta no topo do card (ficando toda pra fora) */
-  z-index: 2;
 }
