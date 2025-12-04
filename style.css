@@ -591,75 +591,83 @@ main {
   justify-content: center;
 }
 
-/* ========== BLOCO ENTRE “MATERIAIS” E “POR TRÁS” (RODRIGO + VIGA) ========== */
+/* ========== BLOCO FINAL: "POR TRÁS DO BRINQUEDO ESTRANHO" + "COMUNIDADE" + FOOTER ========== */
 
-.section-viga-portrait {
-  margin-top: 40px;
+/* Wrapper geral do card final */
+.section-kraft-card {
+  margin-top: 56px;
+  margin-bottom: 64px;
   display: flex;
   justify-content: center;
-  position: relative;
-  z-index: 3; /* fotos acima do card de baixo */
 }
 
-.viga-portrait-wrapper {
+.section-kraft-card-inner {
   position: relative;
   width: 1024px;
-  height: 200px;      /* área de respiro acima do card */
-  overflow: visible;  /* permite as imagens passarem da borda inferior */
 }
 
-/* VIGA_002.png – 228px de largura, centro alinhado ao topo do card */
-.viga-image {
-  position: absolute;
-  width: 228px;
-  height: auto;
-  left: 560px;          /* ajuste fino horizontal; pode mexer depois */
-  top: 100%;            /* borda inferior do wrapper (topo do card) */
-  transform: translateY(-50%);
-  z-index: 3;
-}
-
-/* Rodrigo-Bertini.png – base apoiada no topo do card,
-   lado direito tangente à VIGA */
-.rod-portrait-image {
-  position: absolute;
-  width: 228px;
-  height: auto;
-  left: 332px;          /* 332 + 228 = 560 → encosta na VIGA */
-  top: 100%;
-  transform: translateY(-100%);
-  z-index: 4;
-}
-
-/* ================= SEÇÃO “POR TRÁS DO BRINQUEDO ESTRANHO” – FRAME 1024PX ================= */
-
-.section-bastidores {
-  margin-top: 0;       /* encosta no bloco das fotos */
-  display: flex;
-  justify-content: center;
-  position: relative;
-  z-index: 1;          /* fica por baixo das fotos */
-}
+/* =================== POR TRÁS DO BRINQUEDO ESTRANHO =================== */
 
 .bt-frame {
   width: 1024px;
   height: 698px;
   position: relative;
   overflow: hidden;
-  border-radius: 24px;
-
-  /* fundo kraft rasgado (já inclui o amarelo do card) */
-  background: url("images/por-tras-bg-kraft.png") center top / cover no-repeat;
 }
 
-.bt-intro {
-  width: 796.74px;
+/* Card amarelo de fundo (836 x 460, left 94, top 238) */
+.bt-frame::before {
+  content: "";
   position: absolute;
-  left: 115.26px;
-  top: 256.15px;
+  left: 94px;
+  top: 238px;
+  width: 836px;
+  height: 460px;
+  background: #d59200;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+
+/* Esconde as imagens antigas que não fazem mais parte do layout */
+.bt-photo-main,
+.bt-photo-secondary {
+  display: none;
+}
+
+/* Imagem VIGA_002.png – 168 x 224 (left 560.41, top 14) */
+.top-card-viga {
+  position: absolute;
+  width: 168px;
+  height: 224px;
+  left: 560.41px;
+  top: 14px;
+  object-fit: cover;
+  opacity: 0.68;
+  z-index: 2;
+}
+
+/* Imagem Rodrigo-Bertini.png – 228 x 159 (left 702.12, top 129.15) */
+.top-card-rodrigo {
+  position: absolute;
+  width: 228px;
+  height: 159px;
+  left: 702.12px;
+  top: 129.15px;
+  object-fit: cover;
+  border-radius: 16px;
+  z-index: 3;
+}
+
+/* Bloco título + texto "Por trás do Brinquedo Estranho" (width 566, left 115, top 256) */
+.bt-intro {
+  width: 566px;
+  position: absolute;
+  left: 115px;
+  top: 256px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 1;
 }
 
 .bt-intro-title {
@@ -679,11 +687,14 @@ main {
   margin: 0;
 }
 
+/* Cards de texto (Pesquisa, Prototipagem, Metodologia, Impacto) */
+
 .bt-card {
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 1;
 }
 
 .bt-card-title {
@@ -704,50 +715,33 @@ main {
   margin: 0;
 }
 
+/* Posições seguindo o Figma-to-code */
+
 .bt-card-pesquisa {
   width: 322.64px;
   left: 184.68px;
-  top: 341.31px;
+  top: 361.31px;
 }
 
 .bt-card-prototipagem {
   width: 266.71px;
   left: 184.68px;
-  top: 487.74px;
+  top: 507.74px;
 }
 
 .bt-card-metodologia {
   width: 295.08px;
   left: 629.36px;
-  top: 332.81px;
+  top: 352.81px;
 }
 
 .bt-card-impacto {
   width: 300.76px;
   left: 629.36px;
-  top: 487.74px;
+  top: 507.74px;
 }
 
-.bt-photo-main {
-  position: absolute;
-  left: 639.92px;
-  top: 32.15px;
-  width: 168px;
-  height: 224px;
-  object-fit: cover;
-  border-radius: 16px;
-  opacity: 0.68;
-}
-
-.bt-photo-secondary {
-  position: absolute;
-  left: 776.9px;
-  top: 101px;
-  width: 228px;
-  height: 159px;
-  object-fit: cover;
-  border-radius: 16px;
-}
+/* Ícones 90x90 */
 
 .bt-icon {
   position: absolute;
@@ -755,43 +749,41 @@ main {
   height: 90px;
   object-fit: cover;
   border-radius: 20px;
+  z-index: 1;
 }
+
+/* Posições dos ícones, como no Figma */
 
 .bt-icon-pesquisa {
   left: 94.68px;
-  top: 332.81px;
+  top: 352.81px;
 }
 
 .bt-icon-prototipagem {
   left: 94.68px;
-  top: 497.24px;
+  top: 517.24px;
 }
 
 .bt-icon-metodologia {
   left: 539.36px;
-  top: 342.31px;
+  top: 362.31px;
 }
 
 .bt-icon-impacto {
   left: 539.36px;
-  top: 533.24px;
+  top: 553.24px;
 }
 
-/* ================= SEÇÃO “COMUNIDADE E PRÓXIMOS PASSOS” ================= */
-
-.section-comunidade {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-}
+/* =================== COMUNIDADE E PRÓXIMOS PASSOS =================== */
 
 .cm-frame {
   width: 1024px;
   height: 270px;
   position: relative;
   overflow: hidden;
-  border-radius: 24px 24px 0 0;
-  background: #c08400; /* barra laranja, texto branco */
+  border-radius: 0 0 32px 32px;
+  background: #c08400;
+  margin-top: 24px; /* distância entre Por Trás e Comunidade */
 }
 
 /* bloco título + texto da esquerda */
@@ -832,39 +824,43 @@ main {
   color: #ffffff;
 }
 
-.cm-block-title {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  margin: 0 0 4px;
-}
-
-.cm-block-subtext {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-  margin: 0;
-}
-
-/* Captação de métricas (texto em cima, quadrado embaixo) */
 .cm-block-metricas {
   width: 149px;
   left: 400.61px;
   top: 71.74px;
 }
 
-.cm-icon-metricas {
-  left: 430.11px;
-  top: 137.74px;
-}
-
-/* Guia de impressão 3D (quadrado em cima, texto embaixo) */
 .cm-block-guia {
   width: 149px;
   left: 549.49px;
   top: 155.74px;
+}
+
+.cm-block-registros {
+  width: 179.27px;
+  left: 718.89px;
+  top: 53.74px;
+}
+
+.cm-block-registros span {
+  display: block;
+}
+
+/* ícones 90x90 */
+
+.cm-icon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Posições dos ícones */
+
+.cm-icon-metricas {
+  left: 430.11px;
+  top: 137.74px;
 }
 
 .cm-icon-guia {
@@ -872,25 +868,9 @@ main {
   top: 53.74px;
 }
 
-/* Espaço curado (texto à direita + subtítulo, quadrado embaixo) */
-.cm-block-espaco {
-  width: 179.27px;
-  left: 718.89px;
-  top: 53.74px;
-}
-
-.cm-icon-espaco {
+.cm-icon-registros {
   left: 763.53px;
   top: 147.74px;
-}
-
-/* quadradinhos 90x90 (placeholders dos ícones) */
-.cm-icon {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  border-radius: 20px;
-  background: #d9d9d9;
 }
 
 /* ================= RESPONSIVO (SCALE LEVE) ================= */
@@ -923,13 +903,7 @@ main {
   .pq-frame,
   .cb-frame,
   .mt-frame,
-  .bt-frame,
-  .cm-frame {
-    transform: scale(0.9);
-    transform-origin: top center;
-  }
-
-  .viga-portrait-wrapper {
+  .section-kraft-card-inner {
     transform: scale(0.9);
     transform-origin: top center;
   }
@@ -958,13 +932,7 @@ main {
   .pq-frame,
   .cb-frame,
   .mt-frame,
-  .bt-frame,
-  .cm-frame {
-    transform: scale(0.8);
-    transform-origin: top center;
-  }
-
-  .viga-portrait-wrapper {
+  .section-kraft-card-inner {
     transform: scale(0.8);
     transform-origin: top center;
   }
