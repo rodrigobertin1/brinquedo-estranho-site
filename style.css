@@ -993,9 +993,10 @@ main {
   padding-bottom: 32px; /* respiro no final do card */
 }
 
-/* Garante que o frame "Por trás" fique centralizado dentro do card */
+/* Garante que o frame "Por trás" fique centralizado dentro do card
+   e que o topo do card fique ~32px acima do subtítulo */
 .section-kraft-card-inner .bt-frame {
-  margin: 0 auto;
+  margin: -224.15px auto 0; /* sobe o kraft, “cortando” o topo dentro do card */
 }
 
 /* ================= "Comunidade e próximos passos" dentro do card ================= */
@@ -1096,6 +1097,7 @@ main {
   left: 763.53px;
   top: 147.74px;
 }
+
 
 
 
