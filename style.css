@@ -62,9 +62,11 @@ img {
   color: var(--text-main);
 }
 
-.top-bar-logo span {
-  font-weight: 700;
-  color: var(--accent);
+/* imagem do logo no topo (Logo-topo.png) */
+.top-bar-logo-image {
+  height: 25px; /* mesmo tamanho do Figma */
+  width: auto;
+  display: block;
 }
 
 /* logo de imagem no topo */
@@ -966,4 +968,5 @@ main {
 .footer-share-btn svg path {
   stroke: #f5f5f5;
 }
+
 
