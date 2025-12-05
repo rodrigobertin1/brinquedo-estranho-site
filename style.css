@@ -594,6 +594,12 @@ main {
   align-items: center;
   justify-content: center;
 }
+/* Deixar o botão "Download" com estilo desabilitado (cinza) */
+.mt-btn {
+  background: #757575; /* cinza do Figma */
+  box-shadow: 0px 16px 32px -8px rgba(12, 12, 13, 0.40) inset;
+  color: #ffffff;
+}
 
 /* =============== CARD "POR TRÁS" + COMUNIDADE (Figma) =============== */
 
@@ -960,3 +966,4 @@ main {
 .footer-share-btn svg path {
   stroke: #f5f5f5;
 }
+
