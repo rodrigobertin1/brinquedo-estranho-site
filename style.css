@@ -972,6 +972,58 @@ main {
 .footer-share-btn svg path {
   stroke: #f5f5f5;
 }
+/* =================== MOBILE (iPhone 16 / telas até 480px) =================== */
+
+@media (max-width: 480px) {
+  /* HERO mais confortável no celular */
+  .hero-wrapper {
+    padding: 24px 16px 32px;
+  }
+
+  .hero-card {
+    padding: 24px 16px 28px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;   /* já fica em 1 coluna, mas reforçamos aqui */
+    row-gap: 24px;
+  }
+
+  .hero-image {
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-right,
+  .hero-badges {
+    align-items: flex-start;
+  }
+
+  .hero-badge {
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+
+  /* Deixar os frames de Figma cabendo certinho na largura do iPhone */
+  .pq-frame,
+  .cb-frame,
+  .mt-frame,
+  .section-kraft-card-inner {
+    transform: scale(0.45);       /* encolhe para caber em ~430px */
+    transform-origin: top left;   /* começa colado à esquerda */
+  }
+
+  .section-para-quem,
+  .section-como-brincar,
+  .section-materiais,
+  .section-kraft-card {
+    padding-inline: 0;
+    justify-content: flex-start;
+  }
+}
+
 
 
 
