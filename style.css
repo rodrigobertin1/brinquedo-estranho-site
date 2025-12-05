@@ -22,6 +22,10 @@ body {
     #fff6df 100%
   );
 }
+html,
+body {
+  overflow-x: hidden;
+}
 
 img {
   max-width: 100%;
@@ -968,5 +972,6 @@ main {
 .footer-share-btn svg path {
   stroke: #f5f5f5;
 }
+
 
 
